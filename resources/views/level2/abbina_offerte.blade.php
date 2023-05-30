@@ -1,4 +1,8 @@
-<div class="header">
+@extends("layouts.staff-layout")
+@section("title", "Abbina Offerte")
+@section("content")
+
+    <div class="header">
     <p class="logo">Promozioni Abbinate</p>
     <div class="cart">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag"
@@ -125,3 +129,4 @@
         <button class="bottom-cart">Abbina Promozioni</button>
     </div>
 </div>
+@endsection

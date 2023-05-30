@@ -1,4 +1,4 @@
-@extends("TWEB DEFFF.YourCouponDefinitivo.resources.views.layouts.staff-layout")
+@extends("layouts.staff-layout")
 @section("title", "Profilo Staff")
 @section("content")
     <div class="my-container">
@@ -8,7 +8,7 @@
                     <input id="file" type="file"/>
                     <label for="file">
                         <img id="profile-image" width="200px" height="200px"
-                             src="img/download.jpg">
+                             src="{{asset("img/imgkri/download.jpg")}}">
                         <div class="edit-profile-cont">
                             <span class="edit-profile-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
