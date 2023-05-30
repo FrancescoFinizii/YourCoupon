@@ -390,7 +390,7 @@ section {
 }
 
 
-.dash-nav-options {
+.user-navbar-link {
     display: flex;
     padding: 15px 20px;
     border-bottom: 1px solid #adb5bd;
@@ -399,7 +399,7 @@ section {
 }
 
 
-.dash-nav-options:hover, .dash-nav-options.active  {
+.user-navbar-link:hover, .user-navbar-link.active  {
     color: #fff;
     background-color: #007bff;
 }
