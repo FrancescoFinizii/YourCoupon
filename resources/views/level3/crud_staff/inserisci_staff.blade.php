@@ -19,7 +19,7 @@
                             </div>
                             <div class="cell-1of2">
                                 {{ Form::label('Password', 'Imposta la Password') }}
-                                {{ Form::password('Password', ['class' => 'form-control', 'id' => 'Password']) }}
+                                {{ Form::password('Password',  ['class' => 'form-control', 'id' => 'Password']) }}
                             </div>
                             <div class="cell-1of2">
                                 {{ Form::label('Nome', 'Inserisci il Nome') }}

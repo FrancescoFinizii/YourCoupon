@@ -38,24 +38,9 @@ class UtenteController extends Controller
     public function salvaStaff(NewUtenteRequest $request) {
 
         $utente = new Utente;
-
-        if ($request->hasFile('ProPic')) {
-            $propic = $request->file('ProPic');
-            $propicname = $propic->getClientOriginalName();
-        } else {
-            $propicname = null;
-        }
-
         $utente->Livello = 2;
-        $utente->fill($request->validated());
-        $utente->ProPic = $propicname;
-        $utente->save();
 
-        if($propicname !== null){
-            $destinationPath = public_path() . '/img/user';
-            $propic->move($destinationPath, $propicname);
-        }
-
+        self::save($request, $utente);
         return redirect()->action([UtenteController::class, 'showAllStaff']);
     }
 
@@ -74,27 +59,7 @@ class UtenteController extends Controller
     public function salvaModificaStaff(NewUtenteRequest $request, $username)
     {
         $utente = Utente::findOrFail($username);
-
-
-        // Aggiorna il valore di ProPic se è stato inviato un nuovo file
-        if ($request->hasFile('ProPic')) {
-            $propic = $request->file('ProPic');
-            $propicname = $propic->getClientOriginalName();
-        } else {
-            $propicname = null;
-        }
-
-        $utente->fill($request->validated());
-        $utente->ProPic = $propicname;
-
-        // Salva le modifiche nel database
-        $utente->save();
-
-        if($propicname !== null){
-            $destinationPath = public_path() . '/img/user';
-            $propic->move($destinationPath, $propicname);
-        }
-
+        self::save($utente);
         return redirect()->action([UtenteController::class, 'showAllStaff']);
     }
 
