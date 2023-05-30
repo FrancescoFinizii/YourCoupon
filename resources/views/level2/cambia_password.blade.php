@@ -1,4 +1,4 @@
-@extends("TWEB DEFFF.YourCouponDefinitivo.resources.views.layouts.staff-layout")
+@extends("layouts.staff-layout")
 @section("title", "Staff Password")
 @section("content")
     <div class="my-container" style="text-align: center">

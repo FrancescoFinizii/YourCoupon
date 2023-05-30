@@ -48,6 +48,14 @@ Route::prefix('user')->group(function () {
     });
 });
 
+// --Level 2 (staff area)
+//Route::prefix('staff')->group(function () {
+    Route::view("/staffprofile", "level2/profilo_staff");
+    Route::view("/staffpassword", "level2/cambia_password");
+    Route::view("/gestioneofferte", "level2/user-coupon");
+    Route::view("/staffabbinaofferte", "level2/abbina_offerte");
+//});
+
 Route::prefix('admin')->group(function () {
 
     // --Level 3 (admin gestione user area)
