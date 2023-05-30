@@ -1,0 +1,184 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+    background: #f2f2f2;
+}
+
+h3{
+    position: absolute;
+    top: 210px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    margin: 0;
+    padding-top: 10px;
+}
+
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+}
+
+.content{
+    position: relative;
+    height: 500px;
+    width: 22%;
+    margin: 15px;
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+    border-radius: 20px;
+    padding-top: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    background: #e8e8e8;
+}
+
+.footer-button{
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.content:hover{
+    transition: .5s;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) ;
+    transform: translate(0px, -4px);
+}
+
+.img-off{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    justify-content: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+p{
+    position: absolute;
+    top: 315px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    color: #b2bec3;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+h6{
+    position: absolute;
+    top: 260px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    font-size: 26px;
+    text-align: center;
+    color: #222f3e;
+    margin: 0;
+}
+
+.button{
+    text-align: center;
+    font-size: 24px;
+    color: #fff;
+    width: 100%;
+    padding :15px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    margin-top: 5px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.paginazione{
+    text-align: center;
+    background: #afafaf;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.edit-off-button, .delete-off-button {
+    width: 40%;
+    padding: 6px 12px;
+    border: none;
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+    margin-right: 5px;
+    margin-left: 5px;
+    border-radius: 7px;
+    box-shadow: 5px 3px 2px rgba(0,0,0,.2);
+}
+
+.delete-off-button:hover {
+    transform: translate(1px, 0.5px);
+}
+
+.edit-off-button:hover {
+    transform: translate(1px, 0.5px);
+}
+
+
+.delete-off-button {
+    background-color: #ad1200;
+}
+
+.header{
+    background: #000000;
+}
+
+.large-table-off{
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 310px;
+    width: 90%;
+}
+
+.span{
+    display: inline-block;
+    padding: 2px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+
+.discount{
+    font-size: 18px;
+    position: absolute;
+    top: 300px;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.prezzo{
+    position: absolute;
+    top: 260px;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    font-size: 26px;
+    text-align: center;
+    color: #a80000;
+    margin: 0;
+    font-weight: bold;
+}

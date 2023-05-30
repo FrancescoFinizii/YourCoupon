@@ -1,0 +1,512 @@
+/* ++Form++ */
+
+.myform {
+    margin: 30px 0px;
+}
+
+
+/* --LOGIN PAGE-- & --REGISTRATION PAGE-- */
+
+
+.my-container {
+    padding: 48px 2px;
+    background-color: rgba(0,0,0,0.6);
+    background-blend-mode: color;
+    background-size: cover;
+    background-position: center;
+    margin: 0px 4px;
+}
+
+
+.card {
+    background: white;
+    max-width: 450px;
+    min-width: 310px;
+    padding: 50px;
+    border: 1px solid black;
+    border-radius: 30px;
+    text-align: center;
+    margin: auto;
+    box-shadow: 0 2px 20px black;
+}
+
+
+.icon-container {
+    margin: auto;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #007bff;
+    color: #ffffff;
+    margin-bottom: 40px;
+}
+
+
+/*#page-login input:not([type=radio]), #page-registration input:not([type=radio]) {
+    margin-bottom: 16px;
+}*/
+
+.card input:not([type=radio]) {
+    margin-bottom: 16px;
+}
+
+
+/*    Index    */
+
+
+#welcome {
+    /*background-image: url("/public/img/background2.png");*/
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    text-align: center;
+    background-position: center;
+    background-size: cover;
+    height: 600px;
+    padding: 0 15px;
+}
+
+#welcome-text {
+    font-size: 60px;
+    font-family: 'Brush Script MT', cursive;
+}
+
+#welcome-paragraph {
+    font-size: 20px;
+}
+
+.scrolling-wrapper-flexbox {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 15px 2px;
+}
+
+.company-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 auto;
+    border-radius: 1rem;
+    border: 1px solid black;
+    width: 300px;
+    margin: 25px;
+    padding: 10px;
+    box-shadow: 0 2px 10px black;
+}
+
+
+.company-item img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+.scrolling-wrapper-flexbox .company-item {
+    height: 300px;
+}
+
+
+.scrolling-wrapper-flexbox .company-item:hover {
+    scale: 110%;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+
+
+/* ---LEVEL 1 ---- */
+
+
+/* Coupon page */
+
+
+
+.back-btn-cont {
+    padding: 50px 0 0 20px;
+    background-color: #fffafe;
+
+}
+
+.back-link {
+    color: #fff;
+    background-color: #1c1c1c;
+    font-size: 22px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    border-radius: 10px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.back-link img {
+    margin-right: 5px;
+}
+
+.back-link:hover {
+    cursor: pointer;
+    background-color:#000000;
+}
+
+
+#coupon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+    background-color: #fffafe;
+}
+
+
+.coupon-card{
+    background: linear-gradient(135deg, #7158fe, #9d4de6);
+    color: #fff;
+    text-align: center;
+    padding: 40px 70px;
+    border-radius: 15px;
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,0.15);
+    position: relative;
+    display: flex;
+    margin: 50px 5px;
+    max-width: 900px;
+}
+
+
+.coupon-card h3{
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 40px;
+
+}
+
+
+.coupon-card p{
+    font-size: 15px;
+}
+
+
+.left-card {
+    flex: 2 1 0;
+    text-align: center;
+}
+
+
+.right-card {
+    flex: 1 1 0;
+    margin: auto;
+    text-align: center;
+}
+
+
+@media (max-width: 800px)  {
+
+    .coupon-card {
+        display: block;
+    }
+
+    .right-menu{
+        margin-top: 40px;
+    }
+
+}
+
+
+#company-logo{
+    width: 80px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+
+.coupon-row{
+    display: flex;
+    align-items: center;
+    margin: 25px auto;
+    width: fit-content;
+}
+
+
+.coupon-row a{
+    border: 1px solid #fff;
+    background: #fff;
+    padding: 10px 20px;
+    color: #7158fe;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+#promo-code{
+    border: 1px dashed #fff;
+    padding: 10px 20px;
+    border-right: 0;
+}
+
+
+#qr-code {
+    margin-bottom: 20px;
+}
+
+
+.circle1, .circle2{
+    background-color: #fffafe;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+.circle1{
+    left: -25px;
+}
+
+
+.circle2{
+    right: -25px;
+}
+
+
+
+
+/* --USER page -- */
+
+
+.wrapper-dashboard {
+    box-shadow: 0 2px 20px #000;
+    background-color: #ffffff;
+    border-radius: 15px;
+    margin: 0px 10px;
+}
+
+
+@media (min-width: 860px) {
+    .wrapper-dashboard {
+        display: flex;
+        justify-content: center;
+        max-width: 1000px;
+        margin: auto;
+    }
+}
+
+
+.left-menu {
+    flex: 1 1 0;
+    margin: 10px auto;
+    text-align: center;
+    border-right: 1px solid #000;
+}
+
+
+#profile-image-container {
+    display: flex;
+    justify-content: center;
+}
+
+
+.profile-img-cont {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #111;
+}
+
+.profile-img-cont input {
+    display: none;
+}
+
+
+.profile-img-cont:hover .edit-profile-cont {
+    cursor: pointer;
+    opacity: 1;
+}
+
+
+.profile-img-cont:hover #profile-image {
+    opacity: .5;
+}
+
+
+#profile-image {
+    border-radius: 100%;
+    box-shadow: 0 2px 15px #000;
+    margin: 0px 2px 20px 2px;
+    object-fit: cover;
+    opacity: 1;
+    transition: opacity .2s ease-in-out;
+}
+
+
+.edit-profile-cont {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+}
+
+
+.edit-profile-icon {
+    color: white;
+    padding-bottom: 8px;
+}
+
+
+.edit-profile-text {
+    text-transform: uppercase;
+    font-size: 12px;
+    width: 50%;
+    text-align: center;
+}
+
+
+.user-navbar {
+    margin-top: 30px;
+}
+
+
+.user-navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.dash-nav-options {
+    display: flex;
+    padding: 15px 20px;
+    border-bottom: 1px solid #adb5bd;
+    text-decoration: none;
+    color: black;
+}
+
+
+.dash-nav-options:hover, .dash-nav-options.active  {
+    color: #fff;
+    background-color: #007bff;
+}
+
+
+.right-menu {
+    flex: 2 1 0;
+    text-align: center;
+}
+
+.right-menu .radio-container {
+    margin: 15px 2px;
+}
+
+.right-menu input:not([type=radio]) {
+    margin: 12px 0px;
+}
+
+.right-menu button {
+    margin: 18px;
+}
+
+
+/* disposizione griglia */
+
+
+.cell-1of2 {
+    margin: 18px 2px;
+}
+
+
+@media (min-width: 860px) {
+
+    /* default */
+    .row-flex {
+        text-align: start;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .cell-1of2 {
+        flex: 0 0 46%;
+        margin: auto;
+    }
+
+    .right-menu button {
+        margin: auto;
+    }
+
+    /* password-div */
+
+    #password-info-form {
+        margin-top: 40px;
+    }
+
+    #password-btn-container {
+        margin-top: 105px;
+        padding-left: 28px ;
+
+    }
+
+    #info-btn-container {
+        text-align: center;
+    }
+
+}
+
+
+#profile-div, #password-div, #coupon-div {
+    padding: 0px 20px;
+}
+
+
+.user-coupon {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    overflow-y: auto;
+    height: 380px;
+}
+
+
+.coupon-item {
+    width: 150px;
+    height: 200px;
+    margin: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 10px black;
+    text-decoration: none;
+    color: black;
+}
+
+
+.coupon-item:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+.coupon-item p {
+    text-transform: uppercase;
+}
+
+
+.coupon-item img{
+    max-width: 100%;
+    max-height: 75%;
+}

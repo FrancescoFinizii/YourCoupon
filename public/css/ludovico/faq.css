@@ -1,0 +1,722 @@
+.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: linear-gradient(90deg, #1c1c1c 0%, #4b4b4b 50%, #1c1c1c 100%);
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+body {
+    margin: 0 auto;
+}
+
+
+/* ________________________
+   |                      |
+   |                      |
+   |       CRUD FAQ       |
+   |                      |
+   |                      |
+   ------------------------
+*/
+
+.div-heading-crudfaq {
+    color: #3763f4;
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.faq-crud-box {
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.faq-nav {
+    text-align: center;
+}
+
+.crudfaq-content-card {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    background-color: white;
+    padding: 10px;
+    /*padding: 20px 30px;*/
+    border-radius: 20px;
+    width: auto;
+    max-width: 1000px;
+    height: 100%;
+    margin: 30px auto;
+}
+
+
+.insert-faq-content-card {
+    background-color: rgba(222, 226, 230);
+    padding: 20px 30px;
+    border-radius: 20px;
+    width: 85%;
+    height: auto;
+    margin: 30px auto;
+}
+
+
+.insert-faq-content {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.insert-faq-fieldset {
+    color: #3763f4;
+    border: 1px solid #3763f4;
+    border-radius: 20px;
+    width: auto;
+    padding: 0 5px 10px 0;
+    text-align: center;
+
+}
+
+.insert-faq-textinput {
+    height: 70px;
+    padding: 5px 20px;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 5px auto 10px auto;
+    width: 90%;
+    border-radius: 20px;
+    border: none;
+}
+
+.insert-faq-textinput:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px black;
+}
+
+
+.insert-faq-textarea {
+
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    resize: none;
+    overflow: scroll;
+    width: 90%;
+    rows: 150;
+    height: 150px;
+    margin: 0 auto;
+
+}
+
+.insert-faq-textarea:focus {
+    outline: none;
+
+    box-shadow: 0px 0px 5px black;
+}
+
+
+/*
+per nascondere la scrollbar nella textarea
+*/
+
+.insert-faq-textarea::-webkit-scrollbar {
+    width: 0 !important
+}
+
+.btn-margin {
+    margin: 20px 5px;
+}
+
+.faq-button {
+    background-color: #3763f4;
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    line-height: 1.6;
+    cursor: pointer;
+    font-weight: normal;
+    color: white;
+    margin: 20px 5px;
+    box-shadow: 0px 0px 4px black;
+    border-radius: 5px;
+}
+
+.insert-button {
+    background-color: #009606;
+    border: 1px solid #009606;
+}
+
+.insert-button:hover {
+    background-color: #006207;
+    border: none;
+}
+
+.modify-button {
+    background-color: #f4cd20;
+    border: 1px solid #f4cd20;
+}
+
+.modify-button:hover {
+    background-color: #9b7100;
+    border: none;
+}
+
+.delete-button {
+    background-color: #de0c00;
+    border: 1px solid #de0c00;
+}
+
+.delete-button:hover {
+    background-color: #980800;
+    border: none;
+}
+
+
+/*tabella faq*/
+.faq-table {
+    margin: 0 auto;
+    width: 80%;
+    background: rgba(55, 99, 244, 0.34);
+    border-collapse: collapse;
+    border-radius: 10px;
+    margin-bottom: 30px;
+
+}
+
+.th-round-top {
+    border-radius: 10px 0 0 0;
+    width: 15%;
+}
+
+.th-round-bottom {
+    border-radius: 0 0 0 10px;
+    width: 15%;
+}
+
+.th-select {
+    text-align: right;
+    padding-right: 10px;
+    border-radius: 0 10px 0 0;
+}
+
+
+/*pagination*/
+.pagination-crudfaq {
+    font-size: 14px;
+    text-align: center;
+}
+
+.pagination-crudfaq span {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.pagination-crudfaq a {
+    color: #3763f4;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.pagination-crudfaq:hover {
+    text-decoration: none;
+    color: #3763f4;
+}
+
+.pagination-crudfaq .disabled {
+    color: #ccc;
+    pointer-events: none;
+}
+
+
+/*per mandare a capo il testo nelle celle della colonna "Domanda"*/
+.faq-table td:nth-child(2) {
+    word-break: break-all;
+}
+
+.radiofaq {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+}
+
+.radiofaq:hover {
+    cursor: pointer;
+}
+
+.faq-table th {
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+    text-align: left;
+    background-color: #3763f4;
+    color: #ffffff;
+}
+
+.faq-table td {
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+.table-btn-crudfaq {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.table-btn-crudfaq a {
+    color: white;
+}
+
+
+/* ________________________
+   |                      |
+   |                      |
+   |    VIEW OPERAZIONE   |
+   |       ESEGUITA       |
+   |                      |
+   ------------------------
+*/
+
+.content-eseguita {
+    background: linear-gradient(90deg, #e33cd1 0%, #6610f2 50%, #e33cd1 100%);
+    text-align: center;
+    box-shadow: -1px 2px 5px darkslategrey;
+
+}
+
+.eseguita-div {
+    background-color: white;
+    border-radius: 20px;
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* ________________________
+   |                      |
+   |                      |
+   |      VIEW PAGINA     |
+   |       CHI SIAMO      |
+   |                      |
+   ------------------------
+*/
+
+.about-card {
+    display: inline-block;
+    background-color: rgba(131, 177, 195, .2);
+    border-radius: 20px;
+    width: auto;
+    max-width: 300px;
+    height: 90%;
+    padding: 10px;
+    text-align: center;
+    margin: 10px 15px;
+    box-shadow: -2px 2px 5px darkslategrey;
+    font-size: 15px;
+}
+
+.about-card button {
+    /*padding: 10px;*/
+    height: 40px;
+    width: 100%;
+    color: white;
+    background-color: black;
+    border-radius: 20px;
+    border: none;
+}
+
+.about-card button:hover {
+    background-color: #2d2d2d;
+}
+
+.img-chi-siamo {
+    height: 100%;
+    max-height: 300px;
+    width: 100%;
+    max-width: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: -2px 2px 5px darkslategrey;
+    /*margin: 10px auto;*/
+}
+
+.img-collaboratori {
+    height: 200px;
+    max-height: 300px;
+    padding: 5px;
+    width: 100%;
+    max-width: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: -2px 2px 5px darkslategrey;
+
+}
+
+.about-section {
+    width: 90%;
+    padding: 50px;
+    text-align: center;
+    font-size: 18px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    margin: 30px auto;
+    color: white;
+}
+
+.info-container {
+    padding: 0 16px;
+}
+
+.about-container {
+    padding: 40px;
+    text-align: center;
+    background-color: rgba(255, 255, 255);
+    border-radius: 20px;
+    width: auto;
+    max-width: 90%;
+    margin: 0 auto 30px auto;
+    height: auto;
+}
+
+.about-heading {
+    background-color: white;
+    color: #3763f4;
+    border-radius: 20px 20px 0 0;
+    width: 300px;
+    height: 35px;
+    padding: 10px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+/* ________________________
+   |                      |
+   |                      |
+   |       CATALOGO       |
+   |                      |
+   |                      |
+   ------------------------
+*/
+
+.paginator-container {
+    background-color: white;
+    border-radius: 20px;
+    height: auto;
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.catalogo-card {
+    text-align: center;
+    float: left;
+    background-color: rgba(131, 177, 195, .2);
+    color: #3763f4;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 280px;
+    padding: 10px;
+    height: auto;
+    min-height: 550px;
+    margin: 10px 15px;
+    box-shadow: -2px 2px 5px darkslategrey;
+}
+
+.catalogo-card img {
+    width: 280px;
+    height: 280px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.catalogo-card button {
+    height: 40px;
+    font-weight: bold;
+    width: 200px;
+    color: white;
+    background-color: #3763f4;
+    border-radius: 20px;
+    border: none;
+    margin: 10px auto;
+}
+
+.catalogo-card button:hover {
+    cursor: pointer;
+    background-color: #1e3582;
+}
+
+.catalogo-card p {
+    color: black;
+    margin: 10px;
+}
+
+.search-head {
+    width: auto;
+    max-width: 80%;
+    color: #3763f4;
+    background-color: white;
+    box-shadow: 0px 0px 5px black;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px;
+    border-radius: 70px;
+}
+
+.search-heading {
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.offers-list {
+    text-align: center;
+}
+
+.offers-container {
+    text-align: center;
+    display: inline-block;
+    padding: 40px 50px;
+    background-color: white;
+    box-shadow: 0px 0px 5px black;
+    border-radius: 70px;
+    width: 83%;
+    margin: 40px auto;
+    outline: 1px solid rgba(55, 99, 244, 0.27);
+    outline-offset: -10px;
+}
+
+.offers-container h1 {
+    color: #3763f4;
+    font-size: 30px;
+    text-align: center;
+    margin: 20px 40px;
+}
+
+
+.catalogo-search-input {
+    width: 60%;
+    height: 50px;
+    margin: 10px 0;
+    padding: 0 15px;
+    border-radius: 20px;
+    font-size: 17px;
+    border: 1px solid grey;
+}
+
+
+.catalogo-search-input:hover, .catalogo-search-input:focus {
+    border: 1px solid #3763f4;
+    background: rgba(131, 177, 195, .1);
+    cursor: pointer;
+    outline: none;
+}
+
+.bottone-cerca {
+    display: inline;
+    width: 70px;
+    height: 50px;
+    background-color: #3763f4;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-size: 20px;
+    margin: 10px 0;
+    padding: 0 15px;
+}
+
+.bottone-cerca:hover {
+    background-color: #6610f2;
+    cursor: pointer;
+}
+
+
+
+/* ________________________
+   |                      |
+   |                      |
+   |       OFFERTA        |
+   |                      |
+   |                      |
+   ------------------------
+*/
+.offerta{
+    /*---------------------------------------------------------*/
+    /*---------------------------------------------------------*/
+    background-color: #ffffff;
+    margin: 0 auto;
+    border-radius: 20px;
+    width: 70%;
+    /*height: 1500px;*/
+    padding: 20px;
+    /*text-align: center;*/
+}
+
+.sconto-div {
+    /*background-color: white;*/
+    /*float: left;*/
+    float: left;
+    height: 100%;
+    width: 450px;
+    /*margin-top: 20px;*/
+    /*margin: 0 ;*/
+    /*margin-right: 5%;*/
+    /*max-width: 50%;*/
+    text-align: center;
+    /*background-color: red;*/
+}
+
+
+.btn-pagina-offerta {
+    padding: 10px 32px;
+    height: 60px;
+    margin: 10px auto;
+    width: 400px;
+    color: white;
+    border: 0px none;
+    box-shadow: -4px 4px 10px rgb(191, 191, 191);
+    font-weight: bold;
+    border-radius: 32px;
+    cursor: pointer;
+}
+
+.btn-azienda-coupon {
+    width: 300px;
+    font-weight: 500;
+    font-size: 16px;
+    /*font-family: Inter, sans-serif;*/
+    background-color: grey;
+}
+
+.btn-azienda-coupon:hover{
+    background-color: #444444;
+}
+
+.btn-offerta-coupon {
+    margin-top: 30px;
+    font-size: 25px;
+    background-color: #7a7a7a;
+}
+
+.btn-offerta-coupon:hover{
+    transition: .4s;
+    background-color: #383838;
+}
+
+.div-image-offerta {
+    width: 45%;
+}
+
+
+.div-image-offerta img {
+    width: 450px;
+    display: block;
+    height: 370px;
+    box-shadow: -5px 2px 13px;
+    border-radius: 30px;
+    color: rgb(130, 130, 130);
+    object-fit: cover;
+}
+
+
+.sconto-div h1 {
+    color: #3763f4;
+    font-size: 30px;
+    text-align: center;
+    width: auto;
+    height: auto;
+}
+
+.sconto-div p {
+    font-size: 20px;
+    margin: 0 auto;
+    line-height: 30px;
+}
+
+
+
+.info-offerta {
+    clear: both;
+    background-color: #ffffff;
+    padding-top: 40px;
+}
+
+.info-offerta-div {
+    background: #dee2e680;
+    padding: 5px 25px;
+    border-radius: 20px;
+    margin-right: 2%;
+    line-height: 25px;
+    text-align: left;
+}
+
+.dettagli-offerta {
+    text-align: left;
+    width: 40%;
+    height: 215px;
+    margin-bottom: 20px;
+    background: #dee2e680;
+    border-radius: 20px;
+    padding: 5px 25px;
+    float: right;
+}
+
+.dettagli-offerta:first-child{
+}
+
+.dettagli-offerta h3 {
+    color: #3763f4;
+}
+
+
+.dettagli-offerta p {
+
+    color: rgb(51, 51, 51);
+    font-size: 20px;;
+}
+
+.info-offerta-div h3 {
+    width: auto;
+    height: auto;
+    font-family: Inter, sans-serif;
+    color: #3763f4;
+    font-weight: bold;
+}
+.offerta-informazioni {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.info-offerta-div p {
+    color: rgb(51, 51, 51);
+    font-size: 20px;
+}
+
+.scopri-altro{
+    clear: both;
+    background-color: #dee2e680;
+    width: auto;
+    border-radius: 20px;
+    height: auto;
+    padding: 20px;
+}
+.prezzo-scontato{
+    font-weight: bold;
+    font-size: 30px;
+    color: #e33cd1;
+}
+
+
+.scopri-altro h4 h5{
+    color: #3763f4;
+}
+
+.scopri-altro a{
+    color: #e33cd1;
+    text-decoration: none;
+}
