@@ -24,6 +24,7 @@ class Utente extends Model
     */
 
     protected $fillable = [
+        "Username",
         'Password',
         'Livello',
         'Nome',
