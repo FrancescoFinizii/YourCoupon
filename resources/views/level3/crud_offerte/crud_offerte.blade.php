@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="{{ asset('css/christian/offerta.css') }}">
 
-@extends('level3.admin')
+@extends('layouts.admin-layout')
 @section('title','CRUD OFFERTE')
 @section('content')
     <div class="background">
