@@ -1,4 +1,4 @@
-@extends('level3.admin')
+@extends('layouts.admin-layout')
 
 @section('title', 'Inserisci Offerta')
 @section('content')
