@@ -26,7 +26,6 @@
                             </thead>
 
                             @foreach ($staff as $utente)
-                                @if($utente->Livello === 2)
                                     <tbody>
                                     <tr>
                                         <th> {{ $loop->iteration }} </th>
@@ -48,7 +47,6 @@
                                         </td>
                                     </tr>
                                     </tbody>
-                                @endif
                             @endforeach
 
                         </table>

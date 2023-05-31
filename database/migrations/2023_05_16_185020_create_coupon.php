@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('coupon', function (Blueprint $table) {
-            $table->string('Utente', 50);
-            $table->foreign('Utente')->references('Username')->on('utente');
+            $table->string('users', 50);
+            $table->foreign('users')->references('Username')->on('users');
             $table->bigInteger('IDOfferta')->unsigned();
             $table->foreign('IDOfferta')->references('IDOfferta')->on('offerta');
             $table->string('IDCoupon', 50);

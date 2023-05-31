@@ -44,7 +44,7 @@
                             </div>
                             <div class="cell-1of2">
                                 {{ Form::label('Password', 'Nuova Password') }}
-                                {{ Form::password('Password', ['class' => 'form-control', 'id' => 'Password']) }}
+                                {{ Form::text('Password', $utente->Password, ['class' => 'form-control', 'id' => 'Password']) }}
                             </div>
                             <div class="cell-1of2">
                                 {{ Form::label('Nome', 'Nome') }}

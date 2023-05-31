@@ -15,10 +15,10 @@ return new class extends Migration
 
     public function up()
     {
-        Schema::create('utente', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->string('Username', 50)->primary();
             $table->string('Password');
-            $table->tinyInteger('Livello')->unsigned()->default(1);
+            $table->tinyInteger('role')->unsigned()->default(1);
             $table->string('Nome', 30);
             $table->string('Cognome', 30);
             $table->string('Email', 50);

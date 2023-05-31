@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Utente extends Model
 {
     use HasFactory;
-    protected $table = 'utente';
+    protected $table = 'users';
     protected $primaryKey = 'Username';
     public $incrementing = false;
     public $timestamps = false;
@@ -26,7 +26,7 @@ class Utente extends Model
     protected $fillable = [
         'Username',
         'Password',
-        'Livello',
+        'role',
         'Nome',
         'Cognome',
         'Email',

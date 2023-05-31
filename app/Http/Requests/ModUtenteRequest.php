@@ -8,7 +8,7 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 use Symfony\Component\HttpFoundation\Response;
 
 
-class NewUtenteRequest extends FormRequest {
+class ModUtenteRequest extends FormRequest {
 
     /**
      * Determine if the user is authorized to make this request.
@@ -28,9 +28,8 @@ class NewUtenteRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'Username' => 'required|max:30|unique:users',
             'Password' => 'required|min:8',
-            'role' => 'integer|min:1|max:2',
+            'Livello' => 'integer|min:1|max:2',
             'Nome' => 'required|max:30',
             'Cognome' => 'required|max:30',
             'Email' => 'required|email|max:50',
