@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\CatalogoRequest;
 use Illuminate\Http\Request;
 use App\Models\Azienda;
 use App\Models\Offerta;
@@ -17,26 +18,11 @@ class CatalogoController extends Controller
         $this->_offertaModel = new Offerta();
         $this->_aziendaModel = new Azienda();
 
-/*        $this->_offertaModel = Offerta::all();
-        $this->_aziendaModel = Azienda::orderBy('RagioneSociale', 'asc')
-            ->paginate(5);*/
+        /*        $this->_offertaModel = Offerta::all();
+                $this->_aziendaModel = Azienda::orderBy('RagioneSociale', 'asc')
+                    ->paginate(5);*/
     }
     public function index(){
-      /*  $aziendeConOfferte = array();
-        foreach ($this->_aziendaModel as $azienda) {
-            $hasOfferte = false;
-
-            foreach ($this->_offertaModel as $offerta) {
-                if ($azienda->IDAzienda === $offerta->Azienda) {
-                    $hasOfferte = true;
-                    break;
-                }
-            }
-
-            if ($hasOfferte) {
-                $aziendeConOfferte[] = $azienda;
-            }
-        }*/
         /*
         - Azienda::has('offerte') è per cercare le istanze del modello Azienda che hanno almeno una offerta associata.
         - with('offerte') indica di prendere anche le offerte relative ad ogni azienda insieme alle istanze di Azienda,
@@ -44,17 +30,48 @@ class CatalogoController extends Controller
         - paginate(5) esegue la paginazione dei risultati ottenuti. Cosi imposto il numero di risultati per pagina a 5
           che poi gestisco con il paginator.
         */
+        $aziende = Azienda::orderBy('RagioneSociale', 'asc')->get()->pluck('RagioneSociale', 'IDAzienda');
 
-        $this->_aziendaModel = Azienda::has('offerte')->with('offerte')->paginate(5);
+        $this->_aziendaModel = Azienda::has('offerte')->with('offerte')->paginate(10);
 
-        return view('level0.catalogo.catalogo',  ['aziendeConOfferte' => $this->_aziendaModel]);
+        return view('level0.catalogo.catalogo',  ['aziende'=> $aziende, 'aziendeConOfferte' => $this->_aziendaModel]);
 
     }
 
-    public function searchCatalogo(Request $request){
-        $this->_offertaModel = Offerta::searchOfferte($request->input('searchbar'));
-        return view('level0.catalogo.catalogocerca', ['offerte' => $this->_offertaModel, 'ricerca' => $request->input('searchbar')]);
+    public function searchCatalogo(CatalogoRequest $request){
+        $searchbar = $request->input('searchbar');
+        $selectAzienda = $request->input('select-aziende');
+        $aziende = Azienda::orderBy('RagioneSociale', 'desc')->get()->pluck('RagioneSociale', 'IDAzienda');
+
+        if ($searchbar != '' and $selectAzienda != ''){
+            $azienda = $this->_aziendaModel->getAziendaById($selectAzienda);
+            $offerte = $this->_offertaModel->getOfferteByAziendaAndDescrizione($searchbar, $selectAzienda); //passo l'id dell'azienda e il testo inserito nella searchbar
+
+
+
+            return view('level0.catalogo.catalogo',  ['aziende'=> $aziende, 'ricerca'=> $searchbar.' di '.$azienda->RagioneSociale, 'offerte' => $offerte]);
+        }
+        else if ($searchbar == '' and $selectAzienda != ''){
+            $azienda = $this->_aziendaModel->getAziendaById($selectAzienda);
+            $offerte = $this->_offertaModel->getOfferteByAziendaId($selectAzienda);
+
+            return view('level0.catalogo.catalogo',  ['aziende'=> $aziende, 'ricerca'=> $azienda->RagioneSociale, 'offerte' => $offerte]);
+        }
+        else if ($searchbar != '' and $selectAzienda == ''){
+            $offerte = $this->_offertaModel->getOfferteByDescrizione($searchbar);
+            return view('level0.catalogo.catalogo',  ['aziende'=> $aziende, 'ricerca'=> $searchbar, 'offerte' => $offerte]);
+
+        }
+        /*
+        else if($searchbar == '' and $selectAzienda == '') {
+//            $this->index();
+//            return response()->json(['redirect' => route('search')]);
+        }*/
+
+
+
     }
+
 
     public function showOfferta($IDOfferta){
         $offerta = $this->_offertaModel->getOffertaById($IDOfferta);
@@ -65,6 +82,7 @@ class CatalogoController extends Controller
         $prezzoScontato = number_format($prezzoScontato, 2);
 
         $azienda = $this->_aziendaModel->getAziendaById($offerta->Azienda);
+
 
         return view('level0.catalogo.offerta.offerta', ['offerta'=>$offerta, 'prezzoScontato'=>$prezzoScontato, 'azienda'=>$azienda]);
     }

@@ -1,6 +1,12 @@
-@extends('level3.faq.admin_layout')
+{{--@extends('level3.faq.admin_layout')--}}
+@extends('layouts.admin-layout')
+
 @section('title', 'CRUD Faq')
-@section('crudfaq-content')
+@section('link')
+    <link rel="stylesheet" href="{{ asset('css/ludovico/faq.css') }}">
+@endsection
+{{--@section('crudfaq-content')--}}
+@section('content')
 
     <div class="faq-crud-box">
         <div class="crudfaq-content-card">

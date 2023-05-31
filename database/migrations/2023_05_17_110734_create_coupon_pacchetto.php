@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('coupon_pacchetto', function (Blueprint $table) {
             $table->string('Utente', 30);
-            $table->foreign('Utente')->references('Username')->on('utente');
+            $table->foreign('Utente')->references('Username')->on('users');
             $table->bigInteger('Pacchetto')->unsigned();
             $table->foreign('Pacchetto')->references('IDPacchetto')->on('pacchetto');
             $table->string('IDCoupon', 50);

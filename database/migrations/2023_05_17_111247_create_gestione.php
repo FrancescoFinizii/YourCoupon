@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('gestione', function (Blueprint $table) {
             $table->string('Utente', 30);
-            $table->foreign('Utente')->references('Username')->on('utente');
+            $table->foreign('Utente')->references('Username')->on('users');
             $table->bigInteger('Azienda')->unsigned();
             $table->foreign('Azienda')->references('IDAzienda')->on('azienda');
         });

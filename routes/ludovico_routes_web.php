@@ -47,6 +47,10 @@ Route::get('/crud-faq/eseguita', [CrudFaqController::class, 'eseguita'])
 
 Route::view('/about', 'level0.about')
     ->name('about');
+//    ->middleware('can:isUser');;
+
+Route::view('/faq', 'level0.about')
+    ->name('faq');
 
 //rotte catalogo
 
@@ -58,7 +62,7 @@ Route::view('/catalogo', 'catalogo.catalogo')
     ->name('catalogo');*/
 
 Route::get('/catalogo', [CatalogoController::class, 'index'])
-    ->name('/catalogo');
+    ->name('catalogo');
 
 Route::get('/catalogo/search', [CatalogoController::class, 'searchCatalogo'])
     ->name('search');
