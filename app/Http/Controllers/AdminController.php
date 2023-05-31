@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ModUtenteRequest;
 use App\Http\Requests\NewUtenteRequest;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Http\Request;
 use App\Models\Utente;
+use Illuminate\Support\Facades\Hash;
 
-class UtenteController extends Controller
+
+class AdminController extends Controller
 {
     protected $_staffModel;
 
@@ -38,10 +36,28 @@ class UtenteController extends Controller
     public function salvaStaff(NewUtenteRequest $request) {
 
         $utente = new Utente;
-        $utente->Livello = 2;
 
-        self::save($request, $utente);
-        return redirect()->action([UtenteController::class, 'showAllStaff']);
+        if ($request->hasFile('ProPic')) {
+            $propic = $request->file('ProPic');
+            $propicname = $propic->getClientOriginalName();
+        } else {
+            $propicname = null;
+        }
+
+        $utente->Livello = 2;
+        $utente->fill($request->validated());
+        $password = Hash::make($request->Password);
+        $utente->ProPic = $propicname;
+        $utente->Password = $password;
+        $utente->save();
+
+        if($propicname !== null){
+            $destinationPath = public_path() . '/img/user';
+            $propic->move($destinationPath, $propicname);
+        }
+
+        //return redirect()->action([AdminController::class, 'showAllStaff']);
+        return response()->json(['redirect' => route('crud_staff')]);
     }
 
     public function modificaStaff($username)
@@ -59,8 +75,28 @@ class UtenteController extends Controller
     public function salvaModificaStaff(NewUtenteRequest $request, $username)
     {
         $utente = Utente::findOrFail($username);
-        self::save($utente);
-        return redirect()->action([UtenteController::class, 'showAllStaff']);
+
+        $propicname = $utente->ProPic;
+        $oldpropicname = $utente->ProPic;
+
+        // Aggiorna il valore di ProPic se è stato inviato un nuovo file
+        if ($request->hasFile('ProPic')) {
+            $propic = $request->file('ProPic');
+            $propicname = $propic->getClientOriginalName();
+        }
+
+        $utente->fill($request->validated());
+        $utente->ProPic = $propicname;
+
+        // Salva le modifiche nel database
+        $utente->save();
+
+        if($propicname !== null && $oldpropicname !== $utente->ProPic){
+            $destinationPath = public_path() . '/img/user';
+            $propic->move($destinationPath, $propicname);
+        }
+
+        return redirect()->action([AdminController::class, 'showAllStaff']);
     }
 
     public function eliminaStaff($username)
@@ -72,7 +108,7 @@ class UtenteController extends Controller
         $utente->delete();
 
         // Ritorna alla vista desiderata dopo l'eliminazione
-        return redirect()->action([UtenteController::class, 'showAllStaff']);
+        return redirect()->action([AdminController::class, 'showAllStaff']);
     }
 
     public function eliminaUtente($username)
@@ -84,6 +120,6 @@ class UtenteController extends Controller
         $utente->delete();
 
         // Ritorna alla vista desiderata dopo l'eliminazione
-        return redirect()->action([UtenteController::class, 'showAllUser']);
+        return redirect()->action([AdminController::class, 'showAllUser']);
     }
 }

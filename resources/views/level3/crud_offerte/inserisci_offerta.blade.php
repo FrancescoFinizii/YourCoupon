@@ -1,5 +1,29 @@
 @extends('layouts.admin-layout')
 
+@section('scripts')
+
+    @parent
+
+    <script src="{{asset('js/christian/chri.js')}}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            var actionUrl = "{{ route('insertOffSave') }}";
+            var formId = 'insertOff';
+            $(":input").on('blur', function (event) {
+                var formElementId = $(this).attr('id');
+                doElemValidation(formElementId, actionUrl, formId);
+            });
+            $("#insertOff").on('submit', function (event) {
+                event.preventDefault();
+                doFormValidation(actionUrl, formId);
+            });
+        });
+    </script>
+
+@endsection
+
 @section('title', 'Inserisci Offerta')
 @section('content')
     <div class="background">
@@ -10,7 +34,7 @@
                         <h2> Inserisci Nuova Offerta </h2>
                     </div>
                     <div class="table-chri">
-                        {{ Form::open(array('route' => 'insertOffSave', 'files' => true)) }}
+                        {{ Form::open(array('route' => 'insertOffSave', 'id' => 'insertOff', 'files' => true)) }}
                         {{ Form::token() }}
                         <div class="row-chri">
                             <div class="cell-1of2">

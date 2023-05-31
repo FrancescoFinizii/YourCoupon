@@ -1,4 +1,29 @@
 @extends('layouts.admin-layout')
+
+@section('scripts')
+
+    @parent
+
+    <script src="{{asset('js/christian/chri.js')}}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            var actionUrl = "{{ route('salvaModificaStaff', [$utente->Username]) }}";
+            var formId = 'salvaModifica';
+            $(":input").on('blur', function (event) {
+                var formElementId = $(this).attr('id');
+                doElemValidation(formElementId, actionUrl, formId);
+            });
+            $("#salvaStaff").on('submit', function (event) {
+                event.preventDefault();
+                doFormValidation(actionUrl, formId);
+            });
+        });
+    </script>
+
+@endsection
+
 @section('title', 'Modifica Staff')
 @section('content')
 
@@ -10,7 +35,7 @@
                         <h2> Modifica i dati di: {{$utente->Username}} </h2>
                     </div>
                     <div class="table-chri">
-                        {{ Form::open(array('route' => ['salvaModificaStaff', $utente->Username], 'files' => true)) }}
+                        {{ Form::open(array('route' => ['salvaModificaStaff', $utente->Username], 'id' => 'salvaModifica', 'files' => true)) }}
                         {{ Form::token() }}
 
                         <div class="row-chri">
@@ -19,7 +44,7 @@
                             </div>
                             <div class="cell-1of2">
                                 {{ Form::label('Password', 'Nuova Password') }}
-                                {{ Form::text('Password', $utente->Password, ['class' => 'form-control', 'id' => 'Password']) }}
+                                {{ Form::password('Password', ['class' => 'form-control', 'id' => 'Password']) }}
                             </div>
                             <div class="cell-1of2">
                                 {{ Form::label('Nome', 'Nome') }}

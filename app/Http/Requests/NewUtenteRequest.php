@@ -3,6 +3,10 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Symfony\Component\HttpFoundation\Response;
+
 
 class NewUtenteRequest extends FormRequest {
 
@@ -24,17 +28,25 @@ class NewUtenteRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'Username' => 'required|max:50',
-            'Password' => 'required',
+            'Username' => 'required|max:30',
+            'Password' => 'required|min:8',
             'Livello' => 'integer|min:1|max:2',
             'Nome' => 'required|max:30',
             'Cognome' => 'required|max:30',
-            'Email' => 'required|max:50',
+            'Email' => 'required|email|max:50',
             'Nascita' => 'required|date',
             'Genere' => 'required|max:5',
-            'Telefono' => 'required|max:10',
+            'Telefono' => 'required|numeric|regex:/^\d{10}$/',
             'ProPic' => 'nullable',
         ];
+    }
+
+    /**
+     * Override: response in formato JSON
+     */
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY));
     }
 
 }
