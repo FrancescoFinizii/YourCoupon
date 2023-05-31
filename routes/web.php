@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AziendaController;
 use App\Http\Controllers\OffertaController;
+use App\Http\Controllers\StaffMemberController;
 use App\Http\Controllers\UtenteController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,9 +51,15 @@ Route::prefix('user')->group(function () {
 
 // --Level 2 (staff area)
 //Route::prefix('staff')->group(function () {
+
     Route::view("/staffprofile", "level2/profilo_staff");
-    Route::view("/staffpassword", "level2/cambia_password");
+
+    Route::get('/cambia_password', [StaffMemberController::class, 'mostraModificaPasswordForm'])->name('cambia_password');
+
+    Route::post('/cambia_password', [StaffMemberController::class, 'modificaPassword'])->name('cambia_password');
+
     Route::view("/gestioneofferte", "level2/user-coupon");
+
     Route::view("/staffabbinaofferte", "level2/abbina_offerte");
 //});
 

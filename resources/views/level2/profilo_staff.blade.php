@@ -22,8 +22,8 @@
                     </label>
                 </div>
             </div>
-            <div class="" style="text-align: center">
 
+            <div class="" style="text-align: center">
                 <form>
                     <div class="row-flex">
                         <div class="cell1-2">

@@ -12,9 +12,9 @@ class NewPasswordRequest extends FormRequest
     }
     public function rules() {
         return [
-            'password' => 'required|max:25',
-            'newpassword' => 'required',
-            'confirmnewpassword' => 'required|max:25',
+            'old_password' => 'required',
+            'new_password' => 'required|min:8',
+            'confirm_password' => 'required|same:new_password',
         ];
     }
 }
