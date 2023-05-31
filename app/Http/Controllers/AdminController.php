@@ -47,9 +47,9 @@ class AdminController extends Controller
 
         $utente->role = 2;
         $utente->fill($request->validated());
-        $password = Hash::make($request->Password);
+        $password = Hash::make($request->password);
         $utente->ProPic = $propicname;
-        $utente->Password = $password;
+        $utente->password = $password;
         $utente->save();
 
         if($propicname !== null){
@@ -63,7 +63,7 @@ class AdminController extends Controller
 
     public function modificaStaff($username)
     {
-        $utente = Utente::where('Username', $username)->first();
+        $utente = Utente::where('username', $username)->first();
 
         if (!$utente) {
             // Gestisci il caso in cui l'utente non esista
@@ -77,7 +77,7 @@ class AdminController extends Controller
     {
         $utente = Utente::findOrFail($username);
 
-        $pass = $request->Password;
+        $pass = $request->password;
         $propicname = $utente->ProPic;
         $oldpropicname = $utente->ProPic;
 
@@ -87,14 +87,14 @@ class AdminController extends Controller
             $propicname = $propic->getClientOriginalName();
         }
 
-        if($request->Password === null){
-            $utente->Password = $pass;
+        if($request->password === null){
+            $utente->password = $pass;
         }
 
         $utente->fill($request->validated());
         $utente->ProPic = $propicname;
-        $password = Hash::make($request->Password);
-        $utente->Password = $password;
+        $password = Hash::make($request->password);
+        $utente->password = $password;
 
         // Salva le modifiche nel database
         $utente->save();
@@ -110,7 +110,7 @@ class AdminController extends Controller
     public function eliminaStaff($username)
     {
         // Trova l'utente nel database
-        $utente = Utente::where('Username', $username)->firstOrFail();
+        $utente = Utente::where('username', $username)->firstOrFail();
 
         // Elimina l'utente
         $utente->delete();
@@ -122,7 +122,7 @@ class AdminController extends Controller
     public function eliminaUtente($username)
     {
         // Trova l'utente nel database
-        $utente = Utente::where('Username', $username)->firstOrFail();
+        $utente = Utente::where('username', $username)->firstOrFail();
 
         // Elimina l'utente
         $utente->delete();

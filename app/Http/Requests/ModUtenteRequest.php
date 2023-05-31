@@ -28,7 +28,7 @@ class ModUtenteRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'Password' => 'required|min:8',
+            'password' => 'required|min:8',
             'Livello' => 'integer|min:1|max:2',
             'Nome' => 'required|max:30',
             'Cognome' => 'required|max:30',

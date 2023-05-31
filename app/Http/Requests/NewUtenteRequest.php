@@ -28,8 +28,8 @@ class NewUtenteRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'Username' => 'required|max:30|unique:users',
-            'Password' => 'required|min:8',
+            'username' => 'required|max:30|unique:users',
+            'password' => 'required|min:8',
             'role' => 'integer|min:1|max:2',
             'Nome' => 'required|max:30',
             'Cognome' => 'required|max:30',

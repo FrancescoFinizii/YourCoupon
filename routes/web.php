@@ -62,7 +62,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/gestione_user', [AdminController::class, 'showAllUser'])
         ->name('gestione_user');
 
-    Route::get('/gestione_user/{Username}/elimina', [AdminController::class, 'eliminaUtente'])
+    Route::get('/gestione_user/{username}/elimina', [AdminController::class, 'eliminaUtente'])
         ->name('eliminaUtente');
 
     // --Level 3 (admin crud staff area)
@@ -74,12 +74,12 @@ Route::prefix('admin')->group(function () {
     Route::post('/newstaff', [AdminController::class, 'salvaStaff'])
         ->name('insertStaffSave');
 
-    Route::get('/staff/{Username}/modifica', [AdminController::class, 'modificaStaff'])
+    Route::get('/staff/{username}/modifica', [AdminController::class, 'modificaStaff'])
         ->name('modificaStaff');
-    Route::post('/staff/{Username}/modifica', [AdminController::class, 'salvaModificaStaff'])
+    Route::post('/staff/{username}/modifica', [AdminController::class, 'salvaModificaStaff'])
         ->name('salvaModificaStaff');
 
-    Route::get('/staff/{Username}/elimina', [AdminController::class, 'eliminaStaff'])
+    Route::get('/staff/{username}/elimina', [AdminController::class, 'eliminaStaff'])
         ->name('eliminaStaff');
 
 

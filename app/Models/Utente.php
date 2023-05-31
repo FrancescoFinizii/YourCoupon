@@ -10,7 +10,7 @@ class Utente extends Model
 {
     use HasFactory;
     protected $table = 'users';
-    protected $primaryKey = 'Username';
+    protected $primaryKey = 'username';
     public $incrementing = false;
     public $timestamps = false;
 
@@ -24,15 +24,42 @@ class Utente extends Model
     */
 
     protected $fillable = [
-        'Username',
-        'Password',
-        'role',
         'Nome',
         'Cognome',
         'Email',
+        'username',
+        'role',
         'Nascita',
         'Genere',
         'Telefono',
-        'ProPic'
+        'ProPic',
+        'password'
     ];
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'username',
+        'password',
+        'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+//        'email_verified_at' => 'datetime',
+//        'Nascita' => 'date',
+    ];
+
+    public function hasRole($livello)
+    {
+        $livello = (array)$livello;
+        return in_array($this->role, $livello);
+    }
 }

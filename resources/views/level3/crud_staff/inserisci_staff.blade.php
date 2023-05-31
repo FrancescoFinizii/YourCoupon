@@ -39,12 +39,12 @@
                         {{ Form::token() }}
                         <div class="row-chri">
                             <div class="cell-1of2">
-                                {{ Form::label('Username', 'Inserisci lo Username') }}
-                                {{ Form::text('Username', '', ['class' => 'form-control', 'id' => 'Username']) }}
+                                {{ Form::label('username', 'Inserisci lo Username') }}
+                                {{ Form::text('username', '', ['class' => 'form-control', 'id' => 'username']) }}
                             </div>
                             <div class="cell-1of2">
-                                {{ Form::label('Password', 'Imposta la Password') }}
-                                {{ Form::password('Password', ['class' => 'form-control', 'id' => 'Password']) }}
+                                {{ Form::label('password', 'Imposta la Password') }}
+                                {{ Form::password('password', ['class' => 'form-control', 'id' => 'password']) }}
                             </div>
                             <div class="cell-1of2">
                                 {{ Form::label('Nome', 'Inserisci il Nome') }}

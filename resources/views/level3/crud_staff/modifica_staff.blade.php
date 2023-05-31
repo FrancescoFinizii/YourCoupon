@@ -9,7 +9,7 @@
 
     <script>
         $(function () {
-            var actionUrl = "{{ route('salvaModificaStaff', [$utente->Username]) }}";
+            var actionUrl = "{{ route('salvaModificaStaff', [$utente->username]) }}";
             var formId = 'salvaModifica';
             $(":input").on('blur', function (event) {
                 var formElementId = $(this).attr('id');
@@ -32,19 +32,19 @@
             <div class="table-margin">
                 <div class="table-wrap">
                     <div class="table-title">
-                        <h2> Modifica i dati di: {{$utente->Username}} </h2>
+                        <h2> Modifica i dati di: {{$utente->username}} </h2>
                     </div>
                     <div class="table-chri">
-                        {{ Form::open(array('route' => ['salvaModificaStaff', $utente->Username], 'id' => 'salvaModifica', 'files' => true)) }}
+                        {{ Form::open(array('route' => ['salvaModificaStaff', $utente->username], 'id' => 'salvaModifica', 'files' => true)) }}
                         {{ Form::token() }}
 
                         <div class="row-chri">
                             <div class="cell-1of2">
-                                {{ Form::text('Username', $utente->Username, ['hidden'=> 'hidden', 'class' => 'form-control', 'id' => 'Username']) }}
+                                {{ Form::text('username', $utente->username, ['hidden'=> 'hidden', 'class' => 'form-control', 'id' => 'username']) }}
                             </div>
                             <div class="cell-1of2">
-                                {{ Form::label('Password', 'Nuova Password') }}
-                                {{ Form::text('Password', $utente->Password, ['class' => 'form-control', 'id' => 'Password']) }}
+                                {{ Form::label('password', 'Nuova Password') }}
+                                {{ Form::text('password', $utente->password, ['class' => 'form-control', 'id' => 'password']) }}
                             </div>
                             <div class="cell-1of2">
                                 {{ Form::label('Nome', 'Nome') }}
