@@ -2,13 +2,20 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 
-class Utente extends Model
+class Utente extends Authenticatable
 {
-    use HasFactory;
+
+    use HasApiTokens, HasFactory, Notifiable;
+
+
     protected $table = 'utente';
     protected $primaryKey = 'Username';
     public $incrementing = false;
@@ -35,4 +42,13 @@ class Utente extends Model
         'Telefono',
         'ProPic'
     ];
+
+
+    protected function type(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value) =>  ["user", "admin", "manager"][$value],
+        );
+    }
+
 }

@@ -39,14 +39,18 @@ Route::get('/azienda/{IDAzienda}', [AziendaController::class, 'mostraAzienda'])
 
 // --Level 1 (user area)
 
-Route::prefix('user')->group(function () {
-    Route::view("/profile", "level1/user-information");
-    Route::view("/password", "level1/user-password");
-    Route::view("/coupon", "level1/user-coupon");
-    Route::get("/coupon/{id}", function($id) {
-        return view("level1/coupon", ["id"=>$id]);
+Route::name('user.')
+    ->prefix('user')
+    ->middleware(['auth', 'user-access:user'])
+    ->group(function () {
+        Route::view("/profile", [\App\Http\Controllers\UserController::class, 'index'])->name('profile');
+        Route::view("/password", "level1/user-password");
+        Route::view("/coupon", "level1/user-coupon");
+        Route::get("/coupon/{id}", function($id) {
+            return view("level1/coupon", ["id"=>$id]);
+        });
     });
-});
+
 
 // --Level 2 (staff area)
 //Route::prefix('staff')->group(function () {

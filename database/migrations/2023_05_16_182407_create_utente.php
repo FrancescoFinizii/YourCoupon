@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('Username', 50)->primary();
             $table->string('Password');
             $table->tinyInteger('Livello')->unsigned()->default(1);
+            /* Level: 1=>User, 2=>Staff, 3=>Admin */
             $table->string('Nome', 30);
             $table->string('Cognome', 30);
             $table->string('Email', 50);
