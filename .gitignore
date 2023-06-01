@@ -4,6 +4,8 @@
 /public/storage
 /storage/*.key
 /vendor
+.DS_Store
+app/.DS_Store
 .env
 .env.backup
 .phpunit.result.cache

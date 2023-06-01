@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AziendaController;
 use App\Http\Controllers\OffertaController;
-use App\Http\Controllers\UtenteController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/ludovico_routes_web.php';
@@ -59,27 +59,27 @@ Route::prefix('user')->group(function () {
 Route::prefix('admin')->group(function () {
 
     // --Level 3 (admin gestione user area)
-    Route::get('/gestione_user', [UtenteController::class, 'showAllUser'])
+    Route::get('/gestione_user', [AdminController::class, 'showAllUser'])
         ->name('gestione_user');
 
-    Route::get('/gestione_user/{Username}/elimina', [UtenteController::class, 'eliminaUtente'])
+    Route::get('/gestione_user/{username}/elimina', [AdminController::class, 'eliminaUtente'])
         ->name('eliminaUtente');
 
     // --Level 3 (admin crud staff area)
-    Route::get('/crud_staff', [UtenteController::class, 'showAllStaff'])
+    Route::get('/crud_staff', [AdminController::class, 'showAllStaff'])
         ->name('crud_staff');
 
-    Route::get('/newstaff', [UtenteController::class, 'creaStaff'])
+    Route::get('/newstaff', [AdminController::class, 'creaStaff'])
         ->name('insertStaff');
-    Route::post('/newstaff', [UtenteController::class, 'salvaStaff'])
+    Route::post('/newstaff', [AdminController::class, 'salvaStaff'])
         ->name('insertStaffSave');
 
-    Route::get('/staff/{Username}/modifica', [UtenteController::class, 'modificaStaff'])
+    Route::get('/staff/{username}/modifica', [AdminController::class, 'modificaStaff'])
         ->name('modificaStaff');
-    Route::post('/staff/{Username}/modifica', [UtenteController::class, 'salvaModificaStaff'])
+    Route::post('/staff/{username}/modifica', [AdminController::class, 'salvaModificaStaff'])
         ->name('salvaModificaStaff');
 
-    Route::get('/staff/{Username}/elimina', [UtenteController::class, 'eliminaStaff'])
+    Route::get('/staff/{username}/elimina', [AdminController::class, 'eliminaStaff'])
         ->name('eliminaStaff');
 
 

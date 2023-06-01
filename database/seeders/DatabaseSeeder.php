@@ -39,11 +39,7 @@ class DatabaseSeeder extends Seeder
             ['username' => 'Persona15', 'password' => Hash::make('Passwordd'), 'role' => 1, 'Nome' => 'Elisa', 'Cognome' => 'Ferrari', 'Email' => 'elisaf@gmail.com', 'Nascita' => '2002/07/14', 'Genere' => 'Donna', 'Telefono' => '3913913913', 'ProPic' => null],
             ['username' => 'Persona16', 'password' => Hash::make('Passwordd'), 'role' => 1, 'Nome' => 'Matteo', 'Cognome' => 'Galli', 'Email' => 'matteog@gmail.com', 'Nascita' => '2002/08/27', 'Genere' => 'Uomo', 'Telefono' => '3913913913', 'ProPic' => null],
             ['username' => 'Persona17', 'password' => Hash::make('Passwordd'), 'role' => 1, 'Nome' => 'Silvia', 'Cognome' => 'Conti', 'Email' => 'silviac@gmail.com', 'Nascita' => '2002/09/10', 'Genere' => 'Donna', 'Telefono' => '3913913913', 'ProPic' => null],
-            ['username' => 'Persona18', 'password' => Hash::make('Passwordd'), 'role' => 1, 'Nome' => 'Giacomo', 'Cognome' => 'Moretti', 'Email' => 'giacomom@gmail.com', 'Nascita' => '2002/10/23', 'Genere' => 'Uomo', 'Telefono' => '3913913913', 'ProPic' => null],
-            ['username' => 'useruser', 'password' => Hash::make('useruser'), 'role' => 1, 'Nome' => 'user', 'Cognome' => 'user', 'Email' => 'user@user.com', 'Nascita' => '1971/01/01', 'Genere' => 'Uomo', 'Telefono' => '1111111111', 'ProPic' => 'img/user/Chri.jpeg'],
-            ['username' => 'staffstaff', 'password' => Hash::make('staffstaff'), 'role' => 2, 'Nome' => 'staff', 'Cognome' => 'staff', 'Email' => 'staff@staff.com', 'Nascita' => '1971/01/01', 'Genere' => 'Uomo', 'Telefono' => '2222222222', 'ProPic' => 'img/user/Chri.jpeg'],
-            ['username' => 'adminadmin', 'password' => Hash::make('adminadmin'), 'role' => 3, 'Nome' => 'admin', 'Cognome' => 'admin', 'Email' => 'admin@admin.com', 'Nascita' => '1971/01/01', 'Genere' => 'Uomo', 'Telefono' => '3333333333', 'ProPic' => 'img/user/Chri.jpeg']
-
+            ['username' => 'Persona18', 'password' => Hash::make('Passwordd'), 'role' => 1, 'Nome' => 'Giacomo', 'Cognome' => 'Moretti', 'Email' => 'giacomom@gmail.com', 'Nascita' => '2002/10/23', 'Genere' => 'Uomo', 'Telefono' => '3913913913', 'ProPic' => null]
         ]);
 
         DB::table('azienda')->insert([
