@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('Genere', 5);
             $table->bigInteger('Telefono');
             $table->text('ProPic')->nullable();
+            $table->rememberToken();
         });
     }
 
