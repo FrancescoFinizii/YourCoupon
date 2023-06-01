@@ -16,7 +16,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->string('username', 50)->primary();
+            $table->string('username', 30)->primary();
             $table->string('password');
             $table->tinyInteger('role')->unsigned()->default(1);
             $table->string('Nome', 30);
@@ -27,7 +27,6 @@ return new class extends Migration
             $table->string('Telefono', 10);
             $table->text('ProPic')->nullable();
             $table->rememberToken();
-//            $table->timestamps();
         });
     }
 

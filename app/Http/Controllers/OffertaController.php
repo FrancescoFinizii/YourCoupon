@@ -8,7 +8,6 @@ use App\Models\Offerta;
 
 class OffertaController extends Controller
 {
-    protected $_aziendaModel;
     protected $_offertaModel;
 
     public function showAllOfferte(){
@@ -47,7 +46,8 @@ class OffertaController extends Controller
             $logo->move($destinationPath, $logoname);
         }
 
-        return redirect()->action([OffertaController::class, 'showAllOfferte']);
+        return response()->json(['redirect' => route('crud_offerte')]);
+        //return redirect()->action([OffertaController::class, 'showAllOfferte']);
     }
 
     public function modificaOff($IDOfferta)
@@ -69,13 +69,13 @@ class OffertaController extends Controller
     {
         $offerta = Offerta::findOrFail($IDOfferta);
 
+        $fotoprodname = $offerta->FotoProd;
+        $fotoprodnameold = $offerta->FotoProd;
 
         // Aggiorna il valore di ProPic se è stato inviato un nuovo file
         if ($request->hasFile('FotoProd')) {
             $fotoprod = $request->file('FotoProd');
             $fotoprodname =  $fotoprod->getClientOriginalName();
-        } else {
-            $fotoprodname = null;
         }
 
         $offerta->fill($request->validated());
@@ -84,12 +84,13 @@ class OffertaController extends Controller
         // Salva le modifiche nel database
         $offerta->save();
 
-        if($fotoprodname !== null){
+        if($fotoprodname !== null && $fotoprodnameold !== $offerta->FotoProd){
             $destinationPath = public_path() . '/img/fotoProds';
             $fotoprod->move($destinationPath, $fotoprodname);
         }
 
-        return redirect()->action([OffertaController::class, 'showAllOfferte']);
+        return response()->json(['redirect' => route('crud_offerte')]);
+        //return redirect()->action([OffertaController::class, 'showAllOfferte']);
     }
 
     public function eliminaOfferta($idOff)

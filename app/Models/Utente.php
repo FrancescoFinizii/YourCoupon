@@ -2,15 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 
-class Utente extends Authenticable
+class Utente extends Model
 {
-    use Notifiable;
-
+    use HasFactory;
     protected $table = 'users';
     protected $primaryKey = 'username';
     public $incrementing = false;
@@ -24,6 +22,7 @@ class Utente extends Authenticable
      * public $incrementing = false;
      *
     */
+
     protected $fillable = [
         'Nome',
         'Cognome',
@@ -63,40 +62,4 @@ class Utente extends Authenticable
         $livello = (array)$livello;
         return in_array($this->role, $livello);
     }
-
-
-
-
-  /*  public function isGuest($livello)
-    {
-        if ($this->Livello == 0) {
-            return true;
-        } else
-            return false;
-    }
-    public function isUser($livello)
-    {
-        if ($this->Livello == 1) {
-            return true;
-        } else
-            return false;
-    }
-
-
-    public function isStaff($livello)
-    {
-        if ($this->livello == 2) {
-            return true;
-        } else
-            return false;
-    }
-
-    public function isAdmin($livello)
-    {
-        if ($this->livello == 3) {
-            return true;
-        } else
-            return false;
-    }*/
-
 }

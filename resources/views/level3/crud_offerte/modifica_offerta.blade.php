@@ -1,5 +1,29 @@
 @extends('layouts.admin-layout')
 
+@section('scripts')
+
+    @parent
+
+    <script src="{{asset('js/christian/chri.js')}}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            var actionUrl = "{{ route('salvaModificaOff', [$offerta->IDOfferta]) }}";
+            var formId = 'salvaModificaOff';
+            $(":input").on('blur', function (event) {
+                var formElementId = $(this).attr('id');
+                doElemValidation(formElementId, actionUrl, formId);
+            });
+            $("#salvaModificaOff").on('submit', function (event) {
+                event.preventDefault();
+                doFormValidation(actionUrl, formId);
+            });
+        });
+    </script>
+
+@endsection
+
 @section('title', 'Modifica Offerta')
 @section('content')
     <div class="background">
@@ -10,7 +34,7 @@
                         <h2> Modifica i dati dell'offerta: {{ $offerta -> Titolo }} </h2>
                     </div>
                     <div class="table-chri">
-                        {{ Form::open(array('route' => ['salvaModificaOff', $offerta -> IDOfferta], 'files' => true)) }}
+                        {{ Form::open(array('route' => ['salvaModificaOff', $offerta -> IDOfferta], 'id' => 'salvaModificaOff', 'files' => true)) }}
                         {{ Form::token() }}
                         <div class="row-chri">
                             {{ Form::text('IDOfferta', $offerta -> IDOfferta, ['hidden'=> 'hidden', 'id' => 'IDOfferta']) }}
