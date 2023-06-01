@@ -65,44 +65,64 @@ Route::prefix('user')->group(function () {
 
 Route::prefix('admin')->group(function () {
 
+
+
     // --Level 3 (admin gestione user area)
-    Route::get('/gestione_user', [UtenteController::class, 'showAllUser'])
+    Route::get('/gestione_user', [AdminController::class, 'showAllUser'])
         ->name('gestione_user');
 
-    Route::get('/gestione_user/{Username}/elimina', [UtenteController::class, 'eliminaUtente'])
+
+
+    Route::get('/gestione_user/{username}/elimina', [AdminController::class, 'eliminaUtente'])
         ->name('eliminaUtente');
 
+
+
     // --Level 3 (admin crud staff area)
-    Route::get('/crud_staff', [UtenteController::class, 'showAllStaff'])
+    Route::get('/crud_staff', [AdminController::class, 'showAllStaff'])
         ->name('crud_staff');
 
-    Route::get('/newstaff', [UtenteController::class, 'creaStaff'])
+
+
+    Route::get('/newstaff', [AdminController::class, 'creaStaff'])
         ->name('insertStaff');
-    Route::post('/newstaff', [UtenteController::class, 'salvaStaff'])
+    Route::post('/newstaff', [AdminController::class, 'salvaStaff'])
         ->name('insertStaffSave');
 
-    Route::get('/staff/{Username}/modifica', [UtenteController::class, 'modificaStaff'])
+
+
+    Route::get('/staff/{username}/modifica', [AdminController::class, 'modificaStaff'])
         ->name('modificaStaff');
-    Route::post('/staff/{Username}/modifica', [UtenteController::class, 'salvaModificaStaff'])
+    Route::post('/staff/{username}/modifica', [AdminController::class, 'salvaModificaStaff'])
         ->name('salvaModificaStaff');
 
-    Route::get('/staff/{Username}/elimina', [UtenteController::class, 'eliminaStaff'])
+
+
+    Route::get('/staff/{username}/elimina', [AdminController::class, 'eliminaStaff'])
         ->name('eliminaStaff');
+
+
 
 
     // --Level 3 (admin crud offerte area)
     Route::get('/crud_offerte', [OffertaController::class, 'showAllOfferte'])
         ->name('crud_offerte');
 
+
+
     Route::get('/newoff', [OffertaController::class, 'creaOff'])
         ->name('insertOff');
     Route::post('/newoff', [OffertaController::class, 'salvaOff'])
         ->name('insertOffSave');
 
+
+
     Route::get('/offerta/{IDOfferta}/modifica', [OffertaController::class, 'modificaOff'])
         ->name('modificaOff');
     Route::post('/offerta/{IDOfferta}/modifica', [OffertaController::class, 'salvaModificaOff'])
         ->name('salvaModificaOff');
+
+
 
     Route::get('/offerta/{IDOfferta}/elimina', [OffertaController::class, 'eliminaOfferta'])
         ->name('eliminaOfferta');
