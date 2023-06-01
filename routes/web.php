@@ -32,8 +32,8 @@ require __DIR__.'/auth.php';
 // --Level 0 (public area)
 
 Route::view("/", "level0/home");
-Route::view("/login", "level0/login");
-Route::view("/registration", "level0/registration");
+//Route::view("/login", "level0/login");
+//Route::view("/registration", "level0/registration");
 Route::get('/azienda/{IDAzienda}', [AziendaController::class, 'mostraAzienda'])
     ->name('mostraAzienda');
 

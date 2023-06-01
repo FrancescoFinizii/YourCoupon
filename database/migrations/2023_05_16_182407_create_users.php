@@ -15,17 +15,19 @@ return new class extends Migration
 
     public function up()
     {
-        Schema::create('utente', function (Blueprint $table) {
-            $table->string('Username', 50)->primary();
-            $table->string('Password');
-            $table->tinyInteger('Livello')->unsigned()->default(1);
+        Schema::create('users', function (Blueprint $table) {
+            $table->string('username', 50)->primary();
+            $table->string('password');
+            $table->tinyInteger('role')->unsigned()->default(1);
             $table->string('Nome', 30);
             $table->string('Cognome', 30);
             $table->string('Email', 50);
             $table->date('Nascita');
             $table->string('Genere', 5);
-            $table->bigInteger('Telefono');
+            $table->string('Telefono', 10);
             $table->text('ProPic')->nullable();
+            $table->rememberToken();
+//            $table->timestamps();
         });
     }
 

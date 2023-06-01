@@ -1,30 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>TecWeb</title>
-    <link rel="stylesheet" href="{{ asset('css/ludovico/faq.css') }}">
-</head>
-<body>
-<div class="container">
+@extends('layouts.catalogo_layout')
+@section('title', 'Offerta')
+@section('scripts')
+    <script src="{{ asset('js/ludovico/offerta.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+@endsection
+@section('catalogo-content')
+
+
+
+
     <div class="offerta">
         <div class="offerta-informazioni">
             <div class="div-image-offerta">
-                <img src="https://www.ibs.it/images/4718017502436_0_5_536_0_75.jpg"
-                     alt="img_offerta">
+                <img src="{{ asset('img/products/'.$offerta->FotoProd) }}" alt="img_offerta">
             </div>
             <div class="sconto-div">
-                <h1>CODICE SCONTO! -{{ $offerta->Sconto }}%!</h1>
+                <h1>CODICE SCONTO del -{{ $offerta->Sconto }}%!</h1>
                 <p>Ricevi uno sconto del <b>{{ $offerta->Sconto }}%</b> sull'acquisto di {{$offerta->Titolo}}!</p>
-                <p>Lo paghi <b>solo <span class="prezzo-scontato">{{ $prezzoScontato }} €</span></b></p>
+                <p>Lo paghi <b>solo <span class="prezzo-scontato">{{ number_format($prezzoScontato, 2, ',', '.') }} €</span></b></p>
                 <p>Invece di <b>{{ $offerta->Prezzo }}</b> €</p>
+
                 <button class="btn-pagina-offerta btn-offerta-coupon" type="button">
                     OTTIENI IL TUO COUPON
                 </button>
-                <a class="btn-pagina-offerta btn-azienda-coupon" type="button" href="/azienda/{{ $azienda->IDAzienda }}">
-                    Azienda
-                </a>
+                <button class="btn-pagina-offerta btn-azienda-coupon" type="button">
+                    LINK AL SITO DELL'AZIENDA
+                </button>
             </div>
         </div>
 
@@ -44,11 +45,13 @@
                     dell'offerta
                 </p>
             </div>
-
+            <script src="{{ asset('js/ludovico/offerta.js') }}"></script>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <div class="dettagli-offerta">
-                <h3>Affrettati! Scade fra: {{ $offerta->Scadenza }}</h3>
-{{--                <p> Timer es. 19 giorni, 3 ore.. (php)</p>--}}
-                <p id="timer"> </p>
+                <h3>Affrettati! Scade il: </h3>
+                {{--                <p> Timer es. 19 giorni, 3 ore.. (php)</p>--}}
+                <p id="timer">{{ $offerta->Scadenza }}</p>
+
                 <h3>Promozione iniziata il:</h3>
                 <p> {{ $offerta->Inizio }} </p>
             </div>
@@ -69,15 +72,16 @@
         </div>
 
         <div class="scopri-altro">
-            <h4>Scopri altre offerte sul nostro <a href="">catalogo</a>!</h4>
-            <h5>Oppure torna alla <a href="">home</a> per scoprire le novità.</h5>
+            <h4>Scopri altre offerte sul nostro <a href="{{ route('catalogo') }}">catalogo</a>!</h4>
+            <h5>Oppure torna alla <a href="/">home</a> per scoprire le novità.</h5>
         </div>
 
 
     </div>
 
 
-</div>
 
-</body>
-</html>
+
+
+
+@endsection
