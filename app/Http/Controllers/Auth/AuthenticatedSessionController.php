@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -15,8 +17,7 @@ class AuthenticatedSessionController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function create()
-    {
+    public function create(){
         return view('auth.login');
     }
 
@@ -26,11 +27,39 @@ class AuthenticatedSessionController extends Controller
      * @param  \App\Http\Requests\Auth\LoginRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
+/*    public function store2(LoginRequest $request)
+    {
+        $credentials = $request->only('username', 'password');
+        Log::info('This is some useful information.');
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended('catalogo');
+        }
+
+        return back()->withErrors([
+            'username' => 'Le credenziali di accesso non sono valide.'.$request->username,
+            'password' => 'Le credenziali di accesso non sono valide.'.$request->password,
+        ]);
+    }*/
+
     public function store(LoginRequest $request)
     {
         $request->authenticate();
 
         $request->session()->regenerate();
+        /*
+        $role = auth()->user()->role;
+        switch($role){
+            case '3': return redirect()->route('crud-faq');
+            break;
+
+                case '2': return redirect()->route('catalogo');
+                break;
+                case '1': return redirect()->route('about');
+            break;
+            default: return redirect('/');
+
+        }*/
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }
@@ -44,11 +73,8 @@ class AuthenticatedSessionController extends Controller
     public function destroy(Request $request)
     {
         Auth::guard('web')->logout();
-
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
-
         return redirect('/');
     }
 }

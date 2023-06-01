@@ -1,7 +1,13 @@
-@extends('faq.admin_layout')
+{{--@extends('faq.admin_layout')--}}
+@extends('layouts.admin-layout')
 @section('title', 'Chi siamo')
-@section('crudfaq-content')
-    <div style="padding: 10px">
+@section('link')
+
+    <link rel="stylesheet" href="{{asset ("css/ludovico/faq.css") }}">
+
+@endsection
+@section('content')
+    <div class='my-container' style="padding: 10px">
 
 
         <div class="about-section">

@@ -41,9 +41,28 @@ class Offerta extends Model
         return Offerta::find($IDOfferta);
     }
 
+    public function getOfferteByAziendaAndDescrizione($searchbar, $idAzienda){
+        return $this->where('Azienda', $idAzienda)
+            ->where('Descrizione', 'REGEXP', $searchbar)
+            ->orWhere('Titolo', 'REGEXP', $searchbar)
+            ->paginate(24);
+    }
+
+
+    public function getOfferteByAziendaId($IDAzienda){
+        return $this->where('Azienda', $IDAzienda)
+            ->paginate(24);
+    }
+
+
+    public function getOfferteByDescrizione($searchbar){
+        return $this->where('Descrizione', 'REGEXP', $searchbar)
+            ->orWhere('Titolo', 'REGEXP', $searchbar)
+            ->paginate(24);
+    }
+/*
     public static function searchOfferte($searchString)
     {
-        /*
 
         SELECT o.*
 FROM offerta o
@@ -51,7 +70,7 @@ JOIN azienda a ON o.Azienda = a.IDAzienda
 WHERE o.Descrizione REGEXP 'nike|scarpe'
    AND a.RagioneSociale REGEXP 'scarpe|nike';
 
-        */
+
 
 
         return Offerta::where(function ($query) use ($searchString) {
@@ -68,13 +87,14 @@ WHERE o.Descrizione REGEXP 'nike|scarpe'
             });
         })->get();
 
-        /*
+
                 return self::where(function ($queryBuilder) use ($query) {
                     $queryBuilder->where('Descrizione', 'LIKE', '%' . $query . '%')
                         ->orWhereHas('azienda', function ($queryBuilder) use ($query) {
                             $queryBuilder->where('RagioneSociale', 'LIKE', '%' . $query . '%');
                         });
                 })
-                    ->paginate(30);*/
+                    ->paginate(30);
     }
+    */
 }
