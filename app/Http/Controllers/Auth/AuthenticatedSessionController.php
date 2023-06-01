@@ -47,18 +47,19 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+        /*
         $role = auth()->user()->role;
         switch($role){
             case '3': return redirect()->route('crud-faq');
             break;
-                /*
+
                 case '2': return redirect()->route('catalogo');
                 break;
-                case '1': return redirect()->route('about');*/
+                case '1': return redirect()->route('about');
             break;
             default: return redirect('/');
 
-        }
+        }*/
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }

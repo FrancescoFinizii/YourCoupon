@@ -30,7 +30,7 @@
                     </ul>
                 @endif
             {{ Form::submit('Login', ['class' => 'btn btn-blue btn-large']) }}
-            </form>
+            {{ Form::close() }}
             <p>Non possiedi un account? <a class="std-link" href="{{route("register")}}">Registrati!</a></p>
         </div>
     </div>

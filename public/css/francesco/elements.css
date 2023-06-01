@@ -284,7 +284,7 @@ footer p {
 /*  Tutti tranne radio-input  */
 
 
-input:not([type=radio]):not([type=submit]):not([type=reset]):not([type=textarea]):not([type=text]) {
+input:not([type=radio]):not(.modify-button):not(.faq-button):not(.insert-faq-textinput) {
     width: 100%;
     padding: 10px 24px;
     font-size: 16px;
@@ -293,7 +293,7 @@ input:not([type=radio]):not([type=submit]):not([type=reset]):not([type=textarea]
     border-radius: 16px;
 }
 
-input:not([type=radio]):not([type=submit]):not([type=reset]):not([type=textarea]):not([type=text]):focus {
+input:not([type=radio]):not(.modify-button):not(.faq-button):not(.insert-faq-textinput):focus {
     background-color: #fff;
     outline: 0;
     box-shadow: 0 0 0 4px rgba(55, 99, 244, 0.25);

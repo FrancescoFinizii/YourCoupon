@@ -18,8 +18,6 @@ class LoginRequest extends FormRequest
      */
     public function authorize()
     {
-        $info = "Questo è un messaggio di log. authorize";
-        info($info);
         return true;
     }
 
