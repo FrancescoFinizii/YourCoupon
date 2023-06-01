@@ -1,9 +1,11 @@
 /* --GLOBAL-- */
 
+/*
 
 *, *::before, *::after {
     box-sizing: border-box;
 }
+*/
 
 
 body {
@@ -14,6 +16,9 @@ body {
     color: #2d2d2d;
 }
 
+h1 {
+    text-align: center;
+}
 
 /* main nav */
 
@@ -32,6 +37,7 @@ body {
     text-decoration: none;
 }
 
+
 .nav-link {
     color: #0000008c;
     padding: 14px 16px;
@@ -43,36 +49,39 @@ body {
     color: #4a4a4a;
 }
 
-
 .nav-link.active {
     color: #000;
     font-weight: 620;
 }
 
 
-.icon {
+.navbar-toggler {
     display: none;
+    background: transparent;
+    border: none;
 }
 
+
+.main-nav-link ul {
+    list-style-type: none;
+    display: flex;
+}
 
 .main-nav-link-btn a{
     margin-left: 10px;
 }
 
 
-@media (max-width: 880px) {
 
-    .main-nav{
-        display: block;
-    }
+@media (max-width: 880px) {
 
     .main-nav-link, .main-nav-link-btn {
         display: none;
     }
 
-    .icon {
+    .navbar-toggler {
         display: block;
-        margin-top: 35px;
+        margin-top: 25px;
         float: right;
     }
 
@@ -82,11 +91,65 @@ body {
         text-align: center;
     }
 
-    .main-nav-link.responsive a, .main-nav-link-btn.responsive a {
+    .main-nav-link ul {
+        display: block;
+        padding: 0;
+        margin: 0;
+    }
+
+    .main-nav, .main-nav-link.responsive a {
         display: block;
     }
 
+    .main-nav-link-btn.responsive a {
+        display: block;
+        margin: 0;
+    }
+
 }
+
+
+/* admin nav */
+
+
+.admin-nav ul {
+    background: #3763f4;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.admin-nav li {
+    text-align: center;
+    display: block;
+    padding: 15px 0;
+    width: 100%;
+    cursor: pointer;
+}
+
+
+.admin-nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+    font-weight: 780;
+}
+
+
+.admin-nav li:hover {
+    background: #2534a1;
+}
+
+
+@media (max-width: 600px ) {
+    .admin-nav ul {
+        display: block;
+    }
+}
+
 
 
 /* footer */
@@ -125,13 +188,20 @@ footer p {
 }
 
 
+/* ++link++ */
+
+.std-link {
+    color: #3763f4;
+}
+
+
 /* ++Button++ */
 
 
 /*  default button style */
 
 
-button, .btn {
+.btn {
     display: inline-block;
     padding: 10px 32px;
     font-size: 16px;
@@ -141,6 +211,21 @@ button, .btn {
     border-radius: 32px;
     cursor: pointer;
 }
+
+
+/*  rectangular button  */
+
+.btn-rect {
+    font-size: 16px;
+    padding:10px 32px;
+    border: 1px solid #424242;
+    border-radius: 5px;
+    cursor:pointer;
+    text-transform: uppercase;
+    display: block;
+    margin: auto;
+}
+
 
 /* button large version */
 
@@ -191,39 +276,4 @@ button, .btn {
 .btn-light:active {
     background-color: #c4c5c6;
     box-shadow: 0px 0px 5px #2d2d2d;
-}
-
-
-/*  ++Input++  */
-
-
-/*  Tutti tranne radio-input  */
-
-
-input:not([type=radio]) {
-    width: 100%;
-    padding: 10px 24px;
-    font-size: 16px;
-    line-height: 1.6;
-    border: 1px solid #ced4da;
-    border-radius: 16px;
-}
-
-input:not([type=radio]):focus {
-    background-color: #fff;
-    outline: 0;
-    box-shadow: 0 0 0 4px rgba(55, 99, 244, 0.25);
-}
-
-/* Solo radio input */
-
-.radio-container {
-    display: flex;
-    margin:auto;
-
-}
-
-input[type="radio"] {
-    transform: scale(1.5);
-    margin-right: 10px;
 }

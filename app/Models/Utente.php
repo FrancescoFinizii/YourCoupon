@@ -2,15 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticable;
+use Illuminate\Notifications\Notifiable;
 
 
-class Utente extends Model
+class Utente extends Authenticable
 {
-    use HasFactory;
-    protected $table = 'utente';
-    protected $primaryKey = 'Username';
+    use Notifiable;
+
+    protected $table = 'users';
+    protected $primaryKey = 'username';
     public $incrementing = false;
     public $timestamps = false;
 
@@ -22,17 +24,79 @@ class Utente extends Model
      * public $incrementing = false;
      *
     */
-
     protected $fillable = [
-        "Username",
-        'Password',
-        'Livello',
         'Nome',
         'Cognome',
         'Email',
+        'username',
+        'role',
         'Nascita',
         'Genere',
         'Telefono',
-        'ProPic'
+        'ProPic',
+        'password'
     ];
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'username',
+        'password',
+        'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+//        'email_verified_at' => 'datetime',
+//        'Nascita' => 'date',
+    ];
+
+    public function hasRole($livello)
+    {
+        $livello = (array)$livello;
+        return in_array($this->role, $livello);
+    }
+
+
+
+
+  /*  public function isGuest($livello)
+    {
+        if ($this->Livello == 0) {
+            return true;
+        } else
+            return false;
+    }
+    public function isUser($livello)
+    {
+        if ($this->Livello == 1) {
+            return true;
+        } else
+            return false;
+    }
+
+
+    public function isStaff($livello)
+    {
+        if ($this->livello == 2) {
+            return true;
+        } else
+            return false;
+    }
+
+    public function isAdmin($livello)
+    {
+        if ($this->livello == 3) {
+            return true;
+        } else
+            return false;
+    }*/
+
 }

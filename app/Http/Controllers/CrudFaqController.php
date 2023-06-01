@@ -16,6 +16,7 @@ class CrudFaqController extends Controller
     {
 //        $this->faqs = Faq::all();
         $this->_faqModel = Faq::paginate(5);
+//        $this->middleware('can:isAdmin');
     }
 
     public function showCrud()
