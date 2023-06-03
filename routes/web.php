@@ -82,6 +82,22 @@ Route::prefix('admin')->group(function () {
     Route::get('/staff/{username}/elimina', [AdminController::class, 'eliminaStaff'])
         ->name('eliminaStaff');
 
+    // --Level 3 (admin crud aziende area)
+    Route::get('/crud_aziende', [AziendaController::class, 'showAllAzz'])
+        ->name('crud_aziende');
+
+    Route::get('/newazienda', [AziendaController::class, 'creaAzz'])
+        ->name('insertAzz');
+    Route::post('/newazienda', [AziendaController::class, 'salvaAzz'])
+        ->name('insertAzzSave');
+
+    Route::get('/azienda/{IDAzienda}/modifica', [AziendaController::class, 'modificaAzz'])
+        ->name('modificaAzz');
+    Route::post('/azienda/{IDAzienda}/modifica', [AziendaController::class, 'salvaModificaAzz'])
+        ->name('salvaModificaAzz');
+
+    Route::get('/azienda/{IDAzienda}/elimina', [AziendaController::class, 'eliminaAzienda'])
+        ->name('eliminaAzz');
 
     // --Level 3 (admin crud offerte area)
     Route::get('/crud_offerte', [OffertaController::class, 'showAllOfferte'])

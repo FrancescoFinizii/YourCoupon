@@ -1,5 +1,9 @@
 @extends('layouts.admin-layout')
 
+@section('link')
+    <link rel="stylesheet" href="{{asset ("css/christian/crud_stylesheet.css") }}">
+@endsection
+
 @section('scripts')
 
     @parent
@@ -76,7 +80,9 @@
                             </div>
                         </div>
 
-                        {{ Form::submit('Salva Modifiche', ['class' => 'btn']) }}
+                        {{ Form::submit('Salva Modifiche', ['class' => 'btn btn-blue']) }}
+                        {{ Form::reset('Annulla Modifiche', ['class' => 'btn']) }}
+                        {{ Form::button('Torna Indietro', ['class' => 'btn btn-blue', 'onclick' => 'window.history.back()']) }}
                         {{ Form::close() }}
                     </div>
                 </div>

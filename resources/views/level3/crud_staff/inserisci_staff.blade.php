@@ -1,5 +1,9 @@
 @extends('layouts.admin-layout')
 
+@section('link')
+    <link rel="stylesheet" href="{{asset ("css/christian/crud_stylesheet.css") }}">
+@endsection
+
 @section('title', 'Inserisci Staff')
 
 @section('scripts')
@@ -74,7 +78,8 @@
                                 {{ Form::label('ProPic', 'Inserisci la foto profilo') }}
                                 {{ Form::file('ProPic', ['class' => 'form-control', 'id' => 'ProPic']) }}
                             </div>
-                            {{ Form::submit('Aggiungi Staff', ['class' => 'btn']) }}
+                            {{ Form::submit('Aggiungi Staff', ['class' => 'btn btn-blue']) }}
+                            {{ Form::button('Torna Indietro', ['class' => 'btn btn-blue', 'onclick' => 'window.history.back()']) }}
                         </div>
                         {{ Form::close() }}
                     </div>

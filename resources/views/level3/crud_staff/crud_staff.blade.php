@@ -1,4 +1,9 @@
 @extends('layouts.admin-layout')
+
+@section('link')
+    <link rel="stylesheet" href="{{asset ("css/christian/crud_stylesheet.css") }}">
+@endsection
+
 @section('title','CRUD STAFF')
 @section('content')
     <div class="background">

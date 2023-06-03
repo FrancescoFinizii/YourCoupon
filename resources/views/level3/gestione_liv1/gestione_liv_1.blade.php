@@ -1,4 +1,7 @@
 @extends('layouts.admin-layout')
+@section('link')
+    <link rel="stylesheet" href="{{asset ("css/christian/crud_stylesheet.css") }}">
+@endsection
 @section('title','CRUD STAFF')
 @section('content')
     <div class="background">
@@ -29,7 +32,7 @@
                                         <th> {{ $loop->iteration }} </th>
                                         <td>
                                             @include('helpers/proPic', ['imgFile' => $utente->ProPic])
-                                            {{ $utente-> Username }}
+                                            {{ $utente-> username }}
                                         </td>
                                         <td> {{ $utente-> Nome }} </td>
                                         <td> {{ $utente -> Cognome }} </td>
@@ -40,7 +43,7 @@
                                             <a href="#">
                                                 <button class="edit-button">Statistiche</button>
                                             </a>
-                                            <a href="{{ route('eliminaUtente', $utente->Username) }}" onclick="return confirm('Sei sicuro di voler eliminare questo utente?')">
+                                            <a href="{{ route('eliminaUtente', $utente->username) }}" onclick="return confirm('Sei sicuro di voler eliminare questo utente?')">
                                                 <button class="delete-button"> Elimina </button>
                                             </a>
                                         </td>

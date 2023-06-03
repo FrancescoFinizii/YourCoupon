@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use DB;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Utente;
 
@@ -19,8 +19,6 @@ class DatabaseSeeder extends Seeder
 
     public function run()
     {
-
-
         DB::table('users')->insert([
             ['username' => 'Persona1', 'password' => Hash::make('Passwordd'), 'role' => 2, 'Nome' => 'Christian', 'Cognome' => 'Curzi', 'Email' => 'chricurz@gmail.com', 'Nascita' => '2002/03/09', 'Genere' => 'Uomo', 'Telefono' => '3913913913', 'ProPic' => 'Chri.jpeg'],
             ['username' => 'Persona2', 'password' => Hash::make('Passwordd'), 'role' => 2, 'Nome' => 'Ludovico', 'Cognome' => 'Gorgoglione', 'Email' => 'hjkvabauovs@gmail.com', 'Nascita' => '2002/03/09', 'Genere' => 'Uomo', 'Telefono' => '3913913913', 'ProPic' => null],
@@ -75,7 +73,7 @@ class DatabaseSeeder extends Seeder
             ['Titolo' => 'Adidas Ultraboost', 'Prezzo' => 129.99, 'Sconto' => 10, 'Azienda' => '12', 'Inizio' => '2022/06/01', 'Scadenza' => '2023/06/15', 'Fruizione' => 'Online', 'Descrizione' => 'Scarpe da corsa con ammortizzazione reattiva.', 'FotoProd' => null],
             ['Titolo' => 'Apple Watch Series 6', 'Prezzo' => 399.99, 'Sconto' => 10, 'Azienda' => '13', 'Inizio' => '2022/06/01', 'Scadenza' => '2023/06/15', 'Fruizione' => 'Online', 'Descrizione' => 'Smartwatch avanzato con monitoraggio delle attività.', 'FotoProd' => null],
             ['Titolo' => 'Bose QuietComfort 35', 'Prezzo' => 299.99, 'Sconto' => 20, 'Azienda' => '14', 'Inizio' => '2022/06/01', 'Scadenza' => '2023/06/15', 'Fruizione' => 'In negozio', 'Descrizione' => 'Cuffie wireless con cancellazione attiva del rumore.', 'FotoProd' => null],
-            ['Titolo' => 'GoPro Hero 9', 'Prezzo' => 349.99, 'Sconto' => 15, 'Azienda' => '15', 'Inizio' => '2022/06/01', 'Scadenza' => '2023/06/15', 'Fruizione' => 'Online', 'Descrizione' => 'Fotocamera d\'azione con video 5K e stabilizzazione avanzata.', 'FotoProd' => null]
+            ['Titolo' => 'GoPro Hero 9', 'Prezzo' => 349.99, 'Sconto' => 15, 'Azienda' => '10', 'Inizio' => '2022/06/01', 'Scadenza' => '2023/06/15', 'Fruizione' => 'Online', 'Descrizione' => 'Fotocamera d\'azione con video 5K e stabilizzazione avanzata.', 'FotoProd' => null]
         ]);
     }
 }

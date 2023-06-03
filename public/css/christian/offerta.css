@@ -67,7 +67,7 @@ h3{
     object-fit: cover;
 }
 
-p{
+.p{
     position: absolute;
     top: 315px;
     left: 0;

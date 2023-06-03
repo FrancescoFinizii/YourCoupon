@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 
-class Utente extends Model
+class Utente extends Authenticatable
 {
     use HasFactory;
     protected $table = 'users';

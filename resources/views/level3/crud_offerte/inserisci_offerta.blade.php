@@ -1,5 +1,9 @@
 @extends('layouts.admin-layout')
 
+@section('link')
+    <link rel="stylesheet" href="{{asset ("css/christian/crud_stylesheet.css") }}">
+@endsection
+
 @section('scripts')
 
     @parent
@@ -73,7 +77,8 @@
                                 {{ Form::label('FotoProd', 'Inserisci la foto del prodotto') }}
                                 {{ Form::file('FotoProd', ['class' => 'form-control', 'id' => 'FotoProd']) }}
                             </div>
-                            {{ Form::submit('Aggiungi Offerta', ['class' => 'btn']) }}
+                            {{ Form::submit('Aggiungi Offerta', ['class' => 'btn btn-blue']) }}
+                            {{ Form::button('Torna Indietro', ['class' => 'btn btn-blue', 'onclick' => 'window.history.back()']) }}
                         </div>
                         {{ Form::close() }}
                     </div>

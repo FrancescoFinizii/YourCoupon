@@ -47,7 +47,6 @@ class OffertaController extends Controller
         }
 
         return response()->json(['redirect' => route('crud_offerte')]);
-        //return redirect()->action([OffertaController::class, 'showAllOfferte']);
     }
 
     public function modificaOff($IDOfferta)
