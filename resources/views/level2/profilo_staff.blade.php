@@ -24,35 +24,36 @@
             </div>
 
             <div class="" style="text-align: center">
-                <form>
+                {{ Form::open(['route' => 'login', 'method' => 'post']) }}
+                {{ Form::token() }}
                     <div class="row-flex">
                         <div class="cell1-2">
-                            <label>Nome:</label>
-                            <input type="text" id="nome" placeholder="Name" required maxlength="15">
+                            {{ Form::label("nome", "Nome:")}}
+                            {{ Form::text('nome', null, [ 'id'=>'nome', 'placeholder' => 'Nome']) }}
                         </div>
                         <div class="cell1-2">
-                            <label>Cognome:</label>
-                            <input type="text" id="cognome" placeholder="Surname" required maxlength="15">
+                            {{ Form::label("cognome", "Cognome:")}}
+                            {{ Form::text('cognome', null, [ 'id'=>'cognome', 'placeholder' => 'Cognome']) }}
                         </div>
                     </div>
                     <div class="row-flex">
                         <div class="cell1-2">
-                            <label>Email:</label>
-                            <input type="email" id="email" placeholder="Email" required maxlength="15">
+                            {{ Form::label("email", "Email:")}}
+                            {{ Form::text('email', null, [ 'id'=>'email', 'placeholder' => 'Email']) }}
                         </div>
                         <div class="cell1-2">
-                            <label>Telefono:</label>
-                            <input type="tel" id="telefono" placeholder="Phone" required maxlength="15">
+                            {{ Form::label("telefono", "Telefono:")}}
+                            {{ Form::tel('telefono', null, [ 'id'=>'telefono', 'placeholder' => 'Telefono']) }}
                         </div>
                     </div>
                     <div class="row-flex">
                         <div class="cell1-2">
-                            <label>Data di nascita:</label>
-                            <input type="date" id="dataNascita" placeholder="Data di nascita" required maxlength="15">
+                            {{ Form::label("dataNascita", "Data di nascita:")}}
+                            {{ Form::date('dataNascita', null, [ 'id'=>'dataNascita', 'placeholder' => 'Data di nascita']) }}
                         </div>
                         <div class="cell1-2">
-                            <label>Username:</label>
-                            <input type="text" id="username" placeholder="Username" required maxlength="15">
+                            {{ Form::label("username", "Username:")}}
+                            {{ Form::text('username', null, [ 'id'=>'username', 'placeholder' => 'Username']) }}
                         </div>
                     </div>
 
@@ -60,22 +61,20 @@
                     <div class="row-flex">
                         <div class="cell-1of2">
                             <div class="radio-container">
-                                <input type="radio" id="male" name="genere">
-                                <label for="male">Male</label>
+                                {{ Form::radio('genere', null, false, [ 'id'=>'male']) }}
+                                {{ Form::label("male", "Male:")}}
                             </div>
                             <div class="radio-container">
-                                <input type="radio" id="female" name="genere">
-                                <label for="female">Female</label>
+                                {{ Form::radio('genere', null, true, [ 'id'=>'female']) }}
+                                {{ Form::label("female", "Female:")}}
                             </div>
                         </div>
                         <div class="cell-1of2" id="btn-cont">
-                            <button class="btn-blue" type="submit">Submit</button>
-                            <button class="btn-light" type="reset">Reset</button>
+                            {{ Form::button('Submit', ['class' => 'btn-blue', 'type'=>'submit']) }}
+                            {{ Form::button('Reset', ['class' => 'btn-light', 'type'=>'reset']) }}
                         </div>
                     </div>
-
-
-                </form>
+                {{ Form::close() }}
             </div>
         </div>
     </div>

@@ -5,28 +5,30 @@
         <div class="wrapper-dashboard" style="max-width: 600px; margin: 0 auto;">
             <div class="" style="text-align: center">
                 <img id="profile-image" width="200px" height="200px " src="{{asset("img/imgkri/download.jpg")}}">
-                <form method="POST" action="{{route('cambia_password')}}">
-                    @csrf
+{{--                <form method="POST" action="{{route('cambia_password')}}">--}}
+                    {{ Form::open(['route' => 'login', 'class' => 'myform', 'method' => 'post']) }}
+                    {{ Form::token() }}
                     <h4>Change Your Password</h4>
+                <p class="errorLabel">{{$error=null}}</p>
                     <div class="">
                         <div class="cell-pssw">
-                            <label for="old_password">Password:</label>
-                            <input type="password" name="old_password" placeholder="Password" required >
+                            {{ Form::label("old_password", "Password:")}}
+                            {{ Form::password('old_password', [ 'id'=>'old_password', 'placeholder' => 'Password']) }}
                         </div>
                         <div class="cell-pssw">
-                            <label for="new_password">New Password:</label>
-                            <input type="password" name="new_password" placeholder="NewPassword" required>
+                            {{ Form::label("new_password", "Nuova Password:")}}
+                            {{ Form::password('new_password', [ 'id'=>'new_password', 'placeholder' => 'New Password']) }}
                         </div>
                         <div class="cell-pssw">
-                            <label for="confirm_new_password">Confirm New Password:</label>
-                            <input type="password" name="confirm_password" placeholder="Confirm" required >
+                            {{ Form::label("confirm_password", "Conferma Password:")}}
+                            {{ Form::password('confirm_password', [ 'id'=>'confirm_password', 'placeholder' => 'Confirm New Password']) }}
                         </div>
                         <div class="cell-pssw" id="btn-cont">
-                            <button class="btn btn-blue" type="submit">Change Password</button>
-                            <button class="btn btn-light" type="reset">Cancel</button>
+                            {{ Form::button('Change Password', ['class' => 'btn btn-blue', 'type'=>'submit']) }}
+                            {{ Form::button('Reset', ['class' => 'btn btn-light', 'type'=>'reset']) }}
                         </div>
                     </div>
-                </form>
+                {{ Form::close() }}
             </div>
 
         </div>
