@@ -46,11 +46,13 @@ body {
 }
 .cell1-2{
     flex: 0 0 46%;
-    margin: auto 10px;
+    margin: 5px;
+    padding: 12px 0;
+
 }
+
 #btn-cont{
     display: inline-block;
-    padding: 10px 32px;
     font-size: 16px;
     font-weight: 700;
     line-height: 1.6;
@@ -337,3 +339,14 @@ input[type="radio"] {
     margin: 15px 15px 15px 15px;
 
 }
+
+
+.cont-left {
+    padding: 20px 20px;
+    margin: 20px;
+}
+
+.cont-right {
+    text-align: center;
+}
+

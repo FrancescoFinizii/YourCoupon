@@ -107,6 +107,47 @@ h1 {
 }
 
 
+/* staff nav */
+
+
+.staff-nav ul {
+    background: blueviolet;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.staff-nav li {
+    text-align: center;
+    display: block;
+    padding: 15px 0;
+    width: 100%;
+    cursor: pointer;
+}
+
+
+.staff-nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+    font-weight: 780;
+}
+
+
+.staff-nav li:hover {
+    background: darkviolet;
+}
+
+
+@media (max-width: 600px ) {
+    .admin-nav ul {
+        display: block;
+    }
+}
+
 /* admin nav */
 
 
@@ -147,6 +188,7 @@ h1 {
         display: block;
     }
 }
+
 
 
 

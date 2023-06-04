@@ -1,33 +1,38 @@
 @extends("layouts.staff-layout")
 @section("title", "Staff Password")
 @section("content")
-    <div class="my-container" style="text-align: center">
-        <div class="wrapper-dashboard" style="max-width: 600px; margin: 0 auto;">
-            <div class="" style="text-align: center">
-                <img id="profile-image" width="200px" height="200px " src="{{asset("img/imgkri/download.jpg")}}">
-                <form>
-                    <h4>Change Your Password</h4>
-                    <div class="">
-                        <div class="cell-pssw">
-                            <label>Password:</label>
-                            <input type="password" id="password" placeholder="Password" required maxlength="15">
-                        </div>
-                        <div class="cell-pssw">
-                            <label>New Password:</label>
-                            <input type="password" id="newpassword" placeholder="NewPassword" required maxlength="15">
-                        </div>
-                        <div class="cell-pssw">
-                            <label>Confirm New Password:</label>
-                            <input type="password" id="confirmnewpassword" placeholder="Confirm" required maxlength="15">
-                        </div>
-                        <div class="cell-pssw" id="btn-cont">
-                            <button class="btn-blue" type="submit">Change Password</button>
-                            <button class="btn-light1" type="reset">Cancel</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
 
+    <div class="staff-dashboard" >
+        <div class="" style="text-align: center">
+            {{-- <form method="POST" action="{{route('cambia_password')}}">--}}
+            {{ Form::open(['route' => 'login', 'class' => 'myform', 'method' => 'post']) }}
+            {{ Form::token() }}
+            <h2>Modifica la tua password:</h2>
+            <p class="errorLabel">{{$error=null}}</p>
+            <div class="">
+                <div class="cell-pssw">
+                    {{ Form::label("old_password", "Password:")}}
+                    {{ Form::password('old_password', [ 'id'=>'old_password', 'placeholder' => 'Password']) }}
+                </div>
+                <div class="cell-pssw">
+                    {{ Form::label("new_password", "Nuova Password:")}}
+                    {{ Form::password('new_password', [ 'id'=>'new_password', 'placeholder' => 'New Password']) }}
+                </div>
+                <div class="cell-pssw">
+                    {{ Form::label("confirm_password", "Conferma Password:")}}
+                    {{ Form::password('confirm_password', [ 'id'=>'confirm_password', 'placeholder' => 'Confirm New Password']) }}
+                </div>
+                <div class="cell-pssw" id="btn-cont">
+                    {{ Form::button('Modifica', ['class' => 'btn btn-blue', 'type'=>'submit']) }}
+                </div>
+                <div class="cell-pssw" id="btn-cont">
+                    {{ Form::button('Reset', ['class' => 'btn btn-light', 'type'=>'reset']) }}
+                </div>
+
+            </div>
+            {{ Form::close() }}
         </div>
+
     </div>
+
 @endsection

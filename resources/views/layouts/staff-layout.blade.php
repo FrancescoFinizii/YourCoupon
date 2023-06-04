@@ -6,15 +6,23 @@
     </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="{{asset("js/javascript.js")}}"></script>
-    <link rel="stylesheet" href="{{asset ("css/kristian/elements.css") }}">
-    <link rel="stylesheet" href="{{asset ("css/kristian/stylekri.css") }}">
+    @if (View::getSection('title')=='Abbina Offerte')
+        <link rel="stylesheet" href="{{asset ("css/kristian/addtocart.css") }}">
+    @else
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="{{asset("js/francesco.js")}}"></script>
+    @endif
     <link rel="stylesheet" href="{{asset ("css/kristian/miostile.css") }}">
+    <link rel="stylesheet" href="{{asset ("css/francesco/elements.css") }}">
+    <link rel="stylesheet" href="{{asset ("css/francesco/style.css") }}">
+
 </head>
 <body>
 @include("component.main-navbar")
-@yield('content')
+@include("component.staff-navbar")
+<div class="my-container" style="background-image:url({{url('img/background.jpg')}}">
+    @yield("content")
+</div>
 @include("component.footer")
 </body>
 </html>
