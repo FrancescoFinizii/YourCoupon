@@ -3,6 +3,7 @@
 use App\Http\Controllers\AziendaController;
 use App\Http\Controllers\OffertaController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/ludovico_routes_web.php';
@@ -18,21 +19,11 @@ require __DIR__.'/ludovico_routes_web.php';
 |
 */
 
-Route::get('/', function () {
-    return view('admin');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 require __DIR__.'/auth.php';
 
 // --Level 0 (public area)
 
 Route::view("/", "level0/home");
-//Route::view("/login", "level0/login");
-//Route::view("/registration", "level0/registration");
 Route::get('/azienda/{IDAzienda}', [AziendaController::class, 'mostraAzienda'])
     ->name('mostraAzienda');
 
@@ -47,6 +38,9 @@ Route::prefix('user')->group(function () {
         return view("level1/coupon", ["id"=>$id]);
     });
 });
+
+Route::resource('utente', UserController::class, [
+]);
 
 
 // --Level 2 (staff area)

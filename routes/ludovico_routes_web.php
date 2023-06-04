@@ -60,14 +60,14 @@ Route::get('/catalogo', [CrudFaqController::class, 'eseguita'])
 Route::view('/catalogo', 'catalogo.catalogo')
     ->name('catalogo');*/
 
-Route::get('/catalogo', [CatalogoController::class, 'index'])
-    ->name('catalogo');
-
-Route::get('/catalogo/search', [CatalogoController::class, 'searchCatalogo'])
-    ->name('search');
-
-Route::get('/offerta/{id}', [CatalogoController::class, 'showOfferta'])
-    ->name('offerta');
+//Route::get('/catalogo', [CatalogoController::class, 'index'])
+//    ->name('catalogo');
+//
+//Route::get('/catalogo/search', [CatalogoController::class, 'searchCatalogo'])
+//    ->name('search');
+//
+//Route::get('/offerta/{id}', [CatalogoController::class, 'showOfferta'])
+//    ->name('offerta');
 
 
 require __DIR__ . '/auth.php';
