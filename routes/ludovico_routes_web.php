@@ -46,7 +46,7 @@ Route::get('/crud-faq/eseguita', [CrudFaqController::class, 'eseguita'])
 //rotta chi siamo/about
 
 Route::view('/about', 'level0.about')
-    ->name('about')->middleware('can:isAdmin');;
+    ->name('about')->middleware('can:isUser');;
 
 Route::view('/faq', 'level0.about')
     ->name('faq');

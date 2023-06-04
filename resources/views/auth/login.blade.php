@@ -13,25 +13,21 @@
             </div>
             {{ Form::open(['route' => 'login', 'class' => 'myform', 'method' => 'post']) }}
             {{ Form::token() }}
-                    {{ Form::text('username', null, [ 'id'=>'username', 'placeholder' => 'Inserisci qui il tuo Username...']) }}
-                @if ($errors->first('username'))
-                    <ul class="errors">
-                        @foreach ($errors->get('username') as $message)
-                            <li>{{ $message }}</li>
-                        @endforeach
-                    </ul>
-                @endif
-                    {{ Form::password('password', null, [ 'placeholder' => 'Inserisci qui il tuo Username...', 'id'=>'password']) }}
-                @if ($errors->first('password'))
-                    <ul class="errors">
-                        @foreach ($errors->get('password') as $message)
-                            <li>{{ $message }}</li>
-                        @endforeach
-                    </ul>
-                @endif
-            {{ Form::submit('Login', ['class' => 'btn btn-blue btn-large']) }}
+            @if ($errors->first('username'))
+                @foreach ($errors->get('username') as $message)
+                    <p class="errorLabel">{{ $message }}</p>
+                @endforeach
+            @endif
+            @if($errors->first('password'))
+                @foreach ($errors->get('password') as $message)
+                    <p class="errorLabel">{{ $message }}</p>
+                @endforeach
+            @endif
+            {{ Form::text('username', null, [ 'id'=>'username', 'placeholder' => 'Username']) }}
+            {{ Form::password('password', [ 'placeholder' => 'Password', 'id'=>'password']) }}
+            {{ Form::button('Login', ['class' => 'btn btn-blue btn-large', "type" => "submit"]) }}
             {{ Form::close() }}
-            <p>Non possiedi un account? <a class="std-link" href="{{route("register")}}">Registrati!</a></p>
+            <p>possiedi un account? <a class="std-link" href="{{route("register")}}">Registrati!</a></p>
         </div>
     </div>
 @endsection

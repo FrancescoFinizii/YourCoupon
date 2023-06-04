@@ -16,53 +16,52 @@
             {{ Form::token() }}
             {{ Form::text('Nome', '', ['id' => 'Nome', 'placeholder'=>'Nome']) }}
             @if ($errors->first('Nome'))
-                <ul class="errors">
-                    @foreach ($errors->get('Nome') as $message)
-                        <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
+                @foreach ($errors->get('Nome') as $message)
+                    <p class="errorLabel">{{ $message }}</p>
+                @endforeach
             @endif
             {{ Form::text('Cognome', '', ['id' => 'Nome', 'placeholder'=>'Cognome']) }}
             @if ($errors->first('Cognome'))
-                <ul class="errors">
-                    @foreach ($errors->get('Cognome') as $message)
-                        <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
+                @foreach ($errors->get('Cognome') as $message)
+                    <p class="errorLabel">{{ $message }}</p>
+                @endforeach
             @endif
             {{ Form::text('username', '', ['id' => 'username', 'placeholder'=>'Username']) }}
             @if ($errors->first('username'))
-                <ul class="errors">
-                    @foreach ($errors->get('username') as $message)
-                        <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
+                @foreach ($errors->get('username') as $message)
+                    <p class="errorLabel">{{ $message }}</p>
+                @endforeach
             @endif
             {{ Form::Email('Email', '', ['id' => 'Email', 'placeholder'=>'Email']) }}
             @if ($errors->first('Email'))
-                <ul class="errors">
-                    @foreach ($errors->get('Email') as $message)
-                        <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
+                @foreach ($errors->get('Email') as $message)
+                    <p class="errorLabel">{{ $message }}</p>
+                @endforeach
             @endif
-            {{ Form::input('date', 'Nascita', null, ['id' => 'Nascita']) }}
-            @if ($errors->first('date'))
-                <ul class="errors">
-                    @foreach ($errors->get('date') as $message)
-                        <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
+            {{ Form::text('Nascita', null, ['id' => 'Nascita', "onfocus" => "(this.type='date')", "onblur" => "(this.type='text')", 'placeholder'=>'Data di nascita']) }}
+            @if ($errors->first('Nascita'))
+                @foreach ($errors->get('Nascita') as $message)
+                    <p class="errorLabel">{{ $message }}</p>
+                @endforeach
             @endif
             {{ Form::text('Telefono', '', ['id' => 'Telefono', 'placeholder'=>'Telefono']) }}
             @if ($errors->first('Telefono'))
-                <ul class="errors">
-                    @foreach ($errors->get('Telefono') as $message)
-                        <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
+                @foreach ($errors->get('Telefono') as $message)
+                    <p class="errorLabel">{{ $message }}</p>
+                @endforeach
             @endif
-
+            {{ Form::password('password', [ 'placeholder' => 'Password', 'id'=>'password']) }}
+            @if ($errors->first('password'))
+                @foreach ($errors->get('password') as $message)
+                    <p class="errorLabel">{{ $message }}</p>
+                @endforeach
+            @endif
+            {{ Form::password('password_confirmation', ['id' => 'password_confirmation', 'placeholder'=>'Conferma password']) }}
+            @if ($errors->first('password_confirmation'))
+                @foreach ($errors->get('password_confirmation') as $message)
+                    <p class="errorLabel">{{ $message }}</p>
+                @endforeach
+            @endif
             <div class="radio-container">
                 {{ Form::radio('Genere', 'Uomo')}}
                 {{ Form::label('Genere', 'Uomo')}}
@@ -72,127 +71,13 @@
                 {{ Form::label('Genere', 'Donna')}}
             </div>
             @if ($errors->first('Genere'))
-                <ul class="errors">
-                    @foreach ($errors->get('Genere') as $message)
-                        <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
+                @foreach ($errors->get('Genere') as $message)
+                    <p class="errorLabel">{{ $message }}</p>
+                @endforeach
             @endif
-
-
-
-
-            {{ Form::password('password', null, [ 'placeholder' => 'Inserisci qui la tua password...', 'id'=>'password']) }}
-            @if ($errors->first('password'))
-                <ul class="errors">
-                    @foreach ($errors->get('password') as $message)
-                        <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-            @endif
-            {{ Form::password('password_confirmation', ['id' => 'password-confirm', 'placeholder'=>'Conferma password']) }}
-            @if ($errors->first('password_confirmation'))
-                <ul class="errors">
-                    @foreach ($errors->get('password_confirmation') as $message)
-                        <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-            @endif
-            {{ Form::submit('Registrati', ['class' => 'btn btn-blue btn-large']) }}
+            {{ Form::button('Registrati', ['class' => 'btn btn-blue btn-large', "type" =>"submit"]) }}
             {{ Form::close() }}
             <p>Hai già un account? <a class="std-link" href="{{route('login')}}">Accedi</a>!</p>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-{{--
-    <div class="static">
-        <h3>Registrazione</h3>
-        <p>Utilizza questa form per registrarti al sito</p>
-
-        <div class="container-contact">
-            <div class="wrap-contact1">
-
-                <div class="wrap-input">
-                    {{ Form::label('Nome', 'Nome', ['class' => 'label-input']) }}
-                    {{ Form::text('Nome', '', ['class' => 'input', 'id' => 'Nome']) }}
-                    @if ($errors->first('Nome'))
-                        <ul class="errors">
-                            @foreach ($errors->get('Nome') as $message)
-                                <li>{{ $message }}</li>
-                            @endforeach
-                        </ul>
-                    @endif
-                </div>
-
-                <div class="wrap-input">
-                    {{ Form::label('Cognome', 'Cognome', ['class' => 'label-input']) }}
-                    {{ Form::text('Cognome', '', ['class' => 'input', 'id' => 'Cognome']) }}
-                    @if ($errors->first('Cognome'))
-                        <ul class="errors">
-                            @foreach ($errors->get('Cognome') as $message)
-                                <li>{{ $message }}</li>
-                            @endforeach
-                        </ul>
-                    @endif
-                </div>
-
-                <div class="wrap-input">
-                    {{ Form::label('Email', 'Email', ['class' => 'label-input']) }}
-                    {{ Form::text('Email', '', ['class' => 'input','id' => 'Email']) }}
-                    @if ($errors->first('Email'))
-                        <ul class="errors">
-                            @foreach ($errors->get('Email') as $message)
-                                <li>{{ $message }}</li>
-                            @endforeach
-                        </ul>
-                    @endif
-                </div>
-
-                <div class="wrap-input">
-                    {{ Form::label('username', 'username', ['class' => 'label-input']) }}
-                    {{ Form::text('username', '', ['class' => 'input','id' => 'username']) }}
-                    @if ($errors->first('username'))
-                        <ul class="errors">
-                            @foreach ($errors->get('username') as $message)
-                                <li>{{ $message }}</li>
-                            @endforeach
-                        </ul>
-                    @endif
-                </div>
-
-                <div class="wrap-input">
-                    {{ Form::label('password', 'password', ['class' => 'label-input']) }}
-                    {{ Form::password('password', ['class' => 'input', 'id' => 'password']) }}
-                    @if ($errors->first('password'))
-                        <ul class="errors">
-                            @foreach ($errors->get('password') as $message)
-                                <li>{{ $message }}</li>
-                            @endforeach
-                        </ul>
-                    @endif
-                </div>
-
-                <div class="wrap-input">
-                    {{ Form::label('password-confirm', 'Conferma password', ['class' => 'label-input']) }}
-                    {{ Form::password('password_confirmation', ['class' => 'input', 'id' => 'password-confirm']) }}
-                </div>
-
-                <div class="container-form-btn">
-                    {{ Form::submit('Registra', ['class' => 'form-btn1']) }}
-                </div>
-
-                {{ Form::close() }}
-            </div>
-        </div>
-
-    </div>
-    --}}
 @endsection
