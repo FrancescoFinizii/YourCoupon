@@ -1,19 +1,19 @@
 #statistic-menu{
     display:flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    padding: 100px 0;
-    
+
 }
 .statistic-item{
     border-radius: 10px;
     border: 1px solid black;
     text-decoration: none;
-    height: 350px;
     width: 250px;
     text-align: center;
     margin-left: 40px;
+    padding: 10px;
     background-color: white;
+    height: 410px;
 }
 @media (max-width: 600px) {
     #statistic-menu{
@@ -31,7 +31,7 @@
     }
 }
 .header-statistic{
-    background-color: #4942E4;
+    background-color: black;
     border-radius: 3px;
     text-align: center;
     align-items: center;
@@ -54,9 +54,9 @@ h3{
 p {
     font-family: "Times New Roman";
     margin-top: 5px;
+    text-align: center;
 }
-body{
-    background-image: url(/img/statistic.jpg);
+.background-statistic{
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -64,4 +64,19 @@ body{
 }
 a{
     margin-bottom: 10px;
+}
+.statistic-paragra{
+    border-radius: 10px;
+    border: 1px solid black;
+    text-decoration: none;
+    text-align: center;
+    padding: 25px;
+    background-color: white;
+    margin: 20px;
+}
+.red-fancy{
+    color: #f33;
+    font-weight: bold;
+    text-shadow: 4px 4px 3px grey;
+    font-size: 30px;
 }

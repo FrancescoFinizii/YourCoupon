@@ -3,8 +3,10 @@
 use App\Http\Controllers\AziendaController;
 use App\Http\Controllers\OffertaController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\StaffController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StatisticController;
 
 require __DIR__.'/ludovico_routes_web.php';
 
@@ -39,17 +41,22 @@ Route::prefix('user')->group(function () {
     });
 });
 
-Route::resource('utente', UserController::class, [
+Route::resource('user', UserController::class, [
 ]);
 
 
 // --Level 2 (staff area)
-//Route::prefix('staff')->group(function () {
-    Route::view("/staffprofile", "level2/profilo_staff");
-    Route::view("/staffpassword", "level2/cambia_password");
-    Route::view("/gestioneofferte", "level2/user-coupon");
-    Route::view("/staffabbinaofferte", "level2/abbina_offerte");
-//});
+Route::prefix('staff/{username}')->group(function () {
+    Route::prefix('/edit')->group(function () {
+        Route::put("/", [StaffController::class,'update'])
+        ->name('staffUpdate');
+        Route::get("/profilo",[StaffController::class,'edit'])
+            ->name('staffProfile');;
+        Route::get("/password", [StaffController::class,'editPass']);
+    });
+});
+Route::get("/example", [StatisticController::class, "getTotCoupon"]);
+Route::get("/example2", [StatisticController::class, "getCouponFromUser"]);
 
 
 Route::prefix('admin')->group(function () {
@@ -95,4 +102,9 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/offerta/{IDOfferta}/elimina', [OffertaController::class, 'eliminaOfferta'])
         ->name('eliminaOfferta');
+
+    Route::view("/statistiche", "level3/statistics/statistics_offerte");
+
+
+
 });

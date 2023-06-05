@@ -53,21 +53,21 @@ Route::view('/faq', 'level0.about')
 
 //rotte catalogo
 
-/*
-Route::get('/catalogo', [CrudFaqController::class, 'eseguita'])
-    ->name('catalogo');*/
-/*
-Route::view('/catalogo', 'catalogo.catalogo')
-    ->name('catalogo');*/
 
-//Route::get('/catalogo', [CatalogoController::class, 'index'])
-//    ->name('catalogo');
-//
-//Route::get('/catalogo/search', [CatalogoController::class, 'searchCatalogo'])
-//    ->name('search');
-//
-//Route::get('/offerta/{id}', [CatalogoController::class, 'showOfferta'])
-//    ->name('offerta');
+Route::get('/catalogo', [CrudFaqController::class, 'eseguita'])
+    ->name('catalogo');
+
+Route::view('/catalogo', 'catalogo.catalogo')
+    ->name('catalogo');
+
+Route::get('/catalogo', [CatalogoController::class, 'index'])
+  ->name('catalogo');
+
+Route::get('/catalogo/search', [CatalogoController::class, 'searchCatalogo'])
+    ->name('search');
+
+Route::get('/offerta/{id}', [CatalogoController::class, 'showOfferta'])
+    ->name('offerta');
 
 
 require __DIR__ . '/auth.php';

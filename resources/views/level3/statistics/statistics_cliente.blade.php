@@ -1,27 +1,55 @@
-<div class="header-statistic">
-    <p class="logo-statistic">Statistiche</p>
-</div>
-<div>
-    <section id="statistic-menu">
-        <div class="statistic-item">
-            <h3>Statistiche Coupon</h3>
-            <p style="margin-top: 10px">In questa sezione è possibile visualizzare il numero totale di coupon emessi.</p>
-            <img src="../img/coupon.png" height="90" width="170" style="margin-top: 45px; margin-bottom: 15px"/>/><br>
-            <a href="statisticscoupon.html">Visualizza statistiche</a>
+@extends('layouts.admin-layout')
+@section('title', 'Statistiche')
+@section('content')
+    <div class="background-statistic" style="background-image:url({{url('img/statistics/statistic.jpg')}}">
+        <div class="large-table">
+            <div class="table-margin">
+                <div class="table-wrap">
+                    <div class="back-btn-cont">
+                        <a class="back-link"> back </a>
+                        <div class="table-title">
+                            <h1> Visualizza Utenti </h1>
+                        </div>
+                        <div class="table-chri">
+                            <table class>
+                                <thead>
+                                <tr>
+                                    <th> #</th>
+                                    <th> Username</th>
+                                    <th> Nome</th>
+                                    <th> Cognome</th>
+                                    <th> Nascita</th>
+                                    <th> Telefono</th>
+                                    <th> E-mail</th>
+                                    <th> Action</th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                <tr>
+                                    <th> 1</th>
+                                    <td> Username</td>
+                                    <td> Nome</td>
+                                    <td> Cognome</td>
+                                    <td> Nascita</td>
+                                    <td> Telefono</td>
+                                    <td> Email</td>
+                                    <td>
+
+                                        <button class="edit-button"> visualizza statistiche</button>
+
+                                    </td>
+                                </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <div class="table-footer">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="statistic-item">
-            <h3>Statistiche Promozioni</h3>
-            <p style="margin-top: 10px">In questa sezione, selezionando una promozione (sia attiva che scaduta), è possibile visualizzare il
-                numero di coupon emessi per essa.</p>
-            <img src="../img/promo.png" height="90" width="180p" style="margin-top: 20px; "/><br>
-            <a href="statisticspromozioni.html">Visualizza statistiche</a>
-        </div>
-        <div class="statistic-item">
-            <h3>Satistiche Clienti</h3>
-            <p style="margin-top: 10px">In questa sezione, selezionando un cliente, è possibile visualizzare il numero di coupon emessi a suo
-                nome.</p>
-            <img src="../img/clienti.jpg" height="120" width="120" style="margin-top: 10px"/><br>
-            <a href="statisticscliente.html">Visualizza statistiche</a>
-        </div>
-    </section>
-</div>
+    </div>
+@endsection
