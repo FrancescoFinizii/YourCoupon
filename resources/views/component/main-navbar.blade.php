@@ -25,7 +25,7 @@
             @endcan
             @can('isUser')
 {{--                <li><a href="{{ route('user') }}" class="nav-link" title="Home User">Home User</a></li>--}}
-                <li><a href=" " class="nav-link" title="Home User">Home User</a></li>
+                <li><a href=" " class="nav-link" title="Area Personale">Area Utente</a></li>
             @endcan
 
 

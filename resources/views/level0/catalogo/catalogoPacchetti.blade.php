@@ -38,7 +38,7 @@
                             <div class="catalogo-card">
 
 
-{{--                                <img src="{{ asset('img/products/'.$offerta->FotoProd) }}" alt="FotoProdotto">--}}
+                                {{--                                <img src="{{ asset('img/products/'.$offerta->FotoProd) }}" alt="FotoProdotto">--}}
                                 @include('helpers.catalogoImg', ['imgFile'=>$offerta->FotoProd])
                                 @foreach ($aziende as $idAzienda => $ragioneSociale)
                                     @if ($idAzienda == $offerta->Azienda)
@@ -72,7 +72,7 @@
 
                                 @include('helpers.catalogoImg', ['imgFile'=>$offerta->FotoProd])
 
-{{--                                <img src="{{ asset('img/products/'.$offerta->FotoProd) }}" alt="FotoProdotto">--}}
+                                {{--                                <img src="{{ asset('img/products/'.$offerta->FotoProd) }}" alt="FotoProdotto">--}}
                                 <h3>Offerto da {{ $azienda->RagioneSociale }}</h3>
 
                                 <h4 style="color: black"> Ottieni un <b style="color: red">-{{ $offerta->Sconto }}%</b>

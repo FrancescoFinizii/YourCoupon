@@ -98,9 +98,10 @@ class CatalogoController extends Controller
 
         $coupon = new Coupon();
 
-        if ($coupon->checkIfExists($IDOfferta, $username)) {
+        if(0){
+       /* if ($coupon->checkIfExists($IDOfferta, $username)) {
             return redirect()->route('couponError')->with('message', 'ERRORE! visualizzi questo perché è stato
-            trovato un coupon associato al tuo account per questa offerta! controlla la tua area personale.');
+            trovato un coupon associato al tuo account per questa offerta! controlla la tua area personale.');*/
         } else {
             $coupon->Utente = $username;
             $coupon->IDOfferta = $IDOfferta;
@@ -115,8 +116,8 @@ class CatalogoController extends Controller
             $coupon->save();
             $offerta = Offerta::find($IDOfferta);
 
-            $azienda = $this->_aziendaModel->getAziendaById($IDOfferta);
-            return view('level1.coupon', ['coupon' => $coupon, 'offerta' => $offerta, 'azienda' => $azienda]);
+            $azienda = $this->_aziendaModel->getAziendaById($offerta->Azienda);
+            return view('level0.catalogo.offerta.offerta', ['coupon' => $coupon, 'offerta' => $offerta, 'azienda' => $azienda]);
         }
     }
 

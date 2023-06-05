@@ -23,11 +23,11 @@ Route::post('/crud-faq/modifyfaq', [CrudFaqController::class, 'modifyFaq'])
 
 Route::view('/statistiche', 'level3.statistics.allstatistics')
     ->name('statistiche');
+Route::view('/home', 'layouts.homeAdmin')
+    ->name('homeAdmin');
+
 
 Route::prefix('admin')->middleware('can:isAdmin')->group(function () {
-
-    Route::view('/home', 'level3.homeAdmin')
-        ->name('homeAdmin');
 
     Route::get('/crud-faq', [CrudFaqController::class, 'showCrud'])
         ->name('crud-faq');
