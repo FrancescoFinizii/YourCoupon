@@ -17,7 +17,7 @@
             <li><a href="{{route('about')}}" class="nav-link">About us</a></li>
             @can('isAdmin')
 {{--                <li><a href="{{ route('admin') }}" class="nav-link" title="Home Admin">Home Admin</a></li>--}}
-                <li><a href=" " class="nav-link" title="Home Admin">Home Admin</a></li>
+                <li><a href="{{ route('homeAdmin') }}" class="nav-link" title="Home Admin">Home Admin</a></li>
             @endcan
             @can('isStaff')
                 {{--                <li><a href="{{ route('user') }}" class="nav-link" title="Home User">Home User</a></li>--}}

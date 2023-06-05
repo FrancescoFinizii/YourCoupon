@@ -1,4 +1,9 @@
 @extends('layouts.admin-layout')
+
+@section('link')
+    <link rel="stylesheet" href="{{asset ("css/christian/crud_stylesheet.css") }}">
+@endsection
+
 @section('title','CRUD STAFF')
 @section('content')
     <div class="background">
@@ -26,29 +31,27 @@
                             </thead>
 
                             @foreach ($staff as $utente)
-                                @if($utente->Livello === 2)
                                     <tbody>
                                     <tr>
                                         <th> {{ $loop->iteration }} </th>
                                         <td>
                                             @include('helpers/proPic', ['imgFile' => $utente->ProPic])
-                                            {{ $utente-> Username }}
+                                            {{ $utente-> username }}
                                         </td>
                                         <td> {{ $utente-> Nome }} </td>
                                         <td> {{ $utente -> Cognome }} </td>
                                         <td> {{ $utente-> Telefono }} </td>
                                         <td> {{ $utente-> Email }} </td>
                                         <td>
-                                            <a href="{{ route('salvaModificaStaff', [$utente->Username]) }}">
+                                            <a href="{{ route('salvaModificaStaff', [$utente->username]) }}">
                                                 <button class="edit-button">Modifica</button>
                                             </a>
-                                            <a href="{{ route('eliminaStaff', $utente->Username) }}" onclick="return confirm('Sei sicuro di voler eliminare questo utente?')">
+                                            <a href="{{ route('eliminaStaff', $utente->username) }}" onclick="return confirm('Sei sicuro di voler eliminare questo utente?')">
                                                 <button class="delete-button"> Elimina </button>
                                             </a>
                                         </td>
                                     </tr>
                                     </tbody>
-                                @endif
                             @endforeach
 
                         </table>

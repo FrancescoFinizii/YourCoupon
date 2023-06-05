@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script type="text/javascript" src="{{asset("js/francesco.js")}}"></script>
-    <link rel="stylesheet" href="{{asset ("css/francesco/elements.css") }}">
+    <link rel="stylesheet" href="{{asset ("css/francesco/elements.css") }}">    @yield('link')
     <link rel="stylesheet" href="{{asset ("css/francesco/style.css") }}">
 
 </head>

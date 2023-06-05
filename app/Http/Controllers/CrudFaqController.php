@@ -67,7 +67,8 @@ class CrudFaqController extends Controller
         }
     }
 
-    public function eseguita(){
+    public function eseguita()
+    {
         $messaggio = session('message');
 
         return view('level3.faq.crud_faq.operazioneEseguita', ['message' => $messaggio]);

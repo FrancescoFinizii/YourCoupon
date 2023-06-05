@@ -9,16 +9,18 @@
     <section id="coupon">
         <div class="coupon-card">
             <div class="left-card">
-                <img src="https://i.postimg.cc/KvTqpZq9/uber.png" id="company-logo">
-                <h3>20% flat off on all rides within the cityusing HDFC Credit Card</h3>
+{{--                <img  width="100px" height="100px" style=" object-fit: cover;" src="{{ asset('img/products/'.$offerta->FotoProd) }}" alt="FotoProdotto">--}}
+{{--                <img width="40px" height="40px" style=" object-fit: cover;" src="https://i.postimg.cc/KvTqpZq9/uber.png" id="company-logo">--}}
+                <h3>Offerta di {{ $azienda->RagioneSociale }}</h3>
+                <h4>{{ $offerta->Descrizione }}</h4>
                 <div class="coupon-row">
-                    <span id="promo-code">STEALDEAL20 {{$id}}</span>
-                    <a href="#">View Promo</a>
+                    <span id="promo-code">{{$coupon->IDCoupon}}</span>
+                    <a href="{{route('offerta', ['id'=>$offerta->IDOfferta])}}">Vedi Promo</a>
                 </div>
-                <p>Validità: 20Dec, 2021</p>
+                <p>Scadenza: {{ $offerta->Scadenza }}</p>
             </div>
             <div class="right-card">
-                <img id="qr-code" width=200px height=200px src="{{asset("img/qrcode.png")}}">
+                <img id="qr-code" width=200px style="margin: 20px" height=200px src="{{asset("img/qrcode.png")}}">
                 <button class="btn-rect btn-light" type="button">Stampa</button>
             </div>
             <div class="circle1"></div>

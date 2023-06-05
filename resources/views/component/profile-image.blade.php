@@ -2,7 +2,7 @@
     <div class="profile-img-cont">
         <input id="file" type="file" accept=".jpg,.jpeg,.png" onchange="validateFileType()"/>
         <label for="file">
-            <img id="profile-image" width="200px" height="200px" src="{{asset("img/cicciogamer89.jpg")}}">
+            <img id="profile-image" width="200px" height="200px" src="{{asset("img/".Auth::user()->ProPic)}}">
             <div class="edit-profile-cont">
                             <span class="edit-profile-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

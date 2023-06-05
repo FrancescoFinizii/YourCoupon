@@ -1,5 +1,5 @@
 {{--@extends('faq.admin_layout')--}}
-@extends('layouts.admin-layout')
+@extends('layouts.public-layout')
 @section('title', 'Chi siamo')
 @section('link')
 

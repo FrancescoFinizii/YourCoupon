@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CrudFaqController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\CatalogoController;
 
 
@@ -9,8 +10,6 @@ Route::post('/home', function () {
     echo "hello";
 });
 
-Route::get('/crud-faq', [CrudFaqController::class, 'showCrud'])
-    ->name('crud-faq');
 /*
 Route::view('/crud-faq/newfaq', [CrudFaqController::class, 'insertFaq'])
     ->name('newfaq.insert');*/
@@ -22,43 +21,45 @@ Route::get('/crud-faq/newfaq', [CrudFaqController::class, 'insertFaq'])
 Route::post('/crud-faq/modifyfaq', [CrudFaqController::class, 'modifyFaq'])
     ->name('modifica');*/
 
+Route::view('/statistiche', 'level3.statistics.allstatistics')
+    ->name('statistiche');
 
-//rotte crud-faq
-Route::get('/crud-faq/edit', [CrudFaqController::class, 'insertFaq'])
-    ->name('action');
+Route::prefix('admin')->middleware('can:isAdmin')->group(function () {
 
-Route::post('/crud-faq/edit', [CrudFaqController::class, 'modifyFaq'])
-    ->name('action');
+    Route::view('/home', 'level3.homeAdmin')
+        ->name('homeAdmin');
 
-Route::post('/crud-faq/edit/newfaq', [CrudFaqController::class, 'storeFaq'])
-    ->name('store');
+    Route::get('/crud-faq', [CrudFaqController::class, 'showCrud'])
+        ->name('crud-faq');
 
-Route::post('/crud-faq/edit/update', [CrudFaqController::class, 'updateFaq'])
-    ->name('update');
+    // --Level 3 (admin gestione faq)
+    Route::get('/crud-faq/edit', [CrudFaqController::class, 'insertFaq'])
+        ->name('action');
 
-Route::post('/crud-faq/deletefaq', [CrudFaqController::class, 'deleteFaq'])
-    ->name('deletefaq');
+    Route::post('/crud-faq/edit', [CrudFaqController::class, 'modifyFaq'])
+        ->name('action');
 
-Route::get('/crud-faq/eseguita', [CrudFaqController::class, 'eseguita'])
-    ->name('eseguita');
+    Route::post('/crud-faq/edit/newfaq', [CrudFaqController::class, 'storeFaq'])
+        ->name('store');
+
+    Route::post('/crud-faq/edit/update', [CrudFaqController::class, 'updateFaq'])
+        ->name('update');
+
+    Route::post('/crud-faq/deletefaq', [CrudFaqController::class, 'deleteFaq'])
+        ->name('deletefaq');
+
+    Route::get('/crud-faq/eseguita', [CrudFaqController::class, 'eseguita'])
+        ->name('eseguita');
+});
 
 
 //rotta chi siamo/about
 
 Route::view('/about', 'level0.about')
-    ->name('about')->middleware('can:isAdmin');;
+    ->name('about');
 
-Route::view('/faq', 'level0.about')
+Route::get('/faq', [FaqController::class, 'showFaq'])
     ->name('faq');
-
-//rotte catalogo
-
-/*
-Route::get('/catalogo', [CrudFaqController::class, 'eseguita'])
-    ->name('catalogo');*/
-/*
-Route::view('/catalogo', 'catalogo.catalogo')
-    ->name('catalogo');*/
 
 Route::get('/catalogo', [CatalogoController::class, 'index'])
     ->name('catalogo');
@@ -68,6 +69,12 @@ Route::get('/catalogo/search', [CatalogoController::class, 'searchCatalogo'])
 
 Route::get('/offerta/{id}', [CatalogoController::class, 'showOfferta'])
     ->name('offerta');
+
+Route::get('/offerta/coupon/{id}', [CatalogoController::class, 'salvaCoupon'])
+    ->name('coupon');
+
+Route::get('/couponError', [CatalogoController::class, 'errore'])
+    ->name('couponError');
 
 
 require __DIR__ . '/auth.php';

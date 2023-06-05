@@ -1,19 +1,19 @@
 <nav class="admin-nav">
     <ul>
         <li>
-            <a href="">Company</a>
+            <a href="{{ route('crud_aziende') }}">Gestisci Aziende</a>
         </li>
         <li>
-            <a href="">Staff</a>
+            <a href="{{ route('crud_staff') }}">Gestisci Staff</a>
         </li>
         <li>
-            <a href="">User</a>
+            <a href="{{ route('gestione_user') }}">Gestisci Utenti</a>
         </li>
         <li>
-            <a href="">FAQ</a>
+            <a href="{{ route('crud-faq') }}">Gestisci FAQ</a>
         </li>
         <li>
-            <a href="">Statistics</a>
+            <a href="">Statistiche</a>
         </li>
     </ul>
 </nav>

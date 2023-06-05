@@ -6,9 +6,6 @@
 @endsection
 @section('catalogo-content')
 
-
-
-
     <div class="offerta">
         <div class="offerta-informazioni">
             <div class="div-image-offerta">
@@ -17,12 +14,37 @@
             <div class="sconto-div">
                 <h1>CODICE SCONTO del -{{ $offerta->Sconto }}%!</h1>
                 <p>Ricevi uno sconto del <b>{{ $offerta->Sconto }}%</b> sull'acquisto di {{$offerta->Titolo}}!</p>
-                <p>Lo paghi <b>solo <span class="prezzo-scontato">{{ number_format($prezzoScontato, 2, ',', '.') }} €</span></b></p>
+                <p>Lo paghi <b>solo <span
+                            class="prezzo-scontato">{{ $prezzoScontato }} €</span></b></p>
+{{--                class="prezzo-scontato">{{ number_format((floatval($prezzoScontato), 2,',','.') }} €</span></b></p>--}}
                 <p>Invece di <b>{{ $offerta->Prezzo }}</b> €</p>
+                @can('isUser')
+                    <a href="{{route('coupon', ['id'=>$offerta->IDOfferta])}}">
+                        <button class="btn-pagina-offerta btn-offerta-coupon" type="button">
+                            OTTIENI IL TUO COUPON
+                        </button>
+                    </a>
+                @endcan
+                @can('isGuest')
 
-                <button class="btn-pagina-offerta btn-offerta-coupon" type="button">
-                    OTTIENI IL TUO COUPON
-                </button>
+                    <a href="{{route('login')}}">
+                        <button class="btn-pagina-offerta btn-offerta-coupon" type="button">
+                            ACCEDI PER OTTIENERE IL TUO COUPON
+                        </button>
+                    </a>
+
+                @endcan
+                @can('isStaff')
+
+                    <a href="{{route('coupon', ['id'=>$offerta->IDOfferta])}}">
+                        <button disabled class="btn-pagina-offerta btn-offerta-coupon" type="button">
+                            OTTIENI IL TUO COUPON
+                        </button>
+                    </a>
+
+                @endcan
+
+
                 <button class="btn-pagina-offerta btn-azienda-coupon" type="button">
                     LINK AL SITO DELL'AZIENDA
                 </button>
@@ -78,10 +100,5 @@
 
 
     </div>
-
-
-
-
-
 
 @endsection

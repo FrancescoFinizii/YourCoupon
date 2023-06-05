@@ -1,6 +1,33 @@
 @extends('layouts.admin-layout')
-
+@section('link')
+    <link rel="stylesheet" href="{{asset ("css/christian/crud_stylesheet.css") }}">
+@endsection
 @section('title', 'Inserisci Staff')
+
+@section('scripts')
+
+    @parent
+
+    <script src="{{asset('js/christian/chri.js')}}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            var actionUrl = "{{ route('insertStaffSave') }}";
+            var formId = 'salvaStaff';
+            $(":input").on('blur', function (event) {
+                var formElementId = $(this).attr('id');
+                doElemValidation(formElementId, actionUrl, formId);
+            });
+            $("#salvaStaff").on('submit', function (event) {
+                event.preventDefault();
+                doFormValidation(actionUrl, formId);
+            });
+        });
+    </script>
+
+@endsection
+
 @section('content')
     <div class="background">
         <div class="large-table">
@@ -10,16 +37,16 @@
                         <h2> Inserisci membro dello Staff </h2>
                     </div>
                     <div class="table-chri">
-                        {{ Form::open(array('route' => 'insertStaffSave', 'files' => true)) }}
+                        {{ Form::open(array('route' => 'insertStaffSave', 'id' => 'salvaStaff', 'files' => true)) }}
                         {{ Form::token() }}
                         <div class="row-chri">
                             <div class="cell-1of2">
-                                {{ Form::label('Username', 'Inserisci lo Username') }}
-                                {{ Form::text('Username', '', ['class' => 'form-control', 'id' => 'Username']) }}
+                                {{ Form::label('username', 'Inserisci lo Username') }}
+                                {{ Form::text('username', '', ['class' => 'form-control', 'id' => 'username']) }}
                             </div>
                             <div class="cell-1of2">
-                                {{ Form::label('Password', 'Imposta la Password') }}
-                                {{ Form::password('Password',  ['class' => 'form-control', 'id' => 'Password']) }}
+                                {{ Form::label('password', 'Imposta la Password') }}
+                                {{ Form::password('password', ['class' => 'form-control', 'id' => 'password']) }}
                             </div>
                             <div class="cell-1of2">
                                 {{ Form::label('Nome', 'Inserisci il Nome') }}
@@ -50,6 +77,7 @@
                                 {{ Form::file('ProPic', ['class' => 'form-control', 'id' => 'ProPic']) }}
                             </div>
                             {{ Form::submit('Aggiungi Staff', ['class' => 'btn']) }}
+                            {{ Form::button('Torna Indietro', ['class' => 'btn btn-blue', 'onclick' => 'window.history.back()']) }}
                         </div>
                         {{ Form::close() }}
                     </div>

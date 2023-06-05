@@ -7,7 +7,8 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Symfony\Component\HttpFoundation\Response;
 
-class NewOffertaRequest extends FormRequest {
+
+class NewAziendaRequest extends FormRequest {
 
     /**
      * Determine if the user is authorized to make this request.
@@ -27,18 +28,20 @@ class NewOffertaRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'Titolo' => 'required|max:30',
-            'Prezzo' => 'required|numeric',
-            'Sconto' => 'required|integer|min:0|max:99',
-            'Azienda' => 'required|integer',
-            'Inizio' => 'required|date',
-            'Scadenza' => 'required|date|after:Inizio',
-            'Fruizione' => 'required|max:30',
+            'RagioneSociale' => 'required|max:50',
+            'Sede' => 'required|max:50',
+            'Tipologia' => 'required|max:50',
             'Descrizione' => 'required|max:2500',
-            'FotoProd' => 'nullable',
+            'Mail' => 'required|email|max:50',
+            'Link' => 'required|max:200',
+            'Telefono' => 'required|numeric|regex:/^\d{10}$/',
+            'Logo' => 'nullable'
         ];
     }
 
+    /**
+     * Override: response in formato JSON
+     */
     protected function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(response($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY));

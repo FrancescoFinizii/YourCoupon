@@ -1,13 +1,16 @@
-.my-container {
-    background: linear-gradient(90deg, #e33cd1 0%, #6610f2 50%, #e33cd1 100%);
+.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: linear-gradient(90deg, #1c1c1c 0%, #4b4b4b 50%, #1c1c1c 100%);
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    padding: 40px 0;
+
 }
 
 body {
     margin: 0 auto;
 }
+
 
 /* ________________________
    |                      |
@@ -126,7 +129,6 @@ per nascondere la scrollbar nella textarea
 }
 
 .faq-button {
-    height: 50px;
     background-color: #3763f4;
     display: inline-block;
     padding: 10px 15px;
@@ -136,9 +138,8 @@ per nascondere la scrollbar nella textarea
     font-weight: normal;
     color: white;
     margin: 20px 5px;
-    box-shadow: 2px 2px 3px black;
+    box-shadow: 0px 0px 4px black;
     border-radius: 5px;
-    width: auto;
 }
 
 .insert-button {
@@ -310,12 +311,12 @@ per nascondere la scrollbar nella textarea
     border-radius: 20px;
     width: auto;
     max-width: 300px;
-    height: 580px;
+    height: 90%;
     padding: 10px;
     text-align: center;
     margin: 10px 15px;
     box-shadow: -2px 2px 5px darkslategrey;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .about-card button {
@@ -421,15 +422,11 @@ per nascondere la scrollbar nella textarea
     width: 100%;
     max-width: 280px;
     padding: 10px;
-    height: 600px;
+    height: auto;
+    min-height: 550px;
     margin: 10px 15px;
     box-shadow: -2px 2px 5px darkslategrey;
 }
-
-.catalogo-card:hover {
-    transform: scale(1.02);
-}
-
 
 .catalogo-card img {
     width: 280px;
@@ -510,26 +507,14 @@ per nascondere la scrollbar nella textarea
     border-radius: 20px;
     font-size: 17px;
     border: 1px solid grey;
-    color: grey;
 }
 
-.search-select {
-    width: 300px;
-    height: 50px;
-    border-radius: 20px;
-    font-size: 17px;
-    padding: 0 15px;
-    border: 1px solid grey;
-    margin: 10px 0;
-    color: grey;
-}
 
-.catalogo-search-input:hover, .catalogo-search-input:focus, .search-select:hover, .search-select:focus {
+.catalogo-search-input:hover, .catalogo-search-input:focus {
     border: 1px solid #3763f4;
     background: rgba(131, 177, 195, .1);
     cursor: pointer;
     outline: none;
-    color: darkslategray;
 }
 
 .bottone-cerca {
@@ -551,6 +536,7 @@ per nascondere la scrollbar nella textarea
 }
 
 
+
 /* ________________________
    |                      |
    |                      |
@@ -559,12 +545,11 @@ per nascondere la scrollbar nella textarea
    |                      |
    ------------------------
 */
-.offerta {
+.offerta{
     /*---------------------------------------------------------*/
-    overflow: auto;
     /*---------------------------------------------------------*/
     background-color: #ffffff;
-    margin: 30px auto;
+    margin: 0 auto;
     border-radius: 20px;
     width: 70%;
     /*height: 1500px;*/
@@ -608,29 +593,27 @@ per nascondere la scrollbar nella textarea
     background-color: grey;
 }
 
-.btn-azienda-coupon:hover {
+.btn-azienda-coupon:hover{
     background-color: #444444;
 }
 
 .btn-offerta-coupon {
     margin-top: 30px;
     font-size: 25px;
-    background-color: #3763f4;
+    background-color: #7a7a7a;
 }
 
-.btn-offerta-coupon:hover {
-    background-color: #1e3582;
+.btn-offerta-coupon:hover{
+    transition: .4s;
+    background-color: #383838;
 }
 
 .div-image-offerta {
-    float: left;
     width: 45%;
-    margin: auto 20px;
 }
 
 
 .div-image-offerta img {
-    margin-left: 20px;
     width: 450px;
     display: block;
     height: 370px;
@@ -656,26 +639,20 @@ per nascondere la scrollbar nella textarea
 }
 
 
+
 .info-offerta {
     clear: both;
-    height: 150px;
     background-color: #ffffff;
     padding-top: 40px;
 }
 
 .info-offerta-div {
-    width: 48%;
-    float: left;
     background: #dee2e680;
     padding: 5px 25px;
     border-radius: 20px;
     margin-right: 2%;
-    min-height: 460px;
-    height: auto;
     line-height: 25px;
     text-align: left;
-    padding: 5px 25px;
-
 }
 
 .dettagli-offerta {
@@ -689,8 +666,10 @@ per nascondere la scrollbar nella textarea
     float: right;
 }
 
+.dettagli-offerta:first-child{
+}
+
 .dettagli-offerta h3 {
-    margin: 5px auto;
     color: #3763f4;
 }
 
@@ -698,7 +677,7 @@ per nascondere la scrollbar nella textarea
 .dettagli-offerta p {
 
     color: rgb(51, 51, 51);
-    font-size: 18px;
+    font-size: 20px;;
 }
 
 .info-offerta-div h3 {
@@ -707,17 +686,10 @@ per nascondere la scrollbar nella textarea
     font-family: Inter, sans-serif;
     color: #3763f4;
     font-weight: bold;
-
-
 }
-
 .offerta-informazioni {
-    margin: 0 auto 80px auto;
-    height: auto;
-    background: #dee2e680;
-    border-radius: 20px;
-
-
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .info-offerta-div p {
@@ -725,7 +697,7 @@ per nascondere la scrollbar nella textarea
     font-size: 20px;
 }
 
-.scopri-altro {
+.scopri-altro{
     clear: both;
     background-color: #dee2e680;
     width: auto;
@@ -733,122 +705,18 @@ per nascondere la scrollbar nella textarea
     height: auto;
     padding: 20px;
 }
-
-.prezzo-scontato {
+.prezzo-scontato{
     font-weight: bold;
     font-size: 30px;
     color: #e33cd1;
 }
 
 
-.scopri-altro h4 h5 {
+.scopri-altro h4 h5{
     color: #3763f4;
 }
 
-.scopri-altro a {
+.scopri-altro a{
     color: #e33cd1;
     text-decoration: none;
-}
-
-
-/* ________________________
-   |                      |
-   |                      |
-   |         FAQ          |
-   |                      |
-   |                      |
-   ------------------------
-*/
-.faq-content-domanda {
-    margin: 0 auto;
-    text-align: center;
-    border-radius: 7px;
-    width: 60%;
-    padding: 30px;
-    /*background: red;*/
-
-}
-
-
-.faq-content-domanda div {
-    text-align: left;
-    /*border-radius: 7px;*/
-    width: 100%;
-}
-
-
-.faq-domanda {
-    box-shadow: 2px 2px 4px rgba(60, 59, 59, 0.57);
-    margin-top: 15px;
-    border-radius: 7px;
-    /*border-bottom: 2px solid #3763f4;*/
-}
-
-/*.faq-domanda:first-child{*/
-/*    border-radius: 7px 7px 0 0;*/
-/*}*/
-
-.faq-accordion {
-    border-radius: 7px;
-    background-color: #eee;
-    font-size: 22px;
-    font-weight: lighter;
-    color: #3763f4;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    text-align: left;
-    border: none;
-    outline: none;
-    transition: 0.4s;
-}
-
-.faq-accordion:hover {
-    background-color: #e0e0e0;
-}
-
-.faq-risposta {
-    margin-top: -7px;
-    padding: 20px;
-    height: auto;
-    border-radius: 0 0 7px 7px;
-    padding: 0 18px;
-    background-color: #eee;
-    font-size: 18px;
-    display: none;
-    overflow: hidden;
-    /*assicura che il contenuto all'interno del pannello non venga visualizzato al di fuori della sua area designata*/
-}
-
-.active{
-    background-color: #e0e0e0;
-}
-
-.faq-heading{
-    font-weight: 100;
-    margin: 0 auto;
-    color: #3763f4;
-}
-
-/*
-.faq-risposta{
-    padding: 20px;
-    !*display: none;*!
-    font-size: 20px;
-    padding: 10px;
-}*/
-
-/*home admin*/
-.adminHome{
-    height: 300px;
-    text-align: center;
-    margin: 40px auto;
-}
-
-.adminHome p{
-    font-size: 30px;
-}
-.adminHome h1{
-    color: #3763f4;
-    font-size: 40px;
 }
