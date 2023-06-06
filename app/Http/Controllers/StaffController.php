@@ -39,9 +39,10 @@ class StaffController extends Controller
             'Nascita' => 'required|date',
             'Telefono' => 'required|numeric|regex:/^\d{10}$/',
             'ProPic' => 'nullable',
+            'Genere' => 'required',
         ]);
         $utente->fill($val)->update();
-        return redirect()->back();
+        return redirect()->back()->with('success','Successfully update your personal information!');;
     }
 
     public function updatePassword(Request $request, $username)

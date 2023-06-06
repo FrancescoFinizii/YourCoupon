@@ -31,17 +31,13 @@
                 {{ Form::label("Nascita", "Date of birth:") }}
                 {{ Form::date('Nascita', $utente->Nascita, [ 'id'=>'Nascita', "placeholder" => "Phone"]) }}
             </div>
+            <div class="cell-1of2">
+                {{ Form::label("Genere", "Genere")}}
+                {{ Form::select('Genere', ['Uomo' => 'Uomo', 'Donna' => 'Donna', 'Altro' => 'Altro'], $utente->Genere, ['class' => 'select', 'id' => 'Genere']) }}
+            </div>
         </div>
         <div class="row-flex">
             <div class="cell-1of2">
-                <div class="radio-container">
-                    {{ Form::radio('genere', "Uomo" , False, ["id" => "Uomo"]) }}
-                    {{ Form::label("male", "Uomo") }}
-                </div>
-                <div class="radio-container">
-                    {{ Form::radio('genere', "Donna", True, ["id" => "Donna"]) }}
-                    {{ Form::label("female", "Donna") }}
-                </div>
             </div>
             <div class="cell-1of2" id="info-btn-container">
                 {{ Form::button('Submit', ['class' => 'btn btn-blue', "type" => "submit"]) }}

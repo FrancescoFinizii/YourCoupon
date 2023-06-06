@@ -58,15 +58,35 @@ Route::prefix('user/{username}')->group(function () {
 
 // --Level 2 (staff area)
 Route::prefix('staff/{username}')->group(function () {
-    Route::prefix('/edit')->group(function () {
-        Route::put("/updateProfile", [StaffController::class, 'updateProfile'])
+    Route::prefix('/profile')->group(function () {
+        Route::put("/update", [StaffController::class, 'updateProfile'])
             ->name('staffProfileUpdate');
-        Route::put("updatePassword", [StaffController::class, 'updatePassword'])
+        Route::get("/edit", [StaffController::class, 'editProfile'])
+            ->name('staffProfile');
+    });
+    Route::prefix('/password')->group(function () {
+        Route::put("update", [StaffController::class, 'updatePassword'])
             ->name('staffPasswordUpdate');
-        Route::get("/profile", [StaffController::class, 'editProfile'])
-            ->name('staffProfile');;
-        Route::get("/password", [StaffController::class, 'editPassword'])
+        Route::get("/edit", [StaffController::class, 'editPassword'])
             ->name('staffPassword');
+    });
+    Route::prefix('offerte')->group(function () {
+        Route::get('/crud_offerte', [OffertaController::class, 'showAllOfferte'])
+            ->name('crud_offerte');
+
+        Route::get('/newoff', [OffertaController::class, 'creaOff'])
+            ->name('insertOff');
+        Route::post('/newoff', [OffertaController::class, 'salvaOff'])
+            ->name('insertOffSave');
+
+        Route::get('/offerta/{IDOfferta}/modifica', [OffertaController::class, 'modificaOff'])
+            ->name('modificaOff');
+        Route::post('/offerta/{IDOfferta}/modifica', [OffertaController::class, 'salvaModificaOff'])
+            ->name('salvaModificaOff');
+
+        Route::get('/offerta/{IDOfferta}/elimina', [OffertaController::class, 'eliminaOfferta'])
+            ->name('eliminaOfferta');
+
     });
 
 });
@@ -101,23 +121,5 @@ Route::prefix('admin')->group(function () {
         ->name('eliminaStaff');
 });
 
-// --Level 2 (staff crud offerte area)
-Route::prefix('staff')->group(function () {
-    Route::get('/crud_offerte', [OffertaController::class, 'showAllOfferte'])
-        ->name('crud_offerte');
 
-    Route::get('/newoff', [OffertaController::class, 'creaOff'])
-        ->name('insertOff');
-    Route::post('/newoff', [OffertaController::class, 'salvaOff'])
-        ->name('insertOffSave');
 
-    Route::get('/offerta/{IDOfferta}/modifica', [OffertaController::class, 'modificaOff'])
-        ->name('modificaOff');
-    Route::post('/offerta/{IDOfferta}/modifica', [OffertaController::class, 'salvaModificaOff'])
-        ->name('salvaModificaOff');
-
-    Route::get('/offerta/{IDOfferta}/elimina', [OffertaController::class, 'eliminaOfferta'])
-        ->name('eliminaOfferta');
-
-    Route::view("/statistiche", "level3/statistics/statistics_offerte");
-});

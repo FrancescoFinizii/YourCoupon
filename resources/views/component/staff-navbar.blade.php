@@ -1,13 +1,13 @@
 <nav class="staff-nav">
     <ul>
         <li>
-            <a href="{{URL::route(['staffProfile', $utente->username])}}">Profilo</a>
+            <a href="{{route('staffProfile', [$utente -> username])}}">Profilo</a>
         </li>
         <li>
-            <a href="" >Password</a>
+            <a href="{{route('staffPassword', [$utente -> username])}}" >Password</a>
         </li>
         <li>
-            <a href="">Offerte</a>
+            <a href="{{route('crud_offerte', [$utente->username])}}">Offerte</a>
         </li>
         <li>
             <a href="">Offerte Abbinate</a>
