@@ -3,57 +3,55 @@
 @section("content")
     <div class="schede" id="profile-div">
         <h1>Account settings</h1>
-        <form id="profile-info-form">
-            <div class="row-flex">
-                <div class="cell-1of2">
-                    <label>Name:</label>
-                    <input type="text" id="nome" placeholder="Name" required maxlength="15">
+        {{ Form::open(array('route' => ['userUpdate', $utente->username], "id" =>"profile-info-form", 'method' => 'PUT')) }}
+        {{ Form::token() }}
+        <div class="row-flex">
+            <div class="cell-1of2">
+                {{ Form::label("Nome", "Name:") }}
+                {{ Form::text('Nome', $utente->Nome, [ 'id'=>'Nome', "placeholder" => "Name"]) }}
+
+            </div>
+            <div class="cell-1of2">
+                {{ Form::label("Cognome", "Surname:") }}
+                {{ Form::text('Cognome', $utente->Cognome, [ 'id'=>'Cognome', "placeholder" => "Surname"]) }}
+            </div>
+        </div>
+        <div class="row-flex">
+            <div class="cell-1of2">
+                {{ Form::label("Email", "Email:") }}
+                {{ Form::email('Email', $utente->Email, [ 'id'=>'Email', "placeholder" => "Email"]) }}
+            </div>
+            <div class="cell-1of2">
+                {{ Form::label("Telefono", "Phone number:") }}
+                {{ Form::tel('Telefono', $utente->Telefono, ['id'=>'Telefono', "placeholder" => "Phone"]) }}
+            </div>
+        </div>
+        <div class="row-flex">
+            <div class="cell-1of2">
+                {{ Form::label("Nascita", "Date of birth:") }}
+                {{ Form::date('Nascita', $utente->Nascita, [ 'id'=>'Nascita', "placeholder" => "Phone"]) }}
+            </div>
+            <div class="cell-1of2">
+                {{ Form::label("username", "Username:") }}
+                {{ Form::text('username', $utente->username, [ 'id'=>'username', "placeholder" => "Username"]) }}
+            </div>
+        </div>
+        <div class="row-flex">
+            <div class="cell-1of2">
+                <div class="radio-container">
+                    {{ Form::radio('genere', "Uomo" , False, ["id" => "Uomo"]) }}
+                    {{ Form::label("male", "Uomo") }}
                 </div>
-                <div class="cell-1of2">
-                    <label>Surname:</label>
-                    <input type="text" id="cognome" placeholder="Surname" required maxlength="15">
+                <div class="radio-container">
+                    {{ Form::radio('genere', "Donna", True, ["id" => "Donna"]) }}
+                    {{ Form::label("female", "Donna") }}
                 </div>
             </div>
-            <div class="row-flex">
-                <div class="cell-1of2">
-                    <label>Email:</label>
-                    <input class="form-control" type="email" id="email" placeholder="Email" maxlength="30"
-                           required pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
-                </div>
-                <div class="cell-1of2">
-                    <label>Phone number:</label>
-                    <input class="form-control" type="tel" id="telefono" placeholder="Phone" maxlength="13"
-                           required pattern="[0-9]{10}">
-                </div>
+            <div class="cell-1of2" id="info-btn-container">
+                {{ Form::button('Submit', ['class' => 'btn btn-blue', "type" => "submit"]) }}
+                {{ Form::button('Reset', ['class' => 'btn btn-light', "type" => "reset"]) }}
             </div>
-            <div class="row-flex">
-                <div class="cell-1of2">
-                    <label>Date of birth:</label>
-                    <input class="form-control" id="dataNascita" placeholder="Data di nascita" type="date"
-                           required>
-                </div>
-                <div class="cell-1of2">
-                    <label>Username:</label>
-                    <input class="form-control" type="text" id="username" placeholder="Username"
-                           maxlength="10" required>
-                </div>
-            </div>
-            <div class="row-flex">
-                <div class="cell-1of2">
-                    <div class="radio-container">
-                        <input type="radio" id="male" name="genere">
-                        <label for="male">Male</label>
-                    </div>
-                    <div class="radio-container">
-                        <input type="radio" id="female" name="genere">
-                        <label for="female">Female</label>
-                    </div>
-                </div>
-                <div class="cell-1of2" id="info-btn-container">
-                    <button class="btn btn-blue" type="submit">Submit</button>
-                    <button class="btn btn-light" type="reset">Reset</button>
-                </div>
-            </div>
-        </form>
+        </div>
+        {{ Form::close() }}
     </div>
 @endsection

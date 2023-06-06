@@ -36,17 +36,3 @@ $(window).resize(switchStyle)
 
 $(document).ready(switchStyle)
 
-
-
-
-function validateFileType(){
-    var fileName = document.getElementById("file");
-    console.log(fileName.dir);
-    var extFile = fileName.value.split('.')[1];
-    if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
-        //TO DO
-    }
-    else{
-        alert("Invalid format!\nOnly jpg/jpeg and png files are allowed!");
-    }
-}

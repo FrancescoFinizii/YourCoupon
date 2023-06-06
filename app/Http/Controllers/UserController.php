@@ -2,36 +2,69 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Utente;
+
 use Illuminate\Http\Request;
+use App\Models\Utente;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
 
-    public function edit($id)
+    public function edit($username)
     {
+        $utente = Utente::find($username);
 
-        $utente = Utente::find($id);
-
-        return view('level1.user-information')
+        return view("level1.user-information")
             ->with('utente', $utente);
     }
 
+    public function editPass($username)
+    {
+        $utente = Utente::find($username);
+
+        return view("level1.user-password")
+            ->with('utente', $utente);
+    }
 
     /**
      * Aggiorna la risorsa Book con l'id fornito sul database coi dati inviati
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $username)
+
     {
-        $utente = Utente::find($id);
-        // redirect
-        Session::flash('message', 'Successfully created user!');
-        $utente->update($request->all());
+        $view = "m";
+        $utente = Utente::find($username);
 
-        return redirect()->route('utente.edit')
-            ->with('utente',$utente);
+        if ($view == "level1.user-information") {
+            $val = $request->validate([
+                'Nome' => 'required|max:30',
+                'Cognome' => 'required|max:30',
+                'Email' => 'required|email|max:50',
+                'Nascita' => 'required|date',
+                'Telefono' => 'required|numeric|regex:/^\d{10}$/',
+                'ProPic' => 'nullable',
+            ]);
+            $utente->fill($val)->update();
+        } else {
+            $request->validate([
+                'oldPassword' => 'required',
+                'password' => 'required|min:8|confirmed|different:oldPassword',
+                'password_confirmation' => 'required| min:8'
+            ]);
+
+            if(Hash::check($request->oldPassword , $utente->password)) {
+                $utente->fill([
+                    'password' => Hash::make($request->password)
+                ])->update();
+                return redirect()->back()->with('success','Password changed successfully!');
+            }
+
+            else
+                return redirect()->back()->withErrors(['msg' => 'Password attuale non valida.']);
 
 
+
+        }
     }
 
     /**

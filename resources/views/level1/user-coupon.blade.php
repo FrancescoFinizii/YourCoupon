@@ -4,38 +4,15 @@
     <div class="schede" id="coupon-div">
         <h1>My coupon</h1>
         <div class="user-coupon">
-            <a class="coupon-item" href="{{url("/user/coupon/1")}}">
-                <img src="{{asset("img/qrcode.png")}}">
-                <p>promo nome</p>
-            </a>
-            <a class="coupon-item" href="{{url("/user/coupon/2")}}">
-                <img src="{{asset("img/qrcode.png")}}">
-                <p>promo nome</p>
-            </a>
-            <a class="coupon-item" href="{{url("/user/coupon/3")}}">
-                <img src="{{asset("img/qrcode.png")}}">
-                <p>promo nome</p>
-            </a>
-            <a class="coupon-item" href="{{url("/user/coupon/4")}}">
-                <img src="{{asset("img/qrcode.png")}}">
-                <p>promo nome</p>
-            </a>
-            <a class="coupon-item" href="{{url("/user/coupon/5")}}">
-                <img src="{{asset("img/qrcode.png")}}">
-                <p>promo nome</p>
-            </a>
-            <a class="coupon-item" href="{{url("/user/coupon/6")}}">
-                <img src="{{asset("img/qrcode.png")}}">
-                <p>promo nome</p>
-            </a>
-            <a class="coupon-item" href="{{url("/user/coupon/7")}}">
-                <img src="{{asset("img/qrcode.png")}}">
-                <p>promo nome</p>
-            </a>
-            <a class="coupon-item" href="{{url("/user/coupon/8")}}">
-                <img src="{{asset("img/qrcode.png")}}">
-                <p>promo nome</p>
-            </a>
+            @if(!empty($data) && $data->count())
+                @foreach($data as $key => $value)
+                    <a class="coupon-item" href="">
+                        <img src="{{asset("img/qrcode.png")}}">
+                        <p>{{ $value->IDCoupon }}</p>
+                    </a>
+                @endforeach
+            @else
         </div>
+        {!! $data->links() !!}
     </div>
 @endsection

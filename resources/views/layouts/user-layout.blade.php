@@ -15,7 +15,20 @@
 <body>
 @include("component.main-navbar")
 <div class="my-container">
-    <div class="wrapper-dashboard">
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <p>ATTENZIONE! Si sono verificati i seguenti errori:</p>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @if ($message = Session::get('success'))
+        <p class="alert alert-success">{{ $message }}</p>
+    @endif
+        <div class="wrapper-dashboard">
         <div class="left-menu">
             <h2 id="profile-username">Cicciogamer89</h2>
             @include("component.profile-image")

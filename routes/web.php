@@ -32,18 +32,27 @@ Route::get('/azienda/{IDAzienda}', [AziendaController::class, 'mostraAzienda'])
 
 // --Level 1 (user area)
 
-Route::prefix('user')->group(function () {
+/*Route::prefix('user')->group(function () {
     Route::view("/profile", "level1/user-information");
     Route::view("/password", "level1/user-password");
     Route::view("/coupon", "level1/user-coupon");
     Route::get("/coupon/{id}", function($id) {
         return view("level1/coupon", ["id"=>$id]);
     });
+});*/
+
+// --Level 1 (user area)
+
+Route::prefix('user/{username}')->group(function () {
+    Route::prefix('/edit')->group(function () {
+        Route::put("/", [UserController::class, 'update'])
+            ->name('userUpdate');
+        Route::get("/profile", [UserController::class, 'edit'])
+            ->name('userProfile');
+        Route::get("/password", [UserController::class, 'editPass'])
+            ->name('userPassword');;
+    });
 });
-
-Route::resource('user', UserController::class, [
-]);
-
 
 // --Level 2 (staff area)
 Route::prefix('staff/{username}')->group(function () {
@@ -104,7 +113,5 @@ Route::prefix('admin')->group(function () {
         ->name('eliminaOfferta');
 
     Route::view("/statistiche", "level3/statistics/statistics_offerte");
-
-
 
 });

@@ -111,7 +111,6 @@ class DatabaseSeeder extends Seeder
             ['users' => 'Persona12', 'Pacchetto' =>'5', 'IDCoupon' => '14', 'QRCode' => 'a'],
             ['users' => 'Persona12', 'Pacchetto' =>'6', 'IDCoupon' => '15', 'QRCode' => 'a'],
 
-
         ]);
 
 
