@@ -63,6 +63,7 @@ Route::prefix('staff/{username}')->group(function () {
             ->name('staffProfile');;
         Route::get("/password", [StaffController::class,'editPass']);
     });
+
 });
 Route::get("/example", [StatisticController::class, "getTotCoupon"]);
 Route::get("/example2", [StatisticController::class, "getCouponFromUser"]);
@@ -93,25 +94,25 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/staff/{username}/elimina', [AdminController::class, 'eliminaStaff'])
         ->name('eliminaStaff');
-
-
-    // --Level 3 (admin crud offerte area)
-    Route::get('/crud_offerte', [OffertaController::class, 'showAllOfferte'])
-        ->name('crud_offerte');
-
-    Route::get('/newoff', [OffertaController::class, 'creaOff'])
-        ->name('insertOff');
-    Route::post('/newoff', [OffertaController::class, 'salvaOff'])
-        ->name('insertOffSave');
-
-    Route::get('/offerta/{IDOfferta}/modifica', [OffertaController::class, 'modificaOff'])
-        ->name('modificaOff');
-    Route::post('/offerta/{IDOfferta}/modifica', [OffertaController::class, 'salvaModificaOff'])
-        ->name('salvaModificaOff');
-
-    Route::get('/offerta/{IDOfferta}/elimina', [OffertaController::class, 'eliminaOfferta'])
-        ->name('eliminaOfferta');
-
-    Route::view("/statistiche", "level3/statistics/statistics_offerte");
-
 });
+
+    // --Level 2 (staff crud offerte area)
+    Route::prefix('staff')->group(function () {
+        Route::get('/crud_offerte', [OffertaController::class, 'showAllOfferte'])
+            ->name('crud_offerte');
+
+        Route::get('/newoff', [OffertaController::class, 'creaOff'])
+            ->name('insertOff');
+        Route::post('/newoff', [OffertaController::class, 'salvaOff'])
+            ->name('insertOffSave');
+
+        Route::get('/offerta/{IDOfferta}/modifica', [OffertaController::class, 'modificaOff'])
+            ->name('modificaOff');
+        Route::post('/offerta/{IDOfferta}/modifica', [OffertaController::class, 'salvaModificaOff'])
+            ->name('salvaModificaOff');
+
+        Route::get('/offerta/{IDOfferta}/elimina', [OffertaController::class, 'eliminaOfferta'])
+            ->name('eliminaOfferta');
+
+        Route::view("/statistiche", "level3/statistics/statistics_offerte");
+    });

@@ -4,6 +4,8 @@
     <title>
         @yield("title")
     </title>
+    @section('scripts')
+    @show
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @if (View::getSection('title')=='Abbina Offerte')
@@ -15,12 +17,15 @@
     <link rel="stylesheet" href="{{asset ("css/kristian/miostile.css") }}">
     <link rel="stylesheet" href="{{asset ("css/francesco/elements.css") }}">
     <link rel="stylesheet" href="{{asset ("css/francesco/style.css") }}">
+    @yield('link')
+    <link rel="stylesheet" href="{{ asset('css/christian/crud_stylesheet.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/christian/modal-style.css') }}">
 
 </head>
 <body>
 @include("component.main-navbar")
 @include("component.staff-navbar")
-<div class="my-container" style="background-image:url({{url('img/background.jpg')}}">
+<div class="my-container" style="background-image:url({{url('img/statistic.jpg')}}">
     @yield("content")
 </div>
 @include("component.footer")

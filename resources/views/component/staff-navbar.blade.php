@@ -1,10 +1,10 @@
 <nav class="staff-nav">
     <ul>
         <li>
-            <a href="">Profilo</a>
+            <a href="{{URL::route('staffProfile')}}">Profilo</a>
         </li>
         <li>
-            <a href="">Password</a>
+            <a href="" >Password</a>
         </li>
         <li>
             <a href="">Offerte</a>

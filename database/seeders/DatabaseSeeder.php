@@ -78,7 +78,7 @@ class DatabaseSeeder extends Seeder
             ['Titolo' => 'GoPro Hero 9', 'Prezzo' => 349.99, 'Sconto' => 15, 'Azienda' => '15', 'Inizio' => '2022/06/01', 'Scadenza' => '2023/06/15', 'Fruizione' => 'Online', 'Descrizione' => 'Fotocamera d\'azione con video 5K e stabilizzazione avanzata.', 'FotoProd' => null]
         ]);
 
-        DB::table('coupon')->insert([
+        /*DB::table('coupon')->insert([
             ['users' => 'Persona10', 'IDOfferta' => '1', 'IDCoupon' => '1', 'QRCode' => null],
             ['users' => 'Persona10', 'IDOfferta' => '2', 'IDCoupon' => '2', 'QRCode' => null],
             ['users' => 'Persona10', 'IDOfferta' => '3', 'IDCoupon' => '3', 'QRCode' => null],
@@ -111,7 +111,7 @@ class DatabaseSeeder extends Seeder
             ['users' => 'Persona12', 'Pacchetto' =>'5', 'IDCoupon' => '14', 'QRCode' => 'a'],
             ['users' => 'Persona12', 'Pacchetto' =>'6', 'IDCoupon' => '15', 'QRCode' => 'a'],
 
-        ]);
+        ]);*/
 
 
 

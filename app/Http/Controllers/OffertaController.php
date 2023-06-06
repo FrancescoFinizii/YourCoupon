@@ -18,12 +18,12 @@ class OffertaController extends Controller
         $aziende = Azienda::pluck('RagioneSociale', 'IDAzienda')->toArray();
 
         // Ritorna la vista con l'elenco delle offerte
-        return view('level3.crud_offerte.crud_offerte', ['offerte' => $this->_offertaModel, 'aziende' => $aziende]);
+        return view('level2.crud_offerte.crud_offerte', ['offerte' => $this->_offertaModel, 'aziende' => $aziende]);
     }
 
     public function creaOff(){
         $aziende = Azienda::pluck('RagioneSociale', 'IDAzienda')->toArray();
-        return view('level3.crud_offerte.inserisci_offerta', ['aziende' => $aziende]);
+        return view('level2.crud_offerte.inserisci_offerta', ['aziende' => $aziende]);
     }
 
     public function salvaOff(NewOffertaRequest $request){
@@ -62,7 +62,7 @@ class OffertaController extends Controller
         $aziende = Azienda::pluck('RagioneSociale', 'IDAzienda')->toArray();
 
 
-        return view('level3.crud_offerte.modifica_offerta', ['offerta' => $offerta, 'aziende' => $aziende]);
+        return view('level2.crud_offerte.modifica_offerta', ['offerta' => $offerta, 'aziende' => $aziende]);
     }
 
     public function salvaModificaOff(NewOffertaRequest $request, $IDOfferta)
