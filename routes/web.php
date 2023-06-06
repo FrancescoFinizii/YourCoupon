@@ -45,12 +45,14 @@ Route::get('/azienda/{IDAzienda}', [AziendaController::class, 'mostraAzienda'])
 
 Route::prefix('user/{username}')->group(function () {
     Route::prefix('/edit')->group(function () {
-        Route::put("/", [UserController::class, 'update'])
-            ->name('userUpdate');
-        Route::get("/profile", [UserController::class, 'edit'])
+        Route::put("/updateProfile", [UserController::class, 'updateProfile'])
+            ->name('profileUpdate');
+        Route::put("/updatePassword", [UserController::class, 'updatePassword'])
+            ->name('passwordUpdate');
+        Route::get("/profile", [UserController::class, 'editProfile'])
             ->name('userProfile');
-        Route::get("/password", [UserController::class, 'editPass'])
-            ->name('userPassword');;
+        Route::get("/password", [UserController::class, 'editPassword'])
+            ->name('userPassword');
     });
 });
 

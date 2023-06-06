@@ -30,7 +30,7 @@
     @endif
         <div class="wrapper-dashboard">
         <div class="left-menu">
-            <h2 id="profile-username">Cicciogamer89</h2>
+            <h2 id="profile-username">{{$utente->username}}</h2>
             @include("component.profile-image")
             @include("component.user-navbar")
         </div>
