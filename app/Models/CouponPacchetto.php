@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CouponPacchetto extends Model
 {
-    protected $table = 'coupon';
+    protected $table = 'coupon_pacchetto';
     protected $primaryKey = 'IDCoupon';
     public $timestamps = false;
 

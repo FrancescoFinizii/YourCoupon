@@ -9,21 +9,21 @@ use Illuminate\Http\Request;
 
 class StatisticController extends Controller
 {
-    public static function getTotCoupon(){
-
+    public static function getTotCoupon() {
         $tot = count(Coupon::all());
         $tot += count(CouponPacchetto::all());
-       // $out = new \Symfony\Component\Console\Output\ConsoleOutput();
-       // $out->writeln($tot);
-        return ($tot);
-
+        return $tot;
     }
-    public static function getCouponFromUser(){
-        $username = "Persona10";
-        $coupon = count(Coupon::where('users', $username)->get());
-        return $coupon;
+    public static function getCouponFromUser($username){
+        $tot = count(Coupon::where('users', $username)->get());
+        $tot += count(CouponPacchetto::where('users', $username)->get());
+        return $tot;
+    }
 
-
+    public static function getCouponFromOfferta($IDOfferta){
+        $tot = count(Coupon::where('IDOfferta', $IDOfferta)->get());
+        $tot += count(CouponPacchetto::where('Pacchetto', $IDOfferta)->get());
+        return $tot;
     }
 
 

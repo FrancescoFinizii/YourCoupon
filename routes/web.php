@@ -91,8 +91,8 @@ Route::prefix('staff/{username}')->group(function () {
 
 });
 Route::get("/example", [StatisticController::class, "getTotCoupon"]);
-Route::get("/example2", [StatisticController::class, "getCouponFromUser"]);
-
+Route::get("/example2/{username}", [StatisticController::class, "getCouponFromUser"]);
+Route::get("/example3/{IDOfferta}", [StatisticController::class, "getCouponFromOfferta"]);
 
 Route::prefix('admin')->group(function () {
 

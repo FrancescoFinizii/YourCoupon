@@ -78,42 +78,63 @@ class DatabaseSeeder extends Seeder
             ['Titolo' => 'GoPro Hero 9', 'Prezzo' => 349.99, 'Sconto' => 15, 'Azienda' => '15', 'Inizio' => '2022/06/01', 'Scadenza' => '2023/06/15', 'Fruizione' => 'Online', 'Descrizione' => 'Fotocamera d\'azione con video 5K e stabilizzazione avanzata.', 'FotoProd' => null]
         ]);
 
-        /*DB::table('coupon')->insert([
-            ['users' => 'Persona10', 'IDOfferta' => '1', 'IDCoupon' => '1', 'QRCode' => null],
-            ['users' => 'Persona10', 'IDOfferta' => '2', 'IDCoupon' => '2', 'QRCode' => null],
-            ['users' => 'Persona10', 'IDOfferta' => '3', 'IDCoupon' => '3', 'QRCode' => null],
-            ['users' => 'Persona10', 'IDOfferta' => '4', 'IDCoupon' => '4', 'QRCode' => null],
-            ['users' => 'Persona10', 'IDOfferta' => '5', 'IDCoupon' => '5', 'QRCode' => null],
-            ['users' => 'Persona10', 'IDOfferta' => '6', 'IDCoupon' => '6', 'QRCode' => null],
-            ['users' => 'Persona13', 'IDOfferta' => '7', 'IDCoupon' => '7', 'QRCode' => null],
-            ['users' => 'Persona13', 'IDOfferta' => '8', 'IDCoupon' => '8', 'QRCode' => null],
-            ['users' => 'Persona13', 'IDOfferta' => '9', 'IDCoupon' => '9', 'QRCode' => null],
-            ['users' => 'Persona13', 'IDOfferta' => '10', 'IDCoupon' => '10', 'QRCode' => null],
-            ['users' => 'Persona13', 'IDOfferta' => '11', 'IDCoupon' => '11', 'QRCode' => null],
-            ['users' => 'Persona13', 'IDOfferta' => '12', 'IDCoupon' => '12', 'QRCode' => null],
-            ]);
-
-        DB::table('pacchetto')->insert([
-            ['IDPacchetto' => '1', "ScontoUlteriore" => 2],
-            ['IDPacchetto' => '2', "ScontoUlteriore" => 3],
-            ['IDPacchetto' => '3', "ScontoUlteriore" => 4],
-            ['IDPacchetto' => '4', "ScontoUlteriore" => 5],
-            ['IDPacchetto' => '5', "ScontoUlteriore" => 4],
-            ['IDPacchetto' => '6', "ScontoUlteriore" => 4],
-
+        DB::table('coupon')->insert([
+            ['users' => 'Persona10', 'IDOfferta' => 1, 'IDCoupon' => '1', 'QRCode' => null],
+            ['users' => 'Persona10', 'IDOfferta' => 2, 'IDCoupon' => '2', 'QRCode' => null],
+            ['users' => 'Persona10', 'IDOfferta' => 3, 'IDCoupon' => '3', 'QRCode' => null],
+            ['users' => 'Persona10', 'IDOfferta' => 4, 'IDCoupon' => '4', 'QRCode' => null],
+            ['users' => 'Persona10', 'IDOfferta' => 5, 'IDCoupon' => '5', 'QRCode' => null],
+            ['users' => 'Persona10', 'IDOfferta' => 6, 'IDCoupon' => '6', 'QRCode' => null],
+            ['users' => 'Persona13', 'IDOfferta' => 7, 'IDCoupon' => '7', 'QRCode' => null],
+            ['users' => 'Persona13', 'IDOfferta' => 8, 'IDCoupon' => '8', 'QRCode' => null],
+            ['users' => 'Persona13', 'IDOfferta' => 9, 'IDCoupon' => '9', 'QRCode' => null],
+            ['users' => 'Persona13', 'IDOfferta' => 10, 'IDCoupon' => '10', 'QRCode' => null],
+            ['users' => 'Persona13', 'IDOfferta' => 11, 'IDCoupon' => '11', 'QRCode' => null],
+            ['users' => 'Persona13', 'IDOfferta' => 12, 'IDCoupon' => '12', 'QRCode' => null],
         ]);
 
+        DB::table('pacchetto')->insert([
+            ["ScontoUlteriore" => 2],
+            ["ScontoUlteriore" => 3],
+            ["ScontoUlteriore" => 4],
+            ["ScontoUlteriore" => 5],
+            ["ScontoUlteriore" => 4],
+            ["ScontoUlteriore" => 4],
+        ]);
+
+
+        DB::table('pacchetto')->insert([
+            ["ScontoUlteriore" => 2],
+            ["ScontoUlteriore" => 3],
+            ["ScontoUlteriore" => 4],
+            ["ScontoUlteriore" => 5],
+            ["ScontoUlteriore" => 4],
+            ["ScontoUlteriore" => 4],
+        ]);
+
+        DB::table('partecipa')->insert([
+            ['IDOfferta' => 1, 'Pacchetto' => 1],
+            ['IDOfferta' => 2, 'Pacchetto' => 1],
+            ['IDOfferta' => 3, 'Pacchetto' => 1],
+            ['IDOfferta' => 1, 'Pacchetto' => 2],
+            ['IDOfferta' => 2, 'Pacchetto' => 2],
+            ['IDOfferta' => 3, 'Pacchetto' => 2],
+            ['IDOfferta' => 4, 'Pacchetto' => 1],
+            ['IDOfferta' => 4, 'Pacchetto' => 2],
+            ['IDOfferta' => 5, 'Pacchetto' => 1],
+            ['IDOfferta' => 5, 'Pacchetto' => 2],
+            ]);
+
+
         DB::table('coupon_pacchetto')->insert([
-            ['users' => 'Persona10', 'Pacchetto' =>'1', 'IDCoupon' => '10', 'QRCode' => 'a'],
-            ['users' => 'Persona10', 'Pacchetto' =>'2', 'IDCoupon' => '11', 'QRCode' => 'a'],
-            ['users' => 'Persona10', 'Pacchetto' =>'3', 'IDCoupon' => '12', 'QRCode' => 'a'],
-            ['users' => 'Persona12', 'Pacchetto' =>'4', 'IDCoupon' => '13', 'QRCode' => 'a'],
-            ['users' => 'Persona12', 'Pacchetto' =>'5', 'IDCoupon' => '14', 'QRCode' => 'a'],
-            ['users' => 'Persona12', 'Pacchetto' =>'6', 'IDCoupon' => '15', 'QRCode' => 'a'],
+            ['users' => 'Persona10', 'Pacchetto' => 1, 'IDCoupon' => '10', 'QRCode' => 'a'],
+            ['users' => 'Persona10', 'Pacchetto' => 2, 'IDCoupon' => '11', 'QRCode' => 'a'],
+            ['users' => 'Persona10', 'Pacchetto' => 3, 'IDCoupon' => '12', 'QRCode' => 'a'],
+            ['users' => 'Persona12', 'Pacchetto' => 4, 'IDCoupon' => '13', 'QRCode' => 'a'],
+            ['users' => 'Persona12', 'Pacchetto' => 5, 'IDCoupon' => '14', 'QRCode' => 'a'],
+            ['users' => 'Persona12', 'Pacchetto' => 6, 'IDCoupon' => '15', 'QRCode' => 'a'],
 
-        ]);*/
-
-
+        ]);
 
 
     }
