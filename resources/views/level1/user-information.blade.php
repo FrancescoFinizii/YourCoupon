@@ -3,7 +3,7 @@
 @section("content")
     <div class="schede" id="profile-div">
         <h1>Account settings</h1>
-        {{ Form::open(array('route' => ['profileUpdate', $utente->username], "id" =>"profile-info-form", 'method' => 'PUT')) }}
+        {{ Form::open(array('route' => ['userProfileUpdate', $utente->username], "id" =>"profile-info-form", 'method' => 'PUT')) }}
         {{ Form::token() }}
         <div class="row-flex">
             <div class="cell-1of2">

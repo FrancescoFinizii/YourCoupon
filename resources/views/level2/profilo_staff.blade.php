@@ -7,7 +7,7 @@
             <h2 style="text-align: center">{{$utente->username}}</h2>
         </div>
         <div class="cont-right">
-            {{ Form::open(['route' => ['staffUpdate', $utente->username], 'method' => 'PUT']) }}
+            {{ Form::open(['route' => ['staffProfileUpdate', $utente->username], 'method' => 'PUT']) }}
             {{ Form::token() }}
             <div class="row-flex">
                 <div class="cell1-2">

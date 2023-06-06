@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 use App\Models\Utente;
 use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class StaffController extends Controller
+
 {
+
     public function editProfile($username)
     {
         $utente = Utente::find($username);
-        return view("level1.user-information")
+        return view("level2.profilo_staff")
             ->with('utente', $utente);
     }
 
@@ -20,7 +22,7 @@ class UserController extends Controller
     {
         $utente = Utente::find($username);
 
-        return view("level1.user-password")
+        return view("level2.cambia_password")
             ->with('utente', $utente);
     }
 
@@ -39,7 +41,7 @@ class UserController extends Controller
             'ProPic' => 'nullable',
         ]);
         $utente->fill($val)->update();
-        return redirect()->back()->with('success','Successfully update your personal information!');
+        return redirect()->back();
     }
 
     public function updatePassword(Request $request, $username)

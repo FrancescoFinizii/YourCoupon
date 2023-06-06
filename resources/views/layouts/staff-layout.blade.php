@@ -26,6 +26,19 @@
 @include("component.main-navbar")
 @include("component.staff-navbar")
 <div class="my-container" style="background-image:url({{url('img/statistic.jpg')}}">
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <p>ATTENZIONE! Si sono verificati i seguenti errori:</p>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @if ($message = Session::get('success'))
+        <p class="alert alert-success">{{ $message }}</p>
+    @endif
     @yield("content")
 </div>
 @include("component.footer")

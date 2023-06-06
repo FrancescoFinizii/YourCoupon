@@ -1,7 +1,7 @@
 <nav class="staff-nav">
     <ul>
         <li>
-            <a href="{{URL::route('staffProfile')}}">Profilo</a>
+            <a href="{{URL::route(['staffProfile', $utente->username])}}">Profilo</a>
         </li>
         <li>
             <a href="" >Password</a>

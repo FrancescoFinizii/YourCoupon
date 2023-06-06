@@ -3,12 +3,12 @@
 use App\Http\Controllers\AziendaController;
 use App\Http\Controllers\OffertaController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\StaffController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StatisticController;
 
-require __DIR__.'/ludovico_routes_web.php';
+require __DIR__ . '/ludovico_routes_web.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +21,7 @@ require __DIR__.'/ludovico_routes_web.php';
 |
 */
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 // --Level 0 (public area)
 
@@ -46,9 +46,9 @@ Route::get('/azienda/{IDAzienda}', [AziendaController::class, 'mostraAzienda'])
 Route::prefix('user/{username}')->group(function () {
     Route::prefix('/edit')->group(function () {
         Route::put("/updateProfile", [UserController::class, 'updateProfile'])
-            ->name('profileUpdate');
+            ->name('userProfileUpdate');
         Route::put("/updatePassword", [UserController::class, 'updatePassword'])
-            ->name('passwordUpdate');
+            ->name('userPasswordUpdate');
         Route::get("/profile", [UserController::class, 'editProfile'])
             ->name('userProfile');
         Route::get("/password", [UserController::class, 'editPassword'])
@@ -59,11 +59,14 @@ Route::prefix('user/{username}')->group(function () {
 // --Level 2 (staff area)
 Route::prefix('staff/{username}')->group(function () {
     Route::prefix('/edit')->group(function () {
-        Route::put("/", [StaffController::class,'update'])
-        ->name('staffUpdate');
-        Route::get("/profilo",[StaffController::class,'edit'])
+        Route::put("/updateProfile", [StaffController::class, 'updateProfile'])
+            ->name('staffProfileUpdate');
+        Route::put("updatePassword", [StaffController::class, 'updatePassword'])
+            ->name('staffPasswordUpdate');
+        Route::get("/profile", [StaffController::class, 'editProfile'])
             ->name('staffProfile');;
-        Route::get("/password", [StaffController::class,'editPass']);
+        Route::get("/password", [StaffController::class, 'editPassword'])
+            ->name('staffPassword');
     });
 
 });
@@ -98,23 +101,23 @@ Route::prefix('admin')->group(function () {
         ->name('eliminaStaff');
 });
 
-    // --Level 2 (staff crud offerte area)
-    Route::prefix('staff')->group(function () {
-        Route::get('/crud_offerte', [OffertaController::class, 'showAllOfferte'])
-            ->name('crud_offerte');
+// --Level 2 (staff crud offerte area)
+Route::prefix('staff')->group(function () {
+    Route::get('/crud_offerte', [OffertaController::class, 'showAllOfferte'])
+        ->name('crud_offerte');
 
-        Route::get('/newoff', [OffertaController::class, 'creaOff'])
-            ->name('insertOff');
-        Route::post('/newoff', [OffertaController::class, 'salvaOff'])
-            ->name('insertOffSave');
+    Route::get('/newoff', [OffertaController::class, 'creaOff'])
+        ->name('insertOff');
+    Route::post('/newoff', [OffertaController::class, 'salvaOff'])
+        ->name('insertOffSave');
 
-        Route::get('/offerta/{IDOfferta}/modifica', [OffertaController::class, 'modificaOff'])
-            ->name('modificaOff');
-        Route::post('/offerta/{IDOfferta}/modifica', [OffertaController::class, 'salvaModificaOff'])
-            ->name('salvaModificaOff');
+    Route::get('/offerta/{IDOfferta}/modifica', [OffertaController::class, 'modificaOff'])
+        ->name('modificaOff');
+    Route::post('/offerta/{IDOfferta}/modifica', [OffertaController::class, 'salvaModificaOff'])
+        ->name('salvaModificaOff');
 
-        Route::get('/offerta/{IDOfferta}/elimina', [OffertaController::class, 'eliminaOfferta'])
-            ->name('eliminaOfferta');
+    Route::get('/offerta/{IDOfferta}/elimina', [OffertaController::class, 'eliminaOfferta'])
+        ->name('eliminaOfferta');
 
-        Route::view("/statistiche", "level3/statistics/statistics_offerte");
-    });
+    Route::view("/statistiche", "level3/statistics/statistics_offerte");
+});

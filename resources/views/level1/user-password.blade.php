@@ -3,7 +3,7 @@
 @section("content")
     <div class="schede" id="password-div">
         <h1>Password settings</h1>
-        {{ Form::open(['route' => ['passwordUpdate', $utente->username],"id" =>"password-info-form", 'method' => 'PUT']) }}
+        {{ Form::open(['route' => ['userPasswordUpdate', $utente->username],"id" =>"password-info-form", 'method' => 'PUT']) }}
         {{ Form::token() }}
         <div class="row-flex">
             <div class="cell-1of2" id="old-password-container">

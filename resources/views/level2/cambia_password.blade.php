@@ -5,37 +5,25 @@
     <div class="staff-dashboard" >
         <div class="" style="text-align: center">
             {{-- <form method="POST" action="{{route('cambia_password')}}">--}}
-            {{ Form::open(['route' => 'login', 'class' => 'myform', 'method' => 'post']) }}
+            {{ Form::open(['route' => ['staffPasswordUpdate', $utente -> username], 'class' => 'myform', 'method' => 'PUT']) }}
             {{ Form::token() }}
             <h2>Modifica la tua password:</h2>
             <p class="errorLabel">{{$error=null}}</p>
             <div class="">
                 <div class="cell-pssw">
-                    {{ Form::label("old_password", "Password:")}}
-                    {{ Form::password('old_password', [ 'id'=>'old_password', 'placeholder' => 'Password']) }}
-                    @if ($errors->first('old_password'))
-                        @foreach ($errors->get('old_password') as $message)
-                            <p class="errorLabel">{{ $message }}</p>
-                        @endforeach
-                    @endif
+                    {{ Form::label("oldPassword", "Password:")}}
+                    {{ Form::password('oldPassword', [ 'id'=>'oldPassword', 'placeholder' => 'Password']) }}
+
                 </div>
                 <div class="cell-pssw">
-                    {{ Form::label("new_password", "Nuova Password:")}}
-                    {{ Form::password('new_password', [ 'id'=>'new_password', 'placeholder' => 'New Password']) }}
-                    @if ($errors->first('new_password'))
-                        @foreach ($errors->get('new_password') as $message)
-                            <p class="errorLabel">{{ $message }}</p>
-                        @endforeach
-                    @endif
+                    {{ Form::label("password", "Nuova Password:")}}
+                    {{ Form::password('password', [ 'id'=>'password', 'placeholder' => 'New Password']) }}
+
                 </div>
                 <div class="cell-pssw">
-                    {{ Form::label("confirm_password", "Conferma Password:")}}
-                    {{ Form::password('confirm_password', [ 'id'=>'confirm_password', 'placeholder' => 'Confirm New Password']) }}
-                    @if ($errors->first('confirm_password'))
-                        @foreach ($errors->get('confirm_password') as $message)
-                            <p class="errorLabel">{{ $message }}</p>
-                        @endforeach
-                    @endif
+                    {{ Form::label("password_confirmation", "Conferma Password:")}}
+                    {{ Form::password('password_confirmation', [ 'id'=>'password_confirmation', 'placeholder' => 'Confirm New Password']) }}
+
                 </div>
                 <div class="cell-pssw" id="btn-cont">
                     {{ Form::button('Modifica', ['class' => 'btn btn-blue', 'type'=>'submit']) }}
