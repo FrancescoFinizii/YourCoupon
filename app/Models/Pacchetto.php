@@ -12,10 +12,14 @@ class Pacchetto extends Model
     use HasFactory;
     protected $table = 'pacchetto';
     protected $primaryKey = 'IDPacchetto';
-    public function partecipazioni()
+
+    protected $fillable = [
+        'ScontoUlteriore'
+    ];
+    /*public function partecipazioni()
     {
         return $this->hasMany(Partecipa::class, 'Pacchetto', 'IDPacchetto');
-    }
+    }*/
 
 
 

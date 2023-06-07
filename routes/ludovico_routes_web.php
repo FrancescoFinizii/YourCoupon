@@ -81,6 +81,8 @@ Route::get('/offertaAbbinata/{id}', [CatalogoController::class, 'showOffertaAbbi
 
 Route::get('/offerta/coupon/{id}', [CatalogoController::class, 'salvaCoupon'])
     ->name('coupon');
+Route::get('/offerta/couponPacchetto/{id}', [CatalogoController::class, 'salvaCouponPacchetto'])
+    ->name('couponPacchetto');
 
 Route::get('/couponError', [CatalogoController::class, 'errore'])
     ->name('couponError');

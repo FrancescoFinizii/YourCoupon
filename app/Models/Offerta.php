@@ -38,10 +38,10 @@ class Offerta extends Model
     {
         return $this->belongsTo(Azienda::class, 'Azienda', 'IDAzienda');
     }
-    public function pacchetti()
+    /*public function pacchetti()
     {
         return $this->belongsToMany(Pacchetto::class, 'Partecipa', 'IDOfferta', 'Pacchetto');
-    }
+    }*/
 
     public function getOffertaById($IDOfferta)
     {

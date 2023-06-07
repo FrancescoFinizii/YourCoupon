@@ -11,9 +11,9 @@ class Partecipa extends Model
 
     protected $table = 'Partecipa';
 
-    public function offerta()
+/*    public function offerta()
     {
         return $this->belongsTo(Offerta::class, 'IDOfferta', 'IDOfferta');
-    }
+    }*/
 
 }
