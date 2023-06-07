@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Offerta;
+
 
 class Azienda extends Model
 {
@@ -26,7 +28,7 @@ class Azienda extends Model
     //metodo che definisce le relazioni tra un'azienda e le sue offerte
     public function offerte()
     {
-        return $this->hasMany(Offerta::class, 'Azienda');
+        return $this->hasMany(Offerta::class, 'Azienda', 'IDAzienda');
     }
 
     public function getAziendaById($IDAzienda){

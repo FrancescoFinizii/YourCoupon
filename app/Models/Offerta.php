@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Pacchetto;
+use App\Models\Azienda;
+
 
 class Offerta extends Model
 {
@@ -33,7 +36,11 @@ class Offerta extends Model
 
     public function azienda()
     {
-        return $this->belongsTo(Azienda::class, 'Azienda');
+        return $this->belongsTo(Azienda::class, 'Azienda', 'IDAzienda');
+    }
+    public function pacchetti()
+    {
+        return $this->belongsToMany(Pacchetto::class, 'Partecipa', 'IDOfferta', 'Pacchetto');
     }
 
     public function getOffertaById($IDOfferta)
@@ -47,6 +54,12 @@ class Offerta extends Model
             ->orWhere('Titolo', 'REGEXP', $searchbar)
             ->paginate(24);
     }
+/*
+    public function getOfferteByAziendaAndDescrizione2($searchbar, $idAzienda){
+        return $this->where('Azienda', $idAzienda)
+            ->where('Descrizione', 'REGEXP', $searchbar)
+            ->orWhere('Titolo', 'REGEXP', $searchbar)->get();
+    }*/
 
 
     public function getOfferteByAziendaId($IDAzienda){

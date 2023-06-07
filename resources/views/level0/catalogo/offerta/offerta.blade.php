@@ -6,6 +6,210 @@
 @endsection
 @section('catalogo-content')
 
+
+
+    @if(@isset($pacchetto))
+        <div class="offerta">
+            <div class="offerta-informazioni">
+                <div class="sconto-div" style="width: 100%">
+                    <h1>SCONTO ULTERIORE del -{{ $pacchetto->first()->ScontoUlteriore }}%!</h1>
+                    <h1>@foreach($pacchetto as $offerta)
+                            @if ($loop->last)
+                                {{ $offerta->RagioneSociale }}
+                            @else
+                                {{ $offerta->RagioneSociale .', ' }}
+                            @endif
+                        @endforeach</h1>
+                    <p>Ricevi uno sconto maggiore per le offerte elencate in basso!</p><br>
+                    <p>Clicca sul titolo di un'offerta o su quello di un'azienda per ulteriori informazioni</p>
+
+
+
+
+
+                    {{--               <p>Lo paghi <b>solo <span
+                                               class="prezzo-scontato">{{ $prezzoScontato }} €</span></b></p>
+                                   --}}{{--                class="prezzo-scontato">{{ number_format((floatval($prezzoScontato), 2,',','.') }} €</span></b></p>--}}{{--
+                                   <p>Invece di <b>{{ $offerta->Prezzo }}</b> €</p>
+                                   @can('isUser')
+                                       <a href="{{route('coupon', ['id'=>$offerta->IDOfferta])}}">
+                                           <button class="btn-pagina-offerta btn-offerta-coupon" type="button">
+                                               OTTIENI IL TUO COUPON
+                                           </button>
+                                       </a>
+                                   @endcan
+                                   @can('isGuest')
+
+                                       <a href="{{route('login')}}">
+                                           <button class="btn-pagina-offerta btn-offerta-coupon" type="button">
+                                               ACCEDI PER OTTIENERE IL TUO COUPON
+                                           </button>
+                                       </a>
+
+                                   @endcan
+                                   @can('isStaff')
+
+                                       <a href="{{route('coupon', ['id'=>$offerta->IDOfferta])}}">
+                                           <button disabled class="btn-pagina-offerta btn-offerta-coupon" type="button">
+                                               OTTIENI IL TUO COUPON
+                                           </button>
+                                       </a>
+
+                                   @endcan
+
+                                   <a href="{{route('mostraAzienda', ['IDAzienda'=>$offerta->Azienda])}}">
+                                       <button class="btn-pagina-offerta btn-azienda-coupon" type="button">
+                                           LINK AL PROFILO DELL'AZIENDA
+                                       </button>
+                                   </a>
+                               </div>
+                           </div>
+
+                           <div class="info-offerta">
+                               <div class="info-offerta-div">
+                                   <h3>Ulteriori informazioni:</h3>
+                                   <p>
+                                       Scopri il nuovo codice sconto di
+                                       {{ $azienda->RagioneSociale }}: {{$offerta->Descrizione}}. Valido su una serie di prodotti
+                                       selezionati.
+                                       <br>
+                                       Consigliamo di verificare i termini di consumo e validità sul sito del'azienda offerente.
+                                   </p>
+                                   <h3>Modalità di fruizione:</h3>
+                                   <p>
+                                       Utilizzabile presso il {{ $offerta->Fruizione }} dell'offerente. valido fino alla scadenza
+                                       dell'offerta
+                                   </p>
+                               </div>
+                               --}}{{--            <script src="{{ asset('js/ludovico/offerta.js') }}"></script>--}}{{--
+                               --}}{{--            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>--}}{{--
+                               <div class="dettagli-offerta">
+                                   <h3>Affrettati! Scade il: </h3>
+                                   <p id="timer">{{ $offerta->Scadenza }}</p>
+
+                                   <h3>Promozione iniziata il:</h3>
+                                   <p> {{ $offerta->Inizio }} </p>
+                               </div>
+                               <div class="dettagli-offerta">
+                                   <h3>
+                                       Azienda offerente:</h3>
+                                   <p>{{ $azienda->RagioneSociale }}</p>
+                                   <h3>Contatti
+                                       dell'azienda:</h3>
+                                   <p>
+                                       Telefono: {{ $azienda->Telefono }}
+                                       <br>
+                                       Email: {{ $azienda->Mail }}
+                                   </p>
+                               </div>
+
+
+                           </div>
+
+                           <div class="scopri-altro">
+                               <h4>Scopri altre offerte sul nostro <a href="{{ route('catalogo') }}">catalogo</a>!</h4>
+                               <h5>Oppure torna alla <a href="/">home</a> per scoprire le novità.</h5>
+                           </div>
+
+
+                       </div>
+
+                   @endsection--}}
+
+                    @if(isset($couponPacchetto))
+                        <h1 style="font-size: 35px">CODICE:</h1>
+                        <p style="font-size: 40px">{{ $couponPacchetto->IDCoupon }}</p>
+                    @else
+                        @can('isUser')
+{{--                            <a href="{{route('coupon', ['id'=>$offerta->IDOfferta])}}">--}}
+                            <a href=" ">
+
+                                <button class="btn-pagina-offerta btn-offerta-coupon" type="button">
+                                    OTTIENI IL TUO COUPON
+                                </button>
+                            </a>
+                        @endcan
+                        @can('isGuest')
+
+                            <a href="{{route('login')}}">
+                                <button class="btn-pagina-offerta btn-offerta-coupon" type="button">
+                                    ACCEDI PER OTTIENERE IL TUO COUPON
+                                </button>
+                            </a>
+
+                        @endcan
+                        @can('isStaff')
+
+{{--                            <a href="{{route('coupon', ['id'=>$offerta->IDOfferta])}}">--}}
+                            <a href=" ">
+                                <button disabled class="btn-pagina-offerta btn-offerta-coupon" type="button">
+                                    OTTIENI IL TUO COUPON
+                                </button>
+                            </a>
+
+                        @endcan
+                        @endif
+
+
+                </div>
+            </div>
+
+            <div class="info-offerta">
+                <div class="info-offerta-div">
+                    <h3>Promozione abbinata offerta da:</h3>
+                    <p>
+                        @foreach($pacchetto as $offerta)
+                            @if ($loop->last)
+                                {{ $offerta->RagioneSociale }}
+                            @else
+                                {{ $offerta->RagioneSociale .', ' }}
+                            @endif
+                        @endforeach
+
+                    </p>
+                    <h3>Offerte comprese nel pacchetto:</h3>
+                    <div>
+
+                        @foreach($pacchetto as $offerta)
+                            <a href="{{route('offerta', ['id'=>$offerta->IDOfferta])}}">
+                                <h4>{{ $offerta->Titolo }}:</h4></a>
+                            <p>{{ $offerta->Descrizione }}</p>
+
+                        @endforeach
+
+                    </div>
+                </div>
+                <div class="dettagli-offerta" style="height: auto">
+                    <h3>Contatti aziende offerenti:</h3>
+
+
+                    @foreach($pacchetto as $offerta)
+                        <a href="{{route('mostraAzienda', ['IDAzienda'=>$offerta->Azienda])}}">
+                            <h4>{{ $offerta->RagioneSociale }}:</h4></a>
+                        <p>Telefono: {{ $offerta->Telefono }}
+                            <br>
+                            Email: {{ $offerta->Mail }} </p>
+
+                    @endforeach
+                </div>
+
+
+{{--
+                <div class="dettagli-offerta" style="height: auto">
+                    <h4>Scopri altre offerte sul nostro <a href="{{ route('catalogo') }}">catalogo</a>!</h4>
+                    <h5>Oppure torna alla <a href="/">home</a> per scoprire le novità.</h5>
+
+                </div>--}}
+
+
+            </div>
+        </div>
+
+
+
+
+
+    @else
     <div class="offerta">
         <div class="offerta-informazioni">
             <div class="div-image-offerta">
@@ -193,5 +397,5 @@
 
 
     </div>
-
+    @endif
 @endsection

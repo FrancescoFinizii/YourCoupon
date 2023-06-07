@@ -413,6 +413,7 @@ per nascondere la scrollbar nella textarea
 }
 
 .catalogo-card {
+    position: relative;
     text-align: center;
     float: left;
     background-color: rgba(131, 177, 195, .2);
@@ -438,17 +439,22 @@ per nascondere la scrollbar nella textarea
     object-fit: cover;
 }
 
+
+
 .catalogo-card button {
     height: 40px;
     font-weight: bold;
     width: 200px;
     color: white;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
     background-color: #3763f4;
     border-radius: 20px;
     border: none;
     margin: 10px auto;
 }
-
 .catalogo-card button:hover {
     cursor: pointer;
     background-color: #1e3582;
@@ -458,6 +464,34 @@ per nascondere la scrollbar nella textarea
     color: black;
     margin: 10px;
 }
+
+.offers-abbinate-list{
+    /*background-color: red;*/
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.offerta-abbinata-card{
+    text-align: center;
+    float: left;
+    background-color: rgba(131, 177, 195, .2);
+    color: #3763f4;
+    border-radius: 20px;
+    width: 280px;
+    /*max-width: 280px;*/
+    padding: 10px;
+    height: 600px;
+    margin: 10px auto;
+    box-shadow: -2px 2px 5px darkslategrey;
+
+
+}
+
+
+
+
 
 .search-head {
     width: auto;
@@ -589,7 +623,7 @@ per nascondere la scrollbar nella textarea
 
 .btn-pagina-offerta {
     padding: 10px 32px;
-    height: 60px;
+    height: 70px;
     margin: 10px auto;
     width: 400px;
     color: white;
@@ -675,7 +709,11 @@ per nascondere la scrollbar nella textarea
     line-height: 25px;
     text-align: left;
     padding: 5px 25px;
+}
 
+.info-offerta-div h4{
+    color: #3763f4;
+    line-height: 5px;
 }
 
 .dettagli-offerta {
@@ -689,8 +727,14 @@ per nascondere la scrollbar nella textarea
     float: right;
 }
 
-.dettagli-offerta h3 {
+.dettagli-offerta h3{
     margin: 5px auto;
+    color: #3763f4;
+}
+
+
+.dettagli-offerta h4{
+    line-height: 10px;
     color: #3763f4;
 }
 

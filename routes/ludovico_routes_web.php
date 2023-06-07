@@ -64,17 +64,28 @@ Route::get('/faq', [FaqController::class, 'showFaq'])
 Route::get('/catalogo', [CatalogoController::class, 'index'])
     ->name('catalogo');
 
+Route::get('/catalogoAbbinate', [CatalogoController::class, 'indexPacchetti'])
+    ->name('catalogoAbbinate');
+
+Route::get('/catalogoAbbinate/searchAbbinate', [CatalogoController::class, 'searchCatalogoAbbinate'])
+    ->name('searchAbbinate');
 Route::get('/catalogo/search', [CatalogoController::class, 'searchCatalogo'])
     ->name('search');
 
 Route::get('/offerta/{id}', [CatalogoController::class, 'showOfferta'])
     ->name('offerta');
 
+
+Route::get('/offertaAbbinata/{id}', [CatalogoController::class, 'showOffertaAbbinata'])
+    ->name('offertaAbbinata');
+
 Route::get('/offerta/coupon/{id}', [CatalogoController::class, 'salvaCoupon'])
     ->name('coupon');
 
 Route::get('/couponError', [CatalogoController::class, 'errore'])
     ->name('couponError');
+
+
 
 
 require __DIR__ . '/auth.php';

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CatalogoRequest;
 use App\Models\Coupon;
+use Illuminate\Support\Facades\DB;
+use App\Models\Pacchetto;
+use App\Models\Partecipa;
 use Illuminate\Http\Request;
 use App\Models\Azienda;
 use App\Models\Offerta;
@@ -44,6 +47,31 @@ class CatalogoController extends Controller
 
     }
 
+    public function indexPacchetti()
+    {
+        /*
+        prendo tutte le offerte del db con le relative aziende, è simile un join tra azienda e offerta
+        sfrutta le funzioni offertw() e azienda() nei model
+        */
+
+//        $offerte = Offerta::with('azienda')->get();
+//
+//SELECT * FROM partecipa JOIN offerta on partecipa.IDOfferta = offerta.IDOfferta JOIN azienda on azienda.IDAzienda = offerta.IDOfferta;
+        $partecipazioni = DB::table('partecipa')
+            ->join('offerta', 'partecipa.IDOfferta', '=', 'Offerta.IDOfferta')
+            ->join('Azienda', 'Azienda.IDAzienda', '=', 'Offerta.IDOfferta')
+            ->select('partecipa.*', 'Offerta.*', 'Azienda.*')
+            ->get();
+
+        //SELECT * FROM Pacchetto join partecipa on Pacchetto.IDPacchetto = partecipa.Pacchetto;
+        $pacchetti = Pacchetto::paginate(10);
+        $aziende = Azienda::orderBy('RagioneSociale', 'asc')->get()->pluck('RagioneSociale', 'IDAzienda');
+
+//        $pacchetti = Pacchetto::with('partecipazioni.offerta.azienda')->get();
+        return view('level0.catalogo.catalogoPacchetti', ['pacchetti' => $pacchetti, 'partecipazioni'=>$partecipazioni, 'aziende'=>$aziende]);
+
+    }
+
     public function searchCatalogo(CatalogoRequest $request)
     {
         $searchbar = $request->input('searchbar');
@@ -66,11 +94,77 @@ class CatalogoController extends Controller
             return view('level0.catalogo.catalogo', ['aziende' => $aziende, 'ricerca' => $searchbar, 'offerte' => $offerte]);
 
         }
-        /*
-        else if($searchbar == '' and $selectAzienda == '') {
-//            $this->index();
-//            return response()->json(['redirect' => route('search')]);
-        }*/
+
+
+    }
+
+    public function searchCatalogoAbbinate(CatalogoRequest $request)
+    {
+        $searchbar = $request->input('searchbar');
+        $selectAzienda = $request->input('select-aziende');
+        $aziende = Azienda::orderBy('RagioneSociale', 'desc')->get()->pluck('RagioneSociale', 'IDAzienda');
+
+        if ($searchbar != '' and $selectAzienda != '') {
+
+            //SELECT * FROM partecipa JOIN offerta on partecipa.IDOfferta = offerta.IDOfferta JOIN azienda on azienda.IDAzienda = offerta.IDOfferta and  azienda.IDAzienda = $IDAzienda
+
+            $azienda = $this->_aziendaModel->getAziendaById($selectAzienda);
+            $offerte = Offerta::where('Azienda','!=',$selectAzienda)
+                ->join('partecipa', 'Offerta.IDOfferta', '=', 'partecipa.IDOfferta')
+                ->join('Azienda', 'Azienda.IDAzienda', '=', 'Offerta.Azienda')->get();
+            /*$offerte = $this->_offertaModel->getOfferteByAziendaAndDescrizione2($searchbar, $selectAzienda); //passo l'id dell'azienda e il testo inserito nella searchbar
+            /*$offerte = $this->_offertaModel->getOfferteByAziendaAndDescrizione2($searchbar, $selectAzienda); //passo l'id dell'azienda e il testo inserito nella searchbar
+            $offerte =*/
+//SELECT * from partecipa join offerta ON partecipa.IDOfferta = offerta.IDOfferta join azienda on azienda.IDAzienda = offerta.IDOfferta and azienda.IDAzienda = $IDAzienda WHERE offerta.Descrizione REGEXP $searchbar or offerta.Titolo REGEXP $searchbar;
+            $partecipazioni = DB::table('partecipa')
+                ->join('offerta', 'partecipa.IDOfferta', '=', 'offerta.IDOfferta')
+                ->join('azienda', 'azienda.IDAzienda', '=', 'offerta.Azienda')
+                ->where('azienda.IDAzienda', '=', $selectAzienda)
+                ->where('offerta.Descrizione', 'REGEXP', $searchbar)
+                ->orWhere('offerta.Titolo', 'REGEXP', $searchbar)
+                ->select('partecipa.*', 'offerta.*', 'azienda.*')
+                ->get();
+
+//SELECT * from Pacchetto join partecipa on Pacchetto.IDPacchetto = partecipa.Pacchetto join offerta ON partecipa.IDOfferta = offerta.IDOfferta
+//WHERE offerta.Azienda = $IDAzienda;
+/*            $pacchetti = DB::table('Pacchetto')
+                ->join('partecipa', 'Pacchetto.IDPacchetto', '=', 'partecipa.Pacchetto')
+                ->join('offerta', 'partecipa.IDOfferta', '=', 'offerta.IDOfferta')
+                ->where('offerta.Azienda', '=', 1)
+                ->select('Pacchetto.*', 'partecipa.*', 'offerta.*')
+                ->get();*/
+
+//            $pacchetti = Pacchetto::all();
+
+
+
+
+/*
+            $partecipazioni = DB::table('partecipa')
+                ->join($offerte, 'partecipa.IDOfferta', '=', $offerte->IDOfferta)
+                ->join('Azienda', 'Azienda.IDAzienda', '=', $offerte->Azienda)
+//                ->where('azienda.IDAzienda', $selectAzienda)
+                ->select('partecipa.*', 'offerta.*', 'azienda.*')
+                ->get();*/
+/*
+            $pacchetti = DB::table('Pacchetto')
+                ->join('partecipa', 'Pacchetto.IDPacchetto', '=', 'partecipa.Pacchetto')
+                ->join('offerta', 'partecipa.IDOfferta', '=', 'offerta.IDOfferta')
+                ->select('Pacchetto.*', 'partecipa.*', 'offerta.*')
+                ->get();*/
+
+            $pacchetti = Pacchetto::paginate(10);
+            return view('level0.catalogo.catalogoPacchetti', ['offerte'=>$offerte,'aziende' => $aziende, 'ricerca' => $searchbar . ' di ' . $azienda->RagioneSociale, 'pacchetti' => $pacchetti, 'partecipazioni' => $partecipazioni]);
+        } else if ($searchbar == '' and $selectAzienda != '') {
+//            $azienda = $this->_aziendaModel->getAziendaById($selectAzienda);
+//            $offerte = $this->_offertaModel->getOfferteByAziendaId($selectAzienda);
+
+//            return view('level0.catalogo.catalogo', ['aziende' => $aziende, 'ricerca' => $azienda->RagioneSociale, 'offerte' => $offerte]);
+        } else if ($searchbar != '' and $selectAzienda == '') {
+//            $offerte = $this->_offertaModel->getOfferteByDescrizione($searchbar);
+//            return view('level0.catalogo.catalogo', ['aziende' => $aziende, 'ricerca' => $searchbar, 'offerte' => $offerte]);
+
+        }
 
 
     }
@@ -92,16 +186,46 @@ class CatalogoController extends Controller
     }
 
 
+    public function showOffertaAbbinata($IDPacchetto)
+    {
+
+        /*
+
+        SELECT *
+        FROM offerta
+        JOIN azienda ON offerta.Azienda = azienda.IDAzienda
+        JOIN (  SELECT *
+                FROM Pacchetto
+                JOIN Partecipa ON Pacchetto.IDPacchetto = Partecipa.Pacchetto
+                WHERE Pacchetto.IDPacchetto = $IDPacchetto
+             ) AS partecipanti ON offerta.IDOfferta = partecipanti.IDOfferta;
+
+        */
+
+
+        $pacchetto = DB::table('offerta')
+            ->join('azienda', 'offerta.Azienda', '=', 'azienda.IDAzienda')
+            ->join('Partecipa', 'offerta.IDOfferta', '=', 'Partecipa.IDOfferta')
+            ->join('Pacchetto', 'Partecipa.Pacchetto', '=', 'Pacchetto.IDPacchetto')
+            ->where('Pacchetto.IDPacchetto', $IDPacchetto)
+            ->select('*')
+            ->get();
+
+
+        return view('level0.catalogo.offerta.offerta', ['pacchetto' => $pacchetto]);
+    }
+
+
     public function salvaCoupon($IDOfferta)
     {
         $username = Auth::user()->username;
 
         $coupon = new Coupon();
 
-        if(0){
-       /* if ($coupon->checkIfExists($IDOfferta, $username)) {
-            return redirect()->route('couponError')->with('message', 'ERRORE! visualizzi questo perché è stato
-            trovato un coupon associato al tuo account per questa offerta! controlla la tua area personale.');*/
+        if (0) {
+            /* if ($coupon->checkIfExists($IDOfferta, $username)) {
+                 return redirect()->route('couponError')->with('message', 'ERRORE! visualizzi questo perché è stato
+                 trovato un coupon associato al tuo account per questa offerta! controlla la tua area personale.');*/
         } else {
             $coupon->Utente = $username;
             $coupon->IDOfferta = $IDOfferta;
@@ -121,7 +245,8 @@ class CatalogoController extends Controller
         }
     }
 
-    public function errore(){
+    public function errore()
+    {
         $messaggio = session('message');
         return view('errors.couponError', ['message' => $messaggio]);
     }
