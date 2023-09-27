@@ -9,6 +9,9 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+> **Note**
+> For this moment this is a beta version.
+
 ## Installations / Instructions
 
 ``` git  clone https://github.com/FrancescoFinizii/YourCoupon ```
