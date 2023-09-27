@@ -1,0 +1,49 @@
+@extends("cliente.layout.cliente-layout")
+@section("title", "Cliente - Profilo")
+@section("content")
+    <div class="schede">
+        <h1>Account settings</h1>
+        {{ Form::open(['route' => 'cliente.update.profile', 'method' => 'PUT']) }}
+        <div class="row-flex">
+            <div class="cell-1of2">
+                {{ Form::label("nome", "Nome:") }}
+                {{ Form::text('nome', Auth::user()->utenteable->nome, [ 'id'=>'nome', "class" => "input", "placeholder" => "Nome"]) }}
+            </div>
+            <div class="cell-1of2">
+                {{ Form::label("cognome", "Cognome:") }}
+                {{ Form::text('cognome', Auth::user()->utenteable->cognome, [ 'id'=>'cognome', "class" => "input", "placeholder" => "Cognome"]) }}
+            </div>
+        </div>
+        <div class="row-flex">
+            <div class="cell-1of2">
+                {{ Form::label("username", "Username:") }}
+                {{ Form::text('username', Auth::user()->username, [ 'id'=>'username', "class" => "input", "placeholder" => "Username"]) }}
+            </div>
+            <div class="cell-1of2">
+                {{ Form::label("email", "Email:") }}
+                {{ Form::email('email', Auth::user()->utenteable->email, [ 'id'=>'email', "class" => "input", "placeholder" => "Email"]) }}
+            </div>
+        </div>
+        <div class="row-flex">
+            <div class="cell-1of2">
+                {{ Form::label("dataNascita", "Data di Nascita: ") }}
+                {{ Form::text('dataNascita', Auth::user()->utenteable->dataNascita, [ 'id'=>'dataNascita', "class" => "input", "placeholder" => "Data di Nascita", "onfocus" => "(this.type='date')", "onblur" => "(this.type='text')"]) }}
+            </div>
+            <div class="cell-1of2">
+                {{ Form::label("telefono", "Telefono:") }}
+                {{ Form::tel('telefono', Auth::user()->utenteable->telefono, ['id'=>'telefono', "class" => "input", "placeholder" => "Telefono"]) }}
+            </div>
+        </div>
+        <div class="row-flex">
+            <div class="cell-1of2">
+                {{ Form::label("genere", "Genere")}}
+                {{ Form::select('genere', ["Non specificato" => "Non specificato", 'Uomo' => 'Uomo', 'donna' => 'donna'], Auth::user()->utenteable->genere, ['id' => 'genere']) }}
+            </div>
+            <div class="cell-1of2" id="profile-btn-container">
+                {{ Form::button('Reset', ['class' => 'btn btn-light', "type" => "reset"]) }}
+                {{ Form::button('Submit', ['class' => 'btn btn-blue', "type" => "submit"]) }}
+            </div>
+        </div>
+        {{ Form::close() }}
+    </div>
+@endsection

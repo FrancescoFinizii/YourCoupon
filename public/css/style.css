@@ -1,0 +1,1216 @@
+/*
+    STRUCTURE style.css
+
+
+    --PUBLIC AREA
+            |___Home
+            |___FAQ
+            |___About
+            |___Promo
+            |___Promo-show
+            |___Login & Register
+
+
+    --CLIENT AREA
+            |___Client
+            |___Coupon-show
+
+
+    --STAFF AREA
+            |___Offerta-create
+
+
+    --ADMIN AREA
+            |___Cliente-index
+            |___Statistiche
+
+
+*/
+
+
+
+/**********************
+***                 ***
+***   PUBLIC AREA   ***
+***                 ***
+**********************/
+
+
+
+
+/**********************
+***                 ***
+***      HOME       ***
+***                 ***
+**********************/
+
+
+#welcome {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    text-align: center;
+    background-position: center;
+    background-size: cover;
+    height: 600px;
+    padding: 0 15px;
+}
+
+
+#welcome-text {
+    font-size: 60px;
+    font-family: 'Brush Script MT', cursive;
+}
+
+
+#welcome-paragraph {
+    font-size: 20px;
+}
+
+
+.scrolling-wrapper-flexbox {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 15px 2px;
+}
+
+
+.company-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 auto;
+    border-radius: 1rem;
+    border: 1px solid black;
+    width: 300px;
+    margin: 25px;
+    padding: 10px;
+    box-shadow: 0 2px 10px black;
+}
+
+
+.company-item img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+.scrolling-wrapper-flexbox .company-item {
+    height: 300px;
+}
+
+
+.scrolling-wrapper-flexbox .company-item:hover {
+    scale: 110%;
+}
+
+
+
+
+/**********************
+***                 ***
+***      FAQ        ***
+***                 ***
+**********************/
+
+
+.faq-header {
+    margin: 50px;
+}
+
+
+@media (min-width: 1100px ) {
+
+    .faq-image {
+        position: relative;
+    }
+
+    .faq-image img {
+        width: 80%;
+        max-width: 880px;
+        margin-bottom: 20px;
+    }
+
+    .gray-background {
+        width: 100%;
+        height: 400px;
+        background: lightgray;
+        position: absolute;
+        top: 410px;
+        z-index: -1;
+    }
+
+    .faq {
+        width: 75%;
+        padding: 30px 50px;
+    }
+}
+
+
+@media (max-width: 1100px ) {
+    .faq-image {
+        text-align: center;
+        position: relative;
+    }
+
+    .faq-image img {
+        width: 95%;
+        max-width: 880px;
+        margin-bottom: 50px;
+    }
+
+    .gray-background {
+        width: 100%;
+        height: 325px;
+        background: lightgray;
+        position: absolute;
+        bottom: -141px;
+        z-index: -1;
+    }
+
+
+    .faq {
+        width: 95%;
+        max-width: 814px;
+        padding: 30px 35px;
+    }
+}
+
+
+.faq {
+    background: white;
+    border: 3px solid #5661A6;
+    margin: 0 auto 50px auto;
+}
+
+
+summary {
+    font-family: monospace;
+    padding: 8px 20px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid;
+    background-color: #5661A6;
+    color: #fff;
+}
+
+
+summary:hover {
+    cursor: pointer;
+}
+
+
+details {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+
+summary:after {
+    content: "\002B";
+    font-weight: bold;
+    font-size: 20px;
+    font-family: monospace;
+}
+
+
+details[open] summary {
+    background: #4c5679;
+}
+
+
+details[open] summary:after {
+    content: "\00D7";
+    font-weight: bold;
+    font-size: 20px;
+    font-family: monospace;
+}
+
+
+details[open] div {
+    padding: 8px 16px;
+}
+
+
+details[open] div p {
+    margin: 0 0 20px 0;
+}
+
+
+
+
+/**********************
+***                 ***
+***      About      ***
+***                 ***
+**********************/
+
+
+.about {
+    width: 70%;
+    font-size: 18px;
+}
+
+
+.about, .contact-section {
+    margin: 30px auto 80px auto;
+}
+
+
+.about-header {
+    color: midnightblue;
+    padding: 50px 10px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+
+.about-header h2 {
+    font-weight: 800;
+}
+
+
+.contact-section {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+@media (max-width: 580px) {
+
+    .contact-section {
+        padding: 20px;
+    }
+}
+
+
+.contact {
+    padding: 50px 20px;
+    background: white;
+    max-width: 500px;
+    margin: 0 auto;
+    min-width: 300px;
+}
+
+
+.contact header {
+    border-top: 4px solid #3763f4;
+    width: 100px;
+    margin: 0 auto 50px auto;
+}
+
+
+.contact address div {
+    margin: 20px auto;
+}
+
+
+.contact address a{
+    color: black;
+}
+
+
+
+
+/**********************
+***                 ***
+***      Promo      ***
+***                 ***
+**********************/
+
+
+.promo-search {
+    padding: 40px 5px;
+    margin: 0 0 30px 0;
+}
+
+
+.promo-search .search-bar {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.promo-result {
+    min-height: 300px;
+    margin: 30px 5px 50px;
+}
+
+
+.promo-item {
+    background: aliceblue;
+    border: 1px solid lightgray;
+    border-radius: 15px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+
+.promo-sconto {
+    background: #4e5d78;
+    color: white;
+    padding: 15px;
+    min-width: 150px;
+    border-radius: 15px 15px 0 0;
+}
+
+.promo-sconto span{
+    font-size: 22px;
+    font-weight: 900;
+    text-align: center;
+}
+
+
+.promo-content {
+    padding: 15px;
+}
+
+
+.promo-content h3 {
+    text-align: center;
+}
+
+
+.promo-description p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 50px;
+}
+
+
+.promo-description a {
+    margin: 10px;
+}
+
+
+.promo-effect {
+    border: 1px dashed lightgray;
+    position: relative;
+}
+
+
+.circle {
+    position: absolute;
+    background: white;
+}
+
+
+.circle:nth-child(1) {
+    top: -20px;
+    border-radius: 0 20px 20px 0;
+    border: 1px solid lightgray;
+    border-left: 1px solid transparent;
+    height: 40px;
+    width: 20px;
+    left: -3px;
+}
+
+
+.circle:nth-child(2) {
+    bottom: -20px;
+    border: 1px solid lightgray;
+    border-right: 1px solid transparent;
+    border-radius: 20px 0 0 20px ;
+    height: 40px;
+    width: 20px;
+    right: -3px;
+}
+
+
+.promo-link {
+    padding: 15px;
+    text-align: center;
+    margin: auto;
+}
+
+
+.promo-link svg {
+    color: red;
+}
+
+
+@media (min-width: 900px) {
+
+    .promo-item {
+        display: flex;
+        max-height: 220px;
+    }
+
+    .promo-sconto {
+        border-radius: 15px 0 0 15px;
+    }
+
+    .circle:nth-child(1) {
+        top: -3px;
+        border-radius: 0 0 20px 20px;
+        border: 1px solid lightgray;
+        border-top: 1px solid transparent;
+        height: 20px;
+        width: 40px;
+        right: -20px;
+        left: -20px;
+    }
+
+    .circle:nth-child(2) {
+        bottom: -3px;
+        border: 1px solid lightgray;
+        border-bottom: 1px solid transparent;
+        border-radius: 20px 20px 0 0;
+        height: 20px;
+        width: 40px;
+        right: -20px;
+        left: -20px;
+    }
+
+    .promo-content {
+        width: 65%;
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .promo-link {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .promo-link div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .promo-link div svg {
+        margin-right: 10px;
+    }
+}
+
+
+
+
+/**********************
+***                 ***
+***   Promo-show    ***
+***                 ***
+**********************/
+
+
+.product-section {
+    padding: 70px 10px;
+}
+
+
+@media (min-width: 800px) {
+
+    .product-section div:first-child {
+        display: flex;
+        justify-content: center;
+    }
+
+    .product-details {
+        padding: 10px 40px;
+    }
+
+    .product-description {
+        padding: 40px;
+    }
+
+    .product-image {
+        margin: 0 auto;
+    }
+}
+
+
+@media (max-width: 800px) {
+
+    .product-image {
+        margin: 0 auto 80px auto;
+    }
+
+    .product-description {
+        max-width: 500px;
+        margin: 80px auto 0 auto;
+    }
+}
+
+
+.product-image {
+    position: relative;
+    max-width: 510px;
+    min-width: 300px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+
+.product-image img {
+    width: 100%;
+    height: auto;
+}
+
+
+.product-sales {
+    font-size: 22px;
+    color: white;
+    font-weight: 900;
+    background: red;
+    position: absolute;
+    padding: 10px;
+    left: 0;
+}
+
+.product-details {
+    min-width: 300px;
+    max-width: 500px;
+    margin: auto;
+}
+
+
+.product-title {
+    position: relative;
+}
+
+
+.product-title h1 {
+    text-align: start !important;
+}
+
+
+.product-title-border {
+    position: absolute;
+    width: 80px;
+    border-top: 4px solid #28a745;
+    top: -10px;
+    left: 0;
+}
+
+
+.product-brand {
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+    text-align: start;
+}
+
+
+.product-price {
+    margin: 20px 0;
+    text-align: start;
+    font-size: 22px;
+    color: #28a745;
+    font-weight: 700;
+}
+
+
+.product-time {
+    color: red;
+    display: flex;
+    align-items: center;
+    margin: 30px 0;
+}
+
+
+.product-time svg {
+    margin-right: 10px;
+}
+
+
+
+
+/**********************
+***                 ***
+***      LOGIN      ***
+***        &        ***
+***     REGISTER    ***
+***                 ***
+**********************/
+
+
+.card {
+    background: white;
+    max-width: 450px;
+    min-width: 310px;
+    padding: 50px;
+    border: 1px solid black;
+    border-radius: 30px;
+    text-align: center;
+    margin: auto;
+    box-shadow: 0 2px 20px black;
+}
+
+
+.icon-container {
+    margin: auto auto 40px auto;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+
+.card form {
+    margin: 30px 0px;
+}
+
+
+.card .input, .card select {
+    margin-bottom: 16px;
+}
+
+
+.card .btn-large {
+    margin: 20px 0;
+}
+
+
+
+
+
+/**********************
+***                 ***
+***   CLIENT AREA   ***
+***                 ***
+**********************/
+
+
+
+
+/**********************
+***                 ***
+***   Coupon-show   ***
+***                 ***
+**********************/
+
+
+.back-btn-cont {
+    padding: 50px 0 0 20px;
+}
+
+
+.back-btn-cont a img {
+    margin-right: 5px;
+}
+
+
+#coupon-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+    background-color: #fffafe;
+}
+
+
+.coupon-card{
+    background: linear-gradient(135deg, #7158fe, #9d4de6);
+    color: #fff;
+    text-align: center;
+    padding: 40px 70px;
+    border-radius: 15px;
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,0.15);
+    position: relative;
+    display: flex;
+    margin: 50px 5px;
+    max-width: 900px;
+}
+
+
+.coupon-card h3{
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 40px;
+
+}
+
+
+.coupon-card p{
+    font-size: 15px;
+}
+
+
+.left-card {
+    flex: 2 1 0;
+    text-align: center;
+}
+
+
+.right-card {
+    flex: 1 1 0;
+    margin: auto;
+    text-align: center;
+    margin-left: 25px;
+}
+
+
+@media (max-width: 800px)  {
+
+    .coupon-card {
+        display: block;
+    }
+
+    .right-menu{
+        margin-top: 40px;
+    }
+
+    .right-card {
+        margin-left: 0px;
+    }
+}
+
+
+#company-logo{
+    width: 80px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+
+.coupon-row{
+    display: flex;
+    align-items: center;
+    margin: 25px auto;
+    width: fit-content;
+}
+
+
+.coupon-code {
+    border: 1px solid #fff;
+    background: #fff;
+    padding: 10px 20px;
+    color: #7158fe;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+#promo-code{
+    border: 1px dashed #fff;
+    padding: 10px 20px;
+    border-right: 0;
+}
+
+
+#qr-code {
+    margin-bottom: 20px;
+}
+
+
+.circle1, .circle2{
+    background-color: #fffafe;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+.circle1{
+    left: -25px;
+}
+
+
+.circle2{
+    right: -25px;
+}
+
+
+
+
+/**********************
+***                 ***
+***     CLIENT      ***
+***                 ***
+**********************/
+
+
+/*  CLIENT dashboard  */
+
+.wrapper-dashboard {
+    box-shadow: 0 2px 20px #000;
+    background-color: #ffffff;
+    border-radius: 15px;
+
+}
+
+
+.left-menu {
+    flex: 1 1 0;
+    margin: 10px auto;
+    text-align: center;
+    border-right: 1px solid #000;
+}
+
+
+.right-menu {
+    flex: 2 1 0;
+    text-align: center;
+    padding: 10px 0;
+}
+
+
+.right-menu .input {
+    margin: 12px 0px;
+}
+
+
+.schede {
+    padding: 0 20px;
+}
+
+
+.schede form {
+    margin: 20px 0 40px 0;
+}
+
+
+@media (min-width: 930px) {
+
+    .wrapper-dashboard {
+        display: flex;
+        justify-content: center;
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    .wrapper-dashboard .cell-1of2 {
+        text-align: start;
+    }
+
+    #password-btn-container {
+        margin-top: 123px;
+    }
+}
+
+
+@media (max-width: 930px) and (min-width: 540px) {
+
+    .wrapper-dashboard .cell-1of2 {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .wrapper-dashboard label {
+        width: 150px;
+        text-align: start;
+    }
+
+}
+
+
+@media (max-width: 930px) {
+    #profile-btn-container {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+}
+
+
+/*  ONLY client-edit-profile */
+
+#profile-btn-container {
+    text-align: center;
+    margin-top: 26px;
+}
+
+
+/*  ONLY client-edit-password */
+
+#password-btn-container {
+    text-align: center;
+}
+
+
+/*  ONLY client-coupon */
+
+.user-coupon {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    overflow-y: auto;
+    height: 380px;
+}
+
+
+.coupon-item {
+    width: 150px;
+    height: 200px;
+    margin: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 10px black;
+    text-decoration: none;
+    color: black;
+}
+
+
+.coupon-item:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+.coupon-item p {
+    text-transform: uppercase;
+}
+
+
+.coupon-item img{
+    max-width: 100%;
+    max-height: 75%;
+}
+
+
+
+
+
+/**********************
+***                 ***
+***   STAFF AREA    ***
+***                 ***
+**********************/
+
+
+
+
+/**********************
+***                 ***
+***  Offerta-create ***
+***                 ***
+**********************/
+
+
+.form-step {
+    width: 70%;
+    margin: 50px auto;
+}
+
+
+.line {
+    height: 10px;
+    width: 60%;
+    background: white;
+}
+
+
+.line-step {
+    height: 10px;
+    width: 50%;
+    background: #1e7e34;
+}
+
+
+.step {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: relative;
+    outline: none;
+}
+
+
+.step span {
+    font-weight: 700;
+}
+
+
+.step-name {
+    position: absolute;
+    width: 150px;
+    text-align: center;
+    bottom: 50px;
+}
+
+
+.step-name-green {
+    color: #1e7e34;;
+}
+
+
+.step-prev {
+    background: #1e7e34;
+    color: white;
+}
+
+
+.step-next {
+    background: white;
+    color: black;
+}
+
+
+
+
+
+/**********************
+***                 ***
+***   ADMIN AREA    ***
+***                 ***
+**********************/
+
+
+
+
+/**********************
+***                 ***
+***  Cliente-index  ***
+***                 ***
+**********************/
+
+
+/* DIV Multi delete (delete-cliente.js) */
+
+
+#client-list-to-delete {
+    background-color: whitesmoke;
+    border-radius: 10px;
+    margin: 0 auto 50px;
+    padding: 10px 20px 20px 20px;
+    min-width: 350px;
+}
+
+.client-selected-heading {
+    text-align: center;
+    background-color: #dc3545;
+    padding: 20px 0;
+}
+
+.client-selected-heading h2 {
+    margin: 0;
+    color: whitesmoke;
+}
+
+#client-selected-cont {
+    margin: 20px 0;
+}
+
+.client-item {
+    border-bottom: 1px solid gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.client-selected-deleted {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.client-selected-deleted {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.client-selected-deleted span {
+    font-family: monospace;
+    font-size: 17px;
+    color: gray;
+}
+
+
+
+
+/**********************
+***                 ***
+***   Statistiche   ***
+***                 ***
+**********************/
+
+
+.lightgray-background {
+    background-color: rgb(229, 229, 229);
+    padding: 60px 10px;
+    margin: 0 !important;
+}
+
+
+.statistic-container {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px 10px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+
+.statistic-item {
+    margin: 0 auto;
+    padding: 20px 10px;
+    min-width: 300px;
+    max-width: 310px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgb(247, 247, 247);
+    box-shadow: 1px 1px 5px 0px black;
+}
+
+
+.secondary-statistics .statistic-item h3 {
+    width: 200px;
+    text-align: start;
+}
+
+
+.secondary-statistics .statistic-item p {
+    font-size: 22px;
+    padding: 10px;
+}
+
+
+.statistic-item-large {
+    max-width: 500px;
+    margin: 15px auto;
+}
+
+
+.statistic-item-large .img {
+    margin: 10px;
+    width: 100%;
+    height: 200px;
+}
+
+
+.statistic-item-large a {
+    margin: 20px 0;
+}
+
+
+.main-statistic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media (max-width: 1110px) {
+    .main-statistic {
+        display: block;
+    }
+}
+
+
+.secondary-statistics {
+    margin: 30px 0;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+
+#coupon-div {
+    border: 4px dashed orangered;
+    color: orangered;
+    display: none;
+}
