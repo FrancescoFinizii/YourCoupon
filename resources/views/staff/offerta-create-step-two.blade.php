@@ -2,41 +2,41 @@
 <div class="form-input">
     <div class="input-item">
         {{ Form::label("AziendaID", "Azienda ID: ") }}
-        {{ Form::number('AziendaID', $azienda->id, [ 'id'=>'AziendaID', 'class' => 'input']) }}
+        {{ Form::number('AziendaID', $azienda->id, ['class' => 'input']) }}
     </div>
     <div class="input-item">
         {{Form::label("oggetto", "Oggetto: ")}}
-        {{ Form::text('oggetto', null, [ 'id'=>'oggetto', 'class' => 'input']) }}
+        {{ Form::text('oggetto', null, ['class' => 'input']) }}
     </div>
     <div class="input-item">
         {{Form::label("emissione", "Emissione:")}}
-        {{ Form::date('emissione', null, [ 'id'=>'emissione', 'class' => 'input']) }}
+        {{ Form::date('emissione', null, ['class' => 'input']) }}
     </div>
     <div class="input-item">
         {{Form::label("scadenza", "Scadenza: ")}}
-        {{ Form::date('scadenza', null, [ 'id'=>'scadenza', 'class' => 'input']) }}
+        {{ Form::date('scadenza', null, ['class' => 'input']) }}
     </div>
     <div class="input-item">
         {{ Form::label("prezzo", "Prezzo: ") }}
         <div class="flex-centered">
-            {{ Form::number("prezzo", null, ["id" => "prezzo" , "class" => 'input' , "step"=>"0.01"]) }}
+            {{ Form::number("prezzo", null, ["class" => 'input' , "step"=>"0.01"]) }}
             <span class="suffix">€</span>
         </div>
     </div>
     <div class="input-item">
         {{ Form::label("sconto", "Sconto: ") }}
         <div class="flex-centered">
-            {{ Form::number("sconto", null, ["id" => "sconto" , "class" => 'input']) }}
+            {{ Form::number("sconto", null, ["class" => 'input']) }}
             <span class="suffix">%</span>
         </div>
     </div>
     <div class="input-item">
         {{ Form::label("foto", "Foto: ") }}
-        {{ Form::file("foto", ["id" => "foto" , "accept" => ".jpg, .jpeg, .png", 'class' => 'input' ]) }}
+        {{ Form::file("foto", ["accept" => ".jpg, .jpeg, .png", 'class' => 'input' ]) }}
     </div>
     <div class="input-item two-columns">
         {{Form::label("descrizione", "Descrizione: ")}}
-        {{Form::textarea("descrizione", null, ['id' => 'descrizione']) }}
+        {{Form::textarea("descrizione", null, []) }}
     </div>
 </div>
 <div class="form-button">

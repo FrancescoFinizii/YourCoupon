@@ -6,10 +6,10 @@
             <span id="welcome-text">Welcome to YourCoupon!</span>
             <p id="welcome-paragraph">The #1 website to find the best deals for yourself.</p>
             <a href="">
-                <button class="btn btn-blue" type="button">Get start</button>
+                <a href="{{route("promo")}}" class="btn btn-blue" type="button">Get start</a>
             </a>
             <a href="">
-                <button class="btn btn-blue" type="button">More info</button>
+                <a href="{{route("about")}}" class="btn btn-blue" type="button">More info</a>
             </a>
         </div>
     </section>

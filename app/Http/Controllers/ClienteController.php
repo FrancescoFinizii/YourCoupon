@@ -57,7 +57,7 @@ class ClienteController extends Controller
             'username' => 'required|alpha_dash|min:8|max:30|unique:utente,username',
             'email' => 'required|email:rfc,dns|max:60|unique:cliente,email',
             'telefono' => 'required|digits:10',
-            'dataNascita' => 'required|date|before: -18 years',
+            'dataNascita' => 'required|date|before: -18 years|after: -75 years|size:10',
             'genere' => ['required', Rule::in(['Non specificato', 'Uomo', 'donna'])],
             'password' => ['required', 'confirmed', Password::min(8)->mixedCase()->numbers()->symbols()],
             'password_confirmation' => 'required',
@@ -83,7 +83,6 @@ class ClienteController extends Controller
     }
 
 
-
     /**
      * Fornisce la pagina in cui è possibile modificare le informazioni personali del cliente
      */
@@ -91,6 +90,7 @@ class ClienteController extends Controller
     {
         return view("cliente.cliente-edit-profile");
     }
+
 
     /**
      * Fornisce la pagina in cui è possibile modificare la password del cliente
@@ -112,7 +112,7 @@ class ClienteController extends Controller
             'username' => ['required', 'alpha_dash', 'min:8', 'max:30', Rule::unique("utente", "username")->ignore(Auth::user())],
             'email' => ['required', 'email:rfc,dns', 'max:60', Rule::unique("cliente", "email")->ignore(Auth::user()->utenteable)],
             'telefono' => 'required|digits:10',
-            'dataNascita' => 'required|date|before: -18 years',
+            'dataNascita' => 'required|date|before: -18 years|after: -75 years|size:10',
             'genere' => ['required', Rule::in(['Non specificato', 'Uomo', 'donna'])],
         ]);
         Auth::user()->update($request->only("username"));

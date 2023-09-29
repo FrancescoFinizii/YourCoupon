@@ -2,6 +2,21 @@
 @section("title", "Promo")
 @section("content")
     <section class="promo-search">
+        @if ($message = Session::get('success'))
+            <p class="alert alert-success">{{ $message }}</p>
+        @endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <p>ATTENZIONE! Si sono verificati i seguenti errori:</p>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>
+                            <p>{{ $error }}</p>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         {{ Form::open(["route" => "promo", "method" => "GET" ]) }}
         <div class="search-bar">
             {{Form::text("search", app('request')->input('search'), ["id" => "search", "class" => "input", "placeholder" => "Ricerca un offerta o un azienda"])}}
@@ -39,7 +54,8 @@
                         <p>Valida fino a {{$offerta->scadenza}}</p>
                     </div>
                     @can("isClient")
-                        {{ Form::open([]) }}
+                        {{ Form::open(["route" => "coupon.store", "method" => "POST"]) }}
+                        {{ Form::hidden("OffertaID", Crypt::encrypt($offerta->id)) }}
                         {{ Form::button("Ottieni", ["class" => "btn btn-green", "type" => "submit"]) }}
                         {{ form::close() }}
                     @endcan

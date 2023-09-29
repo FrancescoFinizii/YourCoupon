@@ -310,38 +310,5 @@ class DatabaseSeeder extends Seeder
             ]
         ]);
 
-        //Coupon
-        DB::table('coupon')->insert([
-            [
-                'id' => 1,
-                'QrCode' => 'dsgknslDSvjnonsdfknion',
-                'attivo' => true,
-                "ClienteID" => 1,
-                "OffertaID" => 1
-            ],
-            [
-                'id' => 2,
-                'QrCode' => 'dsgknslDSjkjbjvjnonsdf',
-                'attivo' => true,
-                "ClienteID" => 1,
-                "OffertaID" => 4
-            ],
-            [
-                'id' => 3,
-                'QrCode' => 'jlnlnoinobiyvutvufbdfb',
-                'attivo' => true,
-                "ClienteID" => 1,
-                "OffertaID" => 5
-            ],
-            [
-                'id' => 4,
-                'QrCode' => 'kjdnvonvFALSOfnwbnobdb',
-                'attivo' => false,
-                "ClienteID" => 1,
-                "OffertaID" => 6
-            ],
-
-        ]);
-
     }
 }

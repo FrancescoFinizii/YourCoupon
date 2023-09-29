@@ -8,11 +8,13 @@
         <div class="table-container">
             <div class="table-title">
                 <h2>Gestione Azienda</h2>
-                <a href="{{route("azienda.create")}}" class="parent-left btn-rect btn-green flex-centered">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-                    </svg> Aggiungi
-                </a>
+                <div class="flex-centered parent-left">
+                    <a href="{{route("azienda.create")}}" class="btn-rect btn-green flex-centered">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                        </svg> Aggiungi
+                    </a>
+                </div>
             </div>
             <table>
                 <thead>
@@ -37,7 +39,7 @@
                         <td>{{ $azienda->sede }}</td>
                         <td>{{ $azienda->tipologia }}</td>
                         <td>{{ $azienda->descrizione }}</td>
-                        <td class="action">
+                        <td>
                             <div class="action-cont flex-centered">
                                 <a href="{{route("azienda.edit", $azienda->id)}}" class="btn-rect btn-blue">
                                     <div class="flex-centered">

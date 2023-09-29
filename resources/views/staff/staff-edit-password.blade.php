@@ -9,17 +9,17 @@
         <div class="form-input">
             <div class="input-item">
                 {{Form::label("oldPassword", "Vecchia password:")}}
-                {{ Form::password('oldPassword', [ 'id'=>'oldPassword', "class" => "input", "placeholder" => "Vecchia password"]) }}
+                {{ Form::password('oldPassword', ["class" => "input", "placeholder" => "Vecchia password"]) }}
             </div>
             <div class="input-item">
             </div>
             <div class="input-item">
                 {{Form::label("password", "Nuova Password:")}}
-                {{ Form::password('password', [ 'id'=>'password', "class" => "input", "placeholder" => "Nuova Password"]) }}
+                {{ Form::password('password', ["class" => "input", "placeholder" => "Nuova Password"]) }}
             </div>
             <div class="input-item">
                 {{Form::label("password_confirmation", "Conferma password:")}}
-                {{ Form::password('password_confirmation', [ 'id'=>'password_confirmation', "class" => "input", "placeholder" => "Conferma password"]) }}
+                {{ Form::password('password_confirmation', ["class" => "input", "placeholder" => "Conferma password"]) }}
             </div>
         </div>
         <div class="form-button">

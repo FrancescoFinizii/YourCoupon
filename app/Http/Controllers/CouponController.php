@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Coupon;
+use App\Models\Offerta;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 
 class CouponController extends Controller
@@ -23,13 +27,20 @@ class CouponController extends Controller
     /**
      * Salva un nuovo coupon nel database
      */
-    public function store()
+    public function store(Request $request)
     {
-        Auth::user()->utenteable->coupon()->create([
-            "Qr-Code" => "dsvlknvlkasnvoinapbsf",
-            "attivo" => true
-        ]);
-        return redirect()->back()->with(["success" => "Coupon Ottenuto"]);
+        $request->OffertaID = Crypt::decrypt($request->OffertaID);
+        if (!Coupon::where("ClienteID", Auth::user()->utenteable->id)->where("OffertaID", $request->OffertaID)->exists()) {
+            Auth::user()->utenteable->coupon()->create([
+                "id" => (string) Str::uuid(),
+                "OffertaID" => $request->OffertaID,
+                "attivo" => true
+            ]);
+            return redirect()->back()->with(["success" => "Coupon Ottenuto"]);
+        }
+        else {
+            return redirect()->back()->withErrors(["error" => "Hai già ottenuto il coupon per questa offerta"]);
+        }
     }
 
 

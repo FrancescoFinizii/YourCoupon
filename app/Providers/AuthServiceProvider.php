@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Coupon;
+use App\Models\Offerta;
 use App\Models\Utente;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -45,7 +46,7 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('hasCoupon', function(Utente $utente, Coupon $coupon) {
             $bool = false;
-            if ($utente->utenteable_type == 'App\Models\Cliente') {
+            if (Gate::allows("isClient")) {
                 $bool = $coupon->cliente->id == $utente->utenteable->id;
             }
             return $bool;

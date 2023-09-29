@@ -1,5 +1,5 @@
 @extends("public.layout.public-layout")
-@section("title", "Coupon - " .$coupon->id)
+@section("title", "Coupon")
 @section("content")
     <div class="back-btn-cont flex-between">
         <a class="btn-rect btn-black " href="{{route("cliente.coupon")}}">
@@ -18,7 +18,7 @@
                 </a>
                 <div class="coupon-row">
                     <span id="promo-code">ID Coupon</span>
-                    <span class="coupon-code">{{$coupon->QrCode}}</span>
+                    <span class="coupon-code">{{$coupon->id}}</span>
                 </div>
                 <p>Scadenza: {{$coupon->offerta->scadenza}}</p>
             </div>

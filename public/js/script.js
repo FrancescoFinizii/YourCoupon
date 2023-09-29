@@ -21,7 +21,7 @@ function activeCurrentPage() {
             $(this).addClass('active');
         }
     });
-    $("#main-nav .btn-rect").each(function() {
+    $("#main-nav .btn").each(function() {
         if ($(this).text() === pageTitle) {
             $(this).addClass('active');
         }

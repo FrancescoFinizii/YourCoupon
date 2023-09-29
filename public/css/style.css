@@ -932,18 +932,18 @@ details[open] div p {
 /*  ONLY client-coupon */
 
 .user-coupon {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     overflow-y: auto;
+    gap: 25px 15px;
     height: 380px;
 }
 
 
 .coupon-item {
     width: 150px;
-    height: 200px;
-    margin: 20px;
+    height: 220px;
+    margin: auto;
     border: 1px solid black;
     border-radius: 10px;
     padding: 10px;
@@ -966,7 +966,7 @@ details[open] div p {
 
 .coupon-item img{
     max-width: 100%;
-    max-height: 75%;
+    max-height: 100px;
 }
 
 

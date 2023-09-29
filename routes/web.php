@@ -29,9 +29,7 @@ use Illuminate\Support\Facades\Route;
 --                                       ---
 --------------------------------------------*/
 
-Route::redirect('/', "/home");
-
-Route::view('home', "public/home")
+Route::view('/', "public/home")
     ->name('home');
 
 Route::view('faq', "public/faq")
@@ -42,6 +40,9 @@ Route::get('promo', [OffertaController::class, "searchPromo"])
 
 Route::get('promo/{id}', [OffertaController::class, "show"])
     ->name('promo.show');
+
+Route::post("/promo/coupon", [CouponController::class, 'store'])
+    ->name('coupon.store')->middleware("can:isClient");
 
 Route::view('about', "public/about")
     ->name('about');

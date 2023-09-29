@@ -2,15 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Coupon extends Model
 {
-    use HasFactory;
 
     protected $table = 'coupon';
     public $timestamps = false;
+    public $incrementing = false;
 
 
     /**
@@ -19,8 +18,9 @@ class Coupon extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'QrCode',
+        'id',
         'attivo',
+        'OffertaID',
     ];
 
 

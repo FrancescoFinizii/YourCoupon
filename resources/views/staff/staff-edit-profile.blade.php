@@ -15,15 +15,15 @@
             </div>
             <div class="input-item item-centered">
                 {{Form::label("username", "Username: ")}}
-                {{ Form::text('username', Auth::user()->username, [ 'id'=>'username', 'class' => 'input']) }}
+                {{ Form::text('username', Auth::user()->username, ['class' => 'input']) }}
             </div>
             <div class="input-item">
                 {{Form::label("nome", "Nome: ")}}
-                {{ Form::text('nome', Auth::user()->utenteable->nome, [ 'id'=>'nome', 'class' => 'input']) }}
+                {{ Form::text('nome', Auth::user()->utenteable->nome, ['class' => 'input']) }}
             </div>
             <div class="input-item">
                 {{Form::label("cognome", "Cognome: ")}}
-                {{ Form::text('cognome', Auth::user()->utenteable->cognome, [ 'id'=>'cognome', 'class' => 'input']) }}
+                {{ Form::text('cognome', Auth::user()->utenteable->cognome, ['class' => 'input']) }}
             </div>
         </div>
         <div class="form-button">

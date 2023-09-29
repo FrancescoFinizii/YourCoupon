@@ -14,7 +14,6 @@ class FAQController extends Controller
      */
     public function index()
     {
-
         return view("admin.faq-index", ["faqs" => FAQ::paginate(10)]);
     }
 

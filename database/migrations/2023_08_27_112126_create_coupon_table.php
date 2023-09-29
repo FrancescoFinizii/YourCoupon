@@ -14,8 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('coupon', function (Blueprint $table) {
-            $table->id("id");
-            $table->string("QrCode")->unique();
+            $table->uuid('id')->primary();
             $table->boolean("attivo");
             $table->unsignedBigInteger("ClienteID");
             $table->foreign('ClienteID')->references('id')->on('cliente')->onDelete('cascade');

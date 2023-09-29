@@ -92,8 +92,8 @@ class OffertaController extends Controller
     {
         $request->validate([
             'oggetto' => 'required',
-            'emissione' => 'required|date|after: yesterday|before: +1years',
-            'scadenza' => 'required|date|after: emissione|before: +3years',
+            'emissione' => 'required|date|after: yesterday|before: +1years|size:10',
+            'scadenza' => 'required|date|after: emissione|before: +3years|size:10',
             'prezzo' => 'required|decimal:0,2|min:0|lt:100000000',
             'sconto' => 'required|integer|min:0|max:100',
             'foto' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
@@ -139,8 +139,8 @@ class OffertaController extends Controller
     {
         $request->validate([
             'oggetto' => 'required',
-            'emissione' => 'required|date|after: yesterday|before: +1years',
-            'scadenza' => 'required|date|after: emissione|before: +3years',
+            'emissione' => 'required|date|after: yesterday|before: +1years|size:10',
+            'scadenza' => 'required|date|after: emissione|before: +3years|size:10',
             'prezzo' => 'required|decimal:0,2|min:0|lt:100000000',
             'sconto' => 'required|integer|min:0|max:100',
             'foto' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',

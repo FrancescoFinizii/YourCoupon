@@ -1,5 +1,5 @@
 @extends("public.layout.public-layout")
-@section("title", "Login")
+@section("title", "Log in")
 @section("content")
     <div class="background" style="background-image:url({{url('img/background.jpg')}});">
         <div class="card">
@@ -17,12 +17,12 @@
                 <p class="errorLabel">{{ $errors->first('status') }}</p>
             @endif
 
-            {{ Form::text('username', null, [ 'id'=>'username', "class" => "input", 'placeholder' => 'Username']) }}
+            {{ Form::text('username', null, ["class" => "input", 'placeholder' => 'Username']) }}
             @error('username')
             <p class="errorLabel">{{ $message }}</p>
             @enderror
 
-            {{ Form::password('password', [ 'id'=>'password', "class" => "input", 'placeholder' => 'Password']) }}
+            {{ Form::password('password', ["class" => "input", 'placeholder' => 'Password']) }}
             @error('password')
             <p class="errorLabel">{{ $message }}</p>
             @enderror
