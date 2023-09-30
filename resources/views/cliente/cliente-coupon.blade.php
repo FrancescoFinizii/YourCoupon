@@ -6,8 +6,12 @@
         <div class="user-coupon">
             @forelse($coupons as $coupon)
                 <a class="coupon-item" href="{{route("coupon.show", ["id" => $coupon->id])}}">
-                    <img src="{{asset("img/qr-code.png")}}">
-                    <p>{{ $coupon->id}}</p>
+                    <div>
+                        {!! QrCode::size(100)->generate($coupon->id) !!}
+                    </div>
+                    <div class="coupon-promo">
+                        {{ $coupon->offerta->oggetto}}
+                    </div>
                 </a>
             @empty
                 <div class="flex-centered">

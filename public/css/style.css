@@ -959,16 +959,12 @@ details[open] div p {
 }
 
 
-.coupon-item p {
+.coupon-promo {
     text-transform: uppercase;
+    max-height: 96px;
+    margin: auto 0;
+    overflow: hidden;
 }
-
-
-.coupon-item img{
-    max-width: 100%;
-    max-height: 100px;
-}
-
 
 
 

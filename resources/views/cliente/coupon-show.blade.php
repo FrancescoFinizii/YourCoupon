@@ -23,7 +23,9 @@
                 <p>Scadenza: {{$coupon->offerta->scadenza}}</p>
             </div>
             <div class="right-card">
-                <img id="qr-code" width=200px height=200px src="{{asset("img/qr-code.png")}}">
+                <div>
+                    {!! QrCode::size(200)->generate($coupon->id) !!}
+                </div>
                 <p><b>Username:</b> {{$coupon->cliente->utente->username}}</p>
                 <p><b>Nome:</b> {{$coupon->cliente->nome}}</p>
                 <p><b>Cognome:</b> {{$coupon->cliente->cognome}}</p>
