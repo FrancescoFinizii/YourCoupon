@@ -663,6 +663,35 @@ details[open] div p {
 }
 
 
+.phone-input {
+    position: relative;
+}
+
+
+.phone-input .prefix {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 16px;
+    background: #dddddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 16px 0 0 16px;
+}
+
+
+.phone-input .prefix img {
+    margin-right: 5px;
+}
+
+
+.phone-input  .input {
+    padding-left: 80px !important;
+}
+
+
 .card .btn-large {
     margin: 20px 0;
 }
@@ -688,6 +717,7 @@ details[open] div p {
 
 
 .back-btn-cont {
+    background: #fffafe;
     padding: 50px 0 0 20px;
 }
 

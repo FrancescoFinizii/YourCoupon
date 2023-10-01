@@ -47,7 +47,14 @@
                 @endforeach
             @endif
 
-            {{ Form::text('telefono', '', ["class" => "input", 'placeholder'=>'Telefono']) }}
+            <div class="phone-input">
+                {{ Form::text('telefono', '', ["class" => "input", 'placeholder'=>'Telefono']) }}
+                <span class="prefix">
+                    <img src="{{asset("img/italy.png")}}" width="20" height="15">
+                    +39
+                </span>
+            </div>
+
             @if ($errors->has('telefono'))
                 @foreach ($errors->get('telefono') as $message)
                     <p class="errorLabel">{{ $message }}</p>
