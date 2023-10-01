@@ -16,13 +16,13 @@
 
 ``` git  clone https://github.com/FrancescoFinizii/YourCoupon ```
 
-Open `.env.example` file to configure your `database` and it's `name`, `host`, and `password`
-
 ``` composer install ```
 
 ``` cp .env.example .env ```
 
 ``` php artisan key:generate ```
+
+Open `.env` file to configure your `database` and it's `name`, `host`, and `password`
 
 ``` php artisan storage:link ```
 
