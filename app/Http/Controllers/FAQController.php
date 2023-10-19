@@ -8,6 +8,14 @@ use Illuminate\Validation\Rule;
 
 class FAQController extends Controller
 {
+    /**
+     * Mostra la pagina delle FAQ del sito
+     */
+    public function showPage()
+    {
+        return view("public.faq", ["faqs" => FAQ::paginate(10)]);
+    }
+
 
     /**
      * Mostra l'elenco delle FAQ presenti nel database

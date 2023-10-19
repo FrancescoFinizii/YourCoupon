@@ -53,8 +53,8 @@
                                         Modifica
                                     </div>
                                 </a>
-                                {{ Form::open(["route" => ["azienda.destroy", $azienda], "method" => "DELETE", "id" => "delete-staff-" . $azienda->id ]) }}
-                                <button id="{{$azienda->id}}" type="button" class="btn-rect btn-red delete">
+                                {{ Form::open(["route" => ["azienda.destroy", $azienda], "method" => "DELETE" ]) }}
+                                <button id="{{$azienda->id}}" type="button" class="btn-rect btn-red item-to-delete">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                          class="bi bi-trash3-fill" viewBox="0 0 16 16">
                                         <path

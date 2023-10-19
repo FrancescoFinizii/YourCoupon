@@ -1,7 +1,7 @@
 @extends('admin.layout.admin-layout')
 @section('title', 'Statistiche')
 @section('content')
-    <section class="lightgray-background">
+    <section class="statistic-section" style="background-image: url({{url('img/texture.jpg')}})">
         <div class="statistic-container">
             <div class="main-statistic">
                 <div class="statistic-item statistic-item-large">

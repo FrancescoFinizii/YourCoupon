@@ -44,10 +44,10 @@ class AziendaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'ragioneSociale' => 'required|alpha:ascii|max:50',
-            'sede' => 'required|alpha:ascii|max:50',
-            'tipologia' => 'required|max:50',
-            'descrizione' => 'nullable',
+            'ragioneSociale' => 'required|string|max:50',
+            'sede' => 'required||string|max:50',
+            'tipologia' => 'required||string|max:50',
+            'descrizione' => 'nullable||string',
             'logo' => 'required|image|mimes:jpeg,jpg,png|max:2048',
         ]);
 
@@ -76,10 +76,10 @@ class AziendaController extends Controller
     public function update(Request $request, Azienda $azienda)
     {
         $request->validate([
-            'ragioneSociale' => 'required|alpha:ascii|max:50',
-            'sede' => 'required|alpha:ascii|max:50',
-            'tipologia' => 'required|max:50',
-            'descrizione' => 'nullable',
+            'ragioneSociale' => 'required|string|max:50',
+            'sede' => 'required|string|max:50',
+            'tipologia' => 'required|string|max:50',
+            'descrizione' => 'nullable|string',
             'logo' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
         ]);
 

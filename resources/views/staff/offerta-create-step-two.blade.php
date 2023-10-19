@@ -1,8 +1,9 @@
-{{Form::open(["route" => "offerta.store", "method" => "POST"])}}
+{{Form::open(["route" => "offerta.store", "method" => "POST", "enctype" => "multipart/form-data"])}}
 <div class="form-input">
     <div class="input-item">
-        {{ Form::label("AziendaID", "Azienda ID: ") }}
-        {{ Form::number('AziendaID', $azienda->id, ['class' => 'input']) }}
+        <label name="AziendaID">Azienda ID:</label>
+        <div class="input">{{$azienda->id}}</div>
+        {{ Form::hidden('AziendaID', \Illuminate\Support\Facades\Crypt::encrypt($azienda->id)) }}
     </div>
     <div class="input-item">
         {{Form::label("oggetto", "Oggetto: ")}}

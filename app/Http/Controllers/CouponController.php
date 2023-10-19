@@ -36,7 +36,7 @@ class CouponController extends Controller
                 "OffertaID" => $request->OffertaID,
                 "attivo" => true
             ]);
-            return redirect()->back()->with(["success" => "Coupon Ottenuto"]);
+            return redirect()->back()->with("success", "Coupon Ottenuto");
         }
         else {
             return redirect()->back()->withErrors(["error" => "Hai già ottenuto il coupon per questa offerta"]);

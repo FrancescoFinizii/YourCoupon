@@ -31,7 +31,13 @@
             </div>
             <div class="cell-1of2">
                 {{ Form::label("telefono", "Telefono:") }}
-                {{ Form::tel('telefono', Auth::user()->utenteable->telefono, ["class" => "input", "placeholder" => "Telefono"]) }}
+                <div class="phone-input">
+                    {{ Form::tel('telefono', Auth::user()->utenteable->telefono, ["class" => "input", "placeholder" => "Telefono"]) }}
+                    <span class="prefix">
+                    <img src="{{asset("img/italy.png")}}" width="20" height="15">
+                    +39
+                </span>
+                </div>
             </div>
         </div>
         <div class="row-flex">

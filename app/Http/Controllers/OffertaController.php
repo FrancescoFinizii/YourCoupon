@@ -7,6 +7,7 @@ use App\Models\Offerta;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 
 class OffertaController extends Controller
@@ -91,14 +92,16 @@ class OffertaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'oggetto' => 'required',
+            'oggetto' => 'required|string',
             'emissione' => 'required|date|after: yesterday|before: +1years|size:10',
             'scadenza' => 'required|date|after: emissione|before: +3years|size:10',
             'prezzo' => 'required|decimal:0,2|min:0|lt:100000000',
             'sconto' => 'required|integer|min:0|max:100',
             'foto' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
-            'descrizione' => 'nullable',
+            'descrizione' => 'nullable|string',
         ]);
+
+        $request->AziendaID = Crypt::decrypt($request->AziendaID);
 
         $azienda = Azienda::find($request->AziendaID);
 
@@ -138,13 +141,13 @@ class OffertaController extends Controller
     public function update(Request $request, Offerta $offerta)
     {
         $request->validate([
-            'oggetto' => 'required',
+            'oggetto' => 'required|string',
             'emissione' => 'required|date|after: yesterday|before: +1years|size:10',
             'scadenza' => 'required|date|after: emissione|before: +3years|size:10',
             'prezzo' => 'required|decimal:0,2|min:0|lt:100000000',
             'sconto' => 'required|integer|min:0|max:100',
             'foto' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
-            'descrizione' => 'nullable',
+            'descrizione' => 'nullable|string',
         ]);
 
         $offerta->update($request->except("foto"));

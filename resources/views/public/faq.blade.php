@@ -11,12 +11,13 @@
         </div>
         </div>
         <div class="faq">
-            @foreach(\App\Models\FAQ::all() as $elem)
+            @foreach($faqs as $faq)
                 <details>
-                    <summary><b>{{$elem->domanda}}</b></summary>
-                    <div><p>{{$elem->risposta}}</p></div>
+                    <summary><b>{{$faq->domanda}}</b></summary>
+                    <div><p>{{$faq->risposta}}</p></div>
                 </details>
             @endforeach
+            {{ $faqs->links("component.pagination") }}
         </div>
     </section>
 @endsection

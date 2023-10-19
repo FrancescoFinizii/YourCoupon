@@ -5,6 +5,7 @@
     <script src="{{asset("js/statistiche-offerta.js")}}"></script>
 @endpush
 @section("content")
+    <section class="statistic-section" style="background-image: url({{url('img/texture.jpg')}})">
         <div class="form-container">
             <div class="form-heading">
                 <a href="{{route("statistiche.index")}}" class="parent-left flex-centered">

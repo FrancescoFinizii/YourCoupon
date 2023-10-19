@@ -8,6 +8,23 @@
             </div>
         </a>
     </div>
+    <div class="my-3">
+        @if ($message = Session::get('success'))
+            <p class="alert alert-success">{{ $message }}</p>
+        @endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <p>ATTENZIONE! Si sono verificati i seguenti errori:</p>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>
+                            <p>{{ $error }}</p>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    </div>
     <section class="product-section">
         <div>
             <div class="product-image">
@@ -37,7 +54,10 @@
                     Scadenza: {{$offerta->scadenza}}
                 </div>
                 @can("isClient")
-                    <button class="btn-rect btn-large btn-green">Ottieni Coupon</button>
+                    {{ Form::open(["route" => "coupon.store", "method" => "POST"]) }}
+                    {{ Form::hidden("OffertaID", Crypt::encrypt($offerta->id)) }}
+                    {{ Form::button("Ottieni", ["class" => "btn-rect btn-large btn-green", "type" => "submit"]) }}
+                    {{ form::close() }}
                 @endcan
             </div>
         </div>

@@ -13,7 +13,7 @@
         <div class="coupon-card">
             <div class="left-card">
                 <img src="{{asset($coupon->offerta->foto != null ? $coupon->offerta->foto : $coupon->offerta->azienda->logo)}}" id="company-logo">
-                <a style="color: white; text-decoration: none; " href="">
+                <a href="">
                     <h3>{{$coupon->offerta->oggetto}}</h3>
                 </a>
                 <div class="coupon-row">

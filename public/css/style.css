@@ -672,7 +672,6 @@ details[open] div p {
     position: absolute;
     top: 0;
     left: 0;
-    bottom: 16px;
     background: #dddddd;
     display: flex;
     justify-content: center;
@@ -717,7 +716,6 @@ details[open] div p {
 
 
 .back-btn-cont {
-    background: #fffafe;
     padding: 50px 0 0 20px;
 }
 
@@ -732,7 +730,6 @@ details[open] div p {
     align-items: center;
     justify-content: center;
     min-height: 600px;
-    background-color: #fffafe;
 }
 
 
@@ -766,6 +763,12 @@ details[open] div p {
 .left-card {
     flex: 2 1 0;
     text-align: center;
+}
+
+
+.left-card a {
+    color: white;
+    text-decoration: none;
 }
 
 
@@ -887,6 +890,11 @@ details[open] div p {
 
 .right-menu .input {
     margin: 12px 0px;
+}
+
+
+.right-menu #telefono {
+    margin: 0;
 }
 
 
@@ -1155,8 +1163,11 @@ details[open] div p {
 **********************/
 
 
-.lightgray-background {
-    background-color: rgb(229, 229, 229);
+.statistic-section {
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: color;
+    background-color: rgba(0,0,0,.3);
     padding: 60px 10px;
     margin: 0 !important;
 }

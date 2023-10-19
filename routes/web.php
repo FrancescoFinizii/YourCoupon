@@ -32,7 +32,7 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', "public/home")
     ->name('home');
 
-Route::view('faq', "public/faq")
+Route::get('faq', [FAQController::class, "showPage"])
     ->name('faq');
 
 Route::get('promo', [OffertaController::class, "searchPromo"])
