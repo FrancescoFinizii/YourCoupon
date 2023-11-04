@@ -10,7 +10,7 @@
 </p>
 
 > **Note**
-> For this moment this is a beta version.
+> PHP 8.1 is required.
 
 ## Installations / Instructions
 
