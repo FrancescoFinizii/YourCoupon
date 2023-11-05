@@ -483,11 +483,13 @@ a {
 
 .main-nav-link-btn .btn-blue{
     margin-right: 6px;
+    flex-shrink: 0;
 }
 
 
 .main-nav-link-btn .btn-light{
     margin-left: 6px;
+    flex-shrink: 0;
 }
 
 
